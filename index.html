@@ -1318,11 +1318,13 @@ function handleContactSubmit(e) {
 const GALLERY_KEY = 'arstantra_gallery_v2';
 const GALLERY_SLOTS = 6;
 
-// Struttura dati: array di { src: 'data:...' | 'images/foto.jpg', type: 'uploaded'|'static' }
-// Gli slot "static" vengono definiti qui — modifica questi src con le tue foto reali:
 const STATIC_IMAGES = [
-  // { src: 'images/foto1.jpg' },
-  // { src: 'images/foto2.jpg' },
+  { src: 'images/ferrara-diamond-palace.webp',  alt: 'Palazzo dei Diamanti, Ferrara by night' },
+  { src: 'images/ritual-room-view.webp',         alt: 'The ritual room at The Wild Nest' },
+  { src: 'images/ritual-lighting.webp',          alt: 'Candles and ritual objects' },
+  { src: 'images/ritual-oil-scent.webp',         alt: 'Oils and sacred scents' },
+  { src: 'images/veggy-taste-pesto.webp',        alt: 'Vegan pasta, pesto tortellini' },
+  { src: 'images/veggy-taste-tofu.webp',         alt: 'Vegan curry with tofu' },
 ];
 
 function galleryLoad() {
@@ -1345,7 +1347,7 @@ function galleryRender() {
   grid.innerHTML = merged.map((item, i) => {
     if (item) {
       return `<div class="gallery-item" data-slot="${i}">
-        <img src="${item.src}" alt="Gallery ${i+1}" style="width:100%;height:100%;object-fit:cover;min-height:220px;opacity:0.8;filter:sepia(20%) contrast(1.1);transition:transform 0.6s ease,opacity 0.4s;" 
+        <img src="${item.src}" alt="${item.alt || ''}" style="width:100%;height:100%;object-fit:cover;min-height:220px;opacity:0.8;filter:sepia(20%) contrast(1.1);transition:transform 0.6s ease,opacity 0.4s;" 
           onmouseover="this.style.opacity='0.95';this.style.transform='scale(1.04)'"
           onmouseout="this.style.opacity='0.8';this.style.transform='scale(1)'">
         <div class="gallery-overlay"></div>
