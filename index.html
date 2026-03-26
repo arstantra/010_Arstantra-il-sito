@@ -833,7 +833,7 @@ footer {
     </div>
     <div class="about-visual">
       <div class="about-frame">
-        <div class="gallery-placeholder">Your photo here</div>
+        <img src="images/art-colour-body.webp" alt="The body as art — Ars Tantra Society">
       </div>
       <div class="about-frame-accent"></div>
       <div class="about-frame-accent2"></div>
@@ -1125,6 +1125,13 @@ footer {
       <div class="contact-detail">
         <div class="contact-detail-icon">◆</div>
         <div class="contact-detail-text">
+          <strong>Email</strong>
+          <span><a href="mailto:info@arstantra.org" style="color:var(--gold-light);text-decoration:none;">info@arstantra.org</a></span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">◆</div>
+        <div class="contact-detail-text">
           <strong>Find us also on</strong>
           <span><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank" style="color:var(--gold-light);text-decoration:none;">BeWelcome · ArsTantra</a></span>
         </div>
@@ -1132,10 +1139,10 @@ footer {
     </div>
 
       <div>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm" onsubmit="handleContactSubmit(event)">
-        <input type="hidden" name="form-name" value="contact">
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="handleContactSubmit(event)">
+        <input type="hidden" name="_subject" value="New message — Ars Tantra">
         <div style="display:none;">
-          <label>Don't fill this out: <input name="bot-field"></label>
+          <label>Don't fill this out: <input name="_gotcha"></label>
         </div>
       <div class="form-field" style="margin-bottom:16px;">
         <label>Your name</label>
