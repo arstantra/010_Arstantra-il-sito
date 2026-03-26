@@ -937,33 +937,44 @@ footer {
   <div class="gallery-inner">
     <div class="eyebrow">Gallery</div>
     <h2 class="display">Life inside <em>the nest</em></h2>
-    <p class="body-text">Moments of art, connection, and presence.</p>
+    <p class="body-text">Moments of art, connection, and presence. Click any placeholder to add your own photo.</p>
 
-    <!-- Admin panel: hidden by default, unlock with secret click on logo -->
-    <div id="galleryAdminPanel" style="display:none;margin-top:28px;padding:24px 28px;border:1px solid var(--border);background:var(--card);">
-      <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">✦ &nbsp; Gestione galleria</div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-        <label for="galleryUploadInput" style="display:inline-block;border:1px solid var(--gold);color:var(--gold-light);font-size:9px;letter-spacing:4px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:all 0.3s;">
-          ✦ &nbsp; Aggiungi foto
-        </label>
-        <input type="file" id="galleryUploadInput" accept="image/*" multiple style="display:none;" onchange="galleryHandleUpload(event)">
-        <button onclick="galleryClearAll()" style="background:none;border:1px solid rgba(139,58,42,0.4);color:rgba(139,58,42,0.8);font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:12px 24px;cursor:pointer;transition:all 0.3s;">
-          Svuota galleria
-        </button>
-        <button onclick="galleryCloseAdmin()" style="background:none;border:none;color:var(--faint);font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-left:auto;transition:color 0.3s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--faint)'">✕ chiudi</button>
-      </div>
-      <p style="font-size:12px;color:var(--faint);margin-top:14px;line-height:1.7;">Le foto vengono salvate in questo browser. Per renderle visibili a tutti in modo permanente, aggiungile nella cartella <code style="color:var(--gold-light)">images/</code> del sito.</p>
+    <!-- Upload area (hidden by default, shown to admin) -->
+    <div id="uploadArea" style="margin-top:24px;display:none;">
+      <label for="imageUpload" style="display:inline-block;border:1px solid var(--gold);color:var(--gold-light);font-size:9px;letter-spacing:4px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:all 0.3s;">
+        ✦ &nbsp; Add Photo
+      </label>
+      <input type="file" id="imageUpload" accept="image/*" multiple style="display:none;" onchange="handleImageUpload(event)">
+      <span style="font-size:11px;color:var(--faint);margin-left:16px;letter-spacing:1px;">Select one or more images</span>
+    </div>
+    <div style="margin-top:12px;">
+      <button onclick="toggleUpload()" style="background:none;border:none;color:var(--faint);font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;padding:0;transition:color 0.3s;" onmouseover="this.style.color='var(--gold-light)'" onmouseout="this.style.color='var(--faint)'">⊕ Manage gallery</button>
     </div>
   </div>
-
   <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
     <div class="gallery-grid" id="galleryGrid">
-      <!-- Slots rendered by JS -->
+      <div class="gallery-item" onclick="triggerUploadForSlot(0)">
+        <div class="gallery-placeholder" id="slot0"><span style="opacity:0.4">+ Add photo</span></div>
+      </div>
+      <div class="gallery-item" onclick="triggerUploadForSlot(1)">
+        <div class="gallery-placeholder" id="slot1"><span style="opacity:0.4">+ Add photo</span></div>
+      </div>
+      <div class="gallery-item" onclick="triggerUploadForSlot(2)">
+        <div class="gallery-placeholder" id="slot2"><span style="opacity:0.4">+ Add photo</span></div>
+      </div>
+      <div class="gallery-item" onclick="triggerUploadForSlot(3)">
+        <div class="gallery-placeholder" id="slot3"><span style="opacity:0.4">+ Add photo</span></div>
+      </div>
+      <div class="gallery-item" onclick="triggerUploadForSlot(4)">
+        <div class="gallery-placeholder" id="slot4"><span style="opacity:0.4">+ Add photo</span></div>
+      </div>
+      <div class="gallery-item" onclick="triggerUploadForSlot(5)">
+        <div class="gallery-placeholder" id="slot5"><span style="opacity:0.4">+ Add photo</span></div>
+      </div>
     </div>
-    <!-- Admin trigger: piccolo simbolo discreto in basso a destra -->
-    <div style="text-align:right;margin-top:12px;">
-      <button id="galleryAdminTrigger" onclick="galleryOpenAdmin()" title="Gestisci galleria" style="background:none;border:none;color:var(--faint);font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;padding:4px 0;transition:color 0.3s;font-family:'Raleway',sans-serif;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--faint)'">⊕ gestisci</button>
-    </div>
+    <p style="font-size:11px;color:var(--faint);margin-top:20px;letter-spacing:1px;line-height:1.8;">
+      ◆ To permanently add images to the gallery: place your files in an <code style="color:var(--gold);font-size:10px;">images/</code> folder alongside index.html and replace the <code style="color:var(--gold);font-size:10px;">+ Add photo</code> slots with <code style="color:var(--gold);font-size:10px;">&lt;img src="images/yourphoto.jpg"&gt;</code>. The in-page loader works for previewing during your session.
+    </p>
   </div>
 </div>
 
@@ -1235,92 +1246,50 @@ function handleContactSubmit(e) {
   // On Netlify: let the form submit naturally
 }
 
-// ── GALLERY (localStorage, max 12 slot) ──────────────────────────────────
-const GALLERY_KEY = 'arstantra_gallery_v2';
-const GALLERY_SLOTS = 6;
-
-// Struttura dati: array di { src: 'data:...' | 'images/foto.jpg', type: 'uploaded'|'static' }
-// Gli slot "static" vengono definiti qui — modifica questi src con le tue foto reali:
-const STATIC_IMAGES = [
-  // { src: 'images/foto1.jpg' },
-  // { src: 'images/foto2.jpg' },
-];
-
-function galleryLoad() {
-  try { return JSON.parse(localStorage.getItem(GALLERY_KEY)) || []; }
-  catch(e) { return []; }
+// Gallery image upload
+let currentSlot = null;
+function toggleUpload() {
+  const area = document.getElementById('uploadArea');
+  area.style.display = area.style.display === 'none' ? 'block' : 'none';
 }
-function gallerySave(slots) {
-  try { localStorage.setItem(GALLERY_KEY, JSON.stringify(slots)); } catch(e) {}
-}
-
-function galleryRender() {
-  const saved = galleryLoad();
-  // Merge: static images first (always show), then saved uploads fill remaining slots
-  const merged = [];
-  STATIC_IMAGES.forEach(img => merged.push({ src: img.src, type: 'static' }));
-  saved.forEach(img => { if (merged.length < GALLERY_SLOTS) merged.push(img); });
-  while (merged.length < GALLERY_SLOTS) merged.push(null);
-
-  const grid = document.getElementById('galleryGrid');
-  grid.innerHTML = merged.map((item, i) => {
-    if (item) {
-      return `<div class="gallery-item" data-slot="${i}">
-        <img src="${item.src}" alt="Gallery ${i+1}" style="width:100%;height:100%;object-fit:cover;min-height:220px;opacity:0.8;filter:sepia(20%) contrast(1.1);transition:transform 0.6s ease,opacity 0.4s;" 
-          onmouseover="this.style.opacity='0.95';this.style.transform='scale(1.04)'"
-          onmouseout="this.style.opacity='0.8';this.style.transform='scale(1)'">
-        <div class="gallery-overlay"></div>
-      </div>`;
-    } else {
-      return `<div class="gallery-item gallery-empty" data-slot="${i}" style="cursor:default;">
-        <div class="gallery-placeholder"><span style="opacity:0.2">◈</span></div>
-      </div>`;
-    }
-  }).join('');
-}
-
-function galleryHandleUpload(event) {
-  const files = Array.from(event.target.files);
-  const saved = galleryLoad();
-  let processed = 0;
-  files.forEach(file => {
+function triggerUploadForSlot(slot) {
+  currentSlot = slot;
+  const input = document.createElement('input');
+  input.type = 'file';
+  input.accept = 'image/*';
+  input.onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
     const reader = new FileReader();
     reader.onload = (ev) => {
-      saved.push({ src: ev.target.result, type: 'uploaded' });
-      processed++;
-      if (processed === files.length) {
-        gallerySave(saved);
-        galleryRender();
-      }
+      const slotEl = document.getElementById('slot' + slot);
+      const parent = slotEl.parentElement;
+      const img = document.createElement('img');
+      img.src = ev.target.result;
+      slotEl.innerHTML = '';
+      slotEl.className = '';
+      slotEl.style.width = '100%';
+      slotEl.style.height = '100%';
+      slotEl.style.minHeight = '220px';
+      slotEl.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  };
+  input.click();
+}
+function handleImageUpload(event) {
+  const files = Array.from(event.target.files);
+  files.forEach((file, i) => {
+    const slot = i % 6;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const slotEl = document.getElementById('slot' + slot);
+      slotEl.innerHTML = `<img src="${ev.target.result}" style="width:100%;height:100%;object-fit:cover;min-height:220px;">`;
+      slotEl.className = '';
     };
     reader.readAsDataURL(file);
   });
-  event.target.value = '';
 }
-
-function galleryClearAll() {
-  if (!confirm('Vuoi rimuovere tutte le foto caricate? Le immagini statiche rimarranno.')) return;
-  const onlyStatic = galleryLoad().filter(i => i.type === 'static');
-  gallerySave(onlyStatic);
-  galleryRender();
-}
-
-function galleryOpenAdmin() {
-  document.getElementById('galleryAdminPanel').style.display = 'block';
-  document.getElementById('galleryAdminTrigger').style.display = 'none';
-  document.getElementById('galleryAdminPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-function galleryCloseAdmin() {
-  document.getElementById('galleryAdminPanel').style.display = 'none';
-  document.getElementById('galleryAdminTrigger').style.display = 'inline';
-}
-
-galleryRender();
-
-// Legacy stubs (non più usate ma evitano errori se chiamate da vecchio markup)
-function toggleUpload() {}
-function triggerUploadForSlot() {}
-function handleImageUpload() {}
 </script>
 </body>
 </html>
