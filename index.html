@@ -96,7 +96,18 @@ nav.scrolled {
   letter-spacing: 4px;
   color: var(--gold-light);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
+.nav-logo img {
+  width: 28px;
+  height: 28px;
+  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.75);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.nav-logo:hover img { opacity: 1; }
 .nav-links {
   display: flex;
   gap: 36px;
@@ -647,6 +658,16 @@ footer {
   letter-spacing: 6px;
   color: var(--gold-light);
   margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.footer-logo img {
+  width: 44px;
+  height: 44px;
+  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.75);
+  opacity: 0.65;
 }
 .footer-tagline {
   font-size: 10px;
@@ -727,7 +748,10 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#home" class="nav-logo">ARS TANTRA</a>
+  <a href="#home" class="nav-logo">
+    <img src="images/ArsTantra_Logo.png" alt="Ars Tantra">
+    ARS TANTRA
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#nest">The Wild Nest</a></li>
@@ -1104,7 +1128,10 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">ARS TANTRA</div>
+  <div class="footer-logo">
+    <img src="images/ArsTantra_Logo.png" alt="Ars Tantra">
+    ARS TANTRA
+  </div>
   <div class="footer-tagline">The Wild Nest · Ferrara, Italy</div>
   <ul class="footer-links">
     <li><a href="#about">About</a></li>
