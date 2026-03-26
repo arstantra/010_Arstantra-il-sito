@@ -38,6 +38,7 @@ body {
   line-height: 1.8;
   cursor: none;
   overflow-x: hidden;
+  padding-bottom: 36px;
 }
 
 /* CUSTOM CURSOR */
@@ -103,8 +104,8 @@ nav.scrolled {
 .nav-logo img {
   width: 28px;
   height: 28px;
-  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.75);
-  opacity: 0.9;
+  filter: invert(1);
+  opacity: 0.88;
   transition: opacity 0.3s;
 }
 .nav-logo:hover img { opacity: 1; }
@@ -666,8 +667,8 @@ footer {
 .footer-logo img {
   width: 44px;
   height: 44px;
-  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.75);
-  opacity: 0.65;
+  filter: invert(1);
+  opacity: 0.55;
 }
 .footer-tagline {
   font-size: 10px;
@@ -714,6 +715,40 @@ footer {
   background: var(--surface);
 }
 
+/* BARRA FISSA FONDO */
+.bottom-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 36px;
+  background: rgba(8,7,6,0.92);
+  border-top: 1px solid rgba(184,134,11,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  z-index: 800;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: opacity 0.4s, transform 0.4s;
+  cursor: pointer;
+}
+.bottom-bar.hidden {
+  opacity: 0;
+  transform: translateY(36px);
+  pointer-events: none;
+}
+.bottom-bar img {
+  width: 18px; height: 18px;
+  filter: invert(1);
+  opacity: 0.45;
+}
+.bottom-bar span {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: rgba(250,246,239,0.35);
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   nav { padding: 20px 24px; }
@@ -745,6 +780,12 @@ footer {
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- BARRA FISSA FONDO -->
+<div class="bottom-bar" id="bottomBar" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <img src="images/ArsTantra_Logo.png" alt="">
+  <span>ARS TANTRA</span>
+</div>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -1169,6 +1210,17 @@ animRing();
 // Nav scroll
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+  // Barra fissa: si nasconde quando il footer è visibile
+  const footer = document.querySelector('footer');
+  if (footer) {
+    const footerTop = footer.getBoundingClientRect().top;
+    const bar = document.getElementById('bottomBar');
+    if (footerTop < window.innerHeight) {
+      bar.classList.add('hidden');
+    } else {
+      bar.classList.remove('hidden');
+    }
+  }
 });
 
 // Mobile nav
