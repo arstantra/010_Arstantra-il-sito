@@ -775,6 +775,8 @@ footer {
   .cursor, .cursor-ring { display: none; }
 }
 </style>
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("RjHhnyUTmy-xG8WoQ");</script>
 </head>
 <body>
 
@@ -1301,10 +1303,44 @@ function addReference() {
 
 function submitContact() {
   const name = document.getElementById('ctName').value.trim();
-  const msg = document.getElementById('ctMessage').value.trim();
-  if (!name || !msg) { alert('Please fill in your name and message.'); return; }
-  document.getElementById('ctSuccess').style.display = 'block';
-  setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
+  const email = document.getElementById('ctEmail').value.trim();
+  const reason = document.getElementById('ctReason').value;
+  const message = document.getElementById('ctMessage').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Please fill in your name, email and message.');
+    return;
+  }
+
+  const btn = document.querySelector('#contact .btn-gold');
+  btn.textContent = 'Sending…';
+  btn.style.opacity = '0.6';
+  btn.disabled = true;
+
+  emailjs.send('service_539wnmr', 'template_8k4231i', {
+    name: name,
+    email: email,
+    reason: reason || 'Not specified',
+    message: message
+  })
+  .then(() => {
+    document.getElementById('ctSuccess').style.display = 'block';
+    document.getElementById('ctName').value = '';
+    document.getElementById('ctEmail').value = '';
+    document.getElementById('ctReason').value = '';
+    document.getElementById('ctMessage').value = '';
+    btn.textContent = 'Send message';
+    btn.style.opacity = '1';
+    btn.disabled = false;
+    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 6000);
+  })
+  .catch((error) => {
+    alert('Something went wrong. Please try again or write to info@arstantra.org directly.');
+    console.error('EmailJS error:', error);
+    btn.textContent = 'Send message';
+    btn.style.opacity = '1';
+    btn.disabled = false;
+  });
 }
 
 function handleContactSubmit(e) {
