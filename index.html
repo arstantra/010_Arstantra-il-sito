@@ -9,6 +9,8 @@
 <meta property="og:description" content="A sanctuary for seekers. Art, tantra, naturism and genuine connection in a UNESCO World Heritage city.">
 <meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>emailjs.init("RjHhnyUTmy-xG8WoQ");</script>
 <style>
 :root {
   --void: #080706;
@@ -775,8 +777,6 @@ footer {
   .cursor, .cursor-ring { display: none; }
 }
 </style>
-	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>emailjs.init("RjHhnyUTmy-xG8WoQ");</script>
 </head>
 <body>
 
@@ -1128,7 +1128,7 @@ footer {
         <div class="contact-detail-icon">◆</div>
         <div class="contact-detail-text">
           <strong>Email</strong>
-          <span><a href="mailto:info@arstantra.org" style="color:var(--gold-light);text-decoration:none;">info@arstantra.org</a></span>
+          <span><a href="/cdn-cgi/l/email-protection#335a5d555c7352414047525d4741521d5c4154" style="color:var(--gold-light);text-decoration:none;"><span class="__cf_email__" data-cfemail="4e272028210e2f3c3d3a2f203a3c2f60213c29">[email&#160;protected]</span></a></span>
         </div>
       </div>
       <div class="contact-detail">
@@ -1141,22 +1141,18 @@ footer {
     </div>
 
       <div>
-      <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="handleContactSubmit(event)">
-        <input type="hidden" name="_subject" value="New message — Ars Tantra">
-        <div style="display:none;">
-          <label>Don't fill this out: <input name="_gotcha"></label>
-        </div>
+      <div id="contactFormInner">
       <div class="form-field" style="margin-bottom:16px;">
         <label>Your name</label>
-        <input type="text" name="name" id="ctName" placeholder="Who are you?" required>
+        <input type="text" id="ctName" placeholder="Who are you?">
       </div>
       <div class="form-field" style="margin-bottom:16px;">
         <label>Email</label>
-        <input type="email" name="email" id="ctEmail" placeholder="your@email.com" required>
+        <input type="email" id="ctEmail" placeholder="your@email.com">
       </div>
       <div class="form-field" style="margin-bottom:16px;">
         <label>What draws you here</label>
-        <select name="reason" id="ctReason">
+        <select id="ctReason">
           <option value="">Choose one…</option>
           <option>Hospitality at The Wild Nest</option>
           <option>Tantra session or workshop</option>
@@ -1167,11 +1163,12 @@ footer {
       </div>
       <div class="form-field" style="margin-bottom:16px;">
         <label>Your message</label>
-        <textarea name="message" id="ctMessage" rows="5" placeholder="Tell us about yourself, your journey, what you're seeking…" required></textarea>
+        <textarea id="ctMessage" rows="5" placeholder="Tell us about yourself, your journey, what you're seeking…"></textarea>
       </div>
-      <button type="submit" class="btn-gold">Send message</button>
+      <button type="button" class="btn-gold" id="ctSubmitBtn" onclick="submitContact()">Send message</button>
       <div id="ctSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Message received. We will write back soon.</div>
-      </form>
+      <div id="ctError" style="display:none;margin-top:16px;font-size:13px;color:#c0392b;letter-spacing:1px;">Something went wrong — please write to us at <a href="mailto:info@arstantra.org" style="color:var(--gold-light);">info@arstantra.org</a></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1197,7 +1194,7 @@ footer {
   <div class="footer-copy">© 2025 Ars Tantra Society · Andrea &amp; Beatrice · All rights reserved</div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Custom cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
@@ -1307,12 +1304,15 @@ function submitContact() {
   const reason = document.getElementById('ctReason').value;
   const message = document.getElementById('ctMessage').value.trim();
 
+  document.getElementById('ctSuccess').style.display = 'none';
+  document.getElementById('ctError').style.display = 'none';
+
   if (!name || !email || !message) {
     alert('Please fill in your name, email and message.');
     return;
   }
 
-  const btn = document.querySelector('#contact .btn-gold');
+  const btn = document.getElementById('ctSubmitBtn');
   btn.textContent = 'Sending…';
   btn.style.opacity = '0.6';
   btn.disabled = true;
@@ -1332,30 +1332,18 @@ function submitContact() {
     btn.textContent = 'Send message';
     btn.style.opacity = '1';
     btn.disabled = false;
-    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 6000);
+    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 8000);
   })
-  .catch((error) => {
-    alert('Something went wrong. Please try again or write to info@arstantra.org directly.');
-    console.error('EmailJS error:', error);
+  .catch((err) => {
+    console.error('EmailJS error:', err);
+    document.getElementById('ctError').style.display = 'block';
     btn.textContent = 'Send message';
     btn.style.opacity = '1';
     btn.disabled = false;
   });
 }
 
-function handleContactSubmit(e) {
-  // Netlify will handle actual submission; show success on any submit attempt
-  const name = document.getElementById('ctName').value.trim();
-  const msg = document.getElementById('ctMessage').value.trim();
-  if (!name || !msg) { e.preventDefault(); alert('Please fill in your name and message.'); return; }
-  // For local testing: prevent default and show success
-  if (window.location.hostname === '' || window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
-    e.preventDefault();
-    document.getElementById('ctSuccess').style.display = 'block';
-    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
-  }
-  // On Netlify: let the form submit naturally
-}
+function handleContactSubmit(e) { e.preventDefault(); submitContact(); }
 
 // ── GALLERY (localStorage, max 12 slot) ──────────────────────────────────
 const GALLERY_KEY = 'arstantra_gallery_v2';
@@ -1436,15 +1424,4 @@ function galleryOpenAdmin() {
 }
 function galleryCloseAdmin() {
   document.getElementById('galleryAdminPanel').style.display = 'none';
-  document.getElementById('galleryAdminTrigger').style.display = 'inline';
-}
-
-galleryRender();
-
-// Legacy stubs (non più usate ma evitano errori se chiamate da vecchio markup)
-function toggleUpload() {}
-function triggerUploadForSlot() {}
-function handleImageUpload() {}
-</script>
-</body>
-</html>
+  document.getElementById('galleryAdminTrigger').style.d
