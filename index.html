@@ -1077,14 +1077,10 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 });
 
 // ─────────────────────────────────────────────────────────
-// AIRTABLE CONFIGURATION
-// Replace the two values below with your own credentials.
+// All Airtable calls go through the Netlify Function proxy.
+// No token here — it lives safely in Netlify env variables.
 // ─────────────────────────────────────────────────────────
-const AT_TOKEN   = 'patG1WbmAeOcy45md.2a97cee021a220456bb2b1b6ee62d2854e26f04274bab13369d6824b31384213';   // ← crea su airtable.com/create/tokens e incolla qui
-const AT_BASE_ID = 'appHyYd3O72ecuPwK';            // ✓ già configurato
-const AT_TABLE   = 'References';
-const AT_URL     = `https://api.airtable.com/v0/${AT_BASE_ID}/${encodeURIComponent(AT_TABLE)}`;
-const AT_HEADERS = { Authorization: `Bearer ${AT_TOKEN}`, 'Content-Type': 'application/json' };
+const PROXY = '/.netlify/functions/references';
 
 // ─────────────────────────────────────────────────────────
 // RENDER
@@ -1107,26 +1103,18 @@ function renderRefs(refs) {
 }
 
 // ─────────────────────────────────────────────────────────
-// FETCH — only Approved records, newest first
+// FETCH — calls the proxy, which returns only Approved refs
 // ─────────────────────────────────────────────────────────
 async function loadReferences() {
   const grid = document.getElementById('refGrid');
   grid.innerHTML = `<div style="color:var(--muted);font-size:13px;letter-spacing:2px;grid-column:1/-1;padding:20px 0;">✦ &nbsp; Loading voices…</div>`;
-
   try {
-    const params = new URLSearchParams({
-      filterByFormula: '{Approved}=1',
-      'sort[0][field]': 'Name',
-      'sort[0][direction]': 'asc',
-      pageSize: '100'
-    });
-    const res = await fetch(`${AT_URL}?${params}`, { headers: AT_HEADERS });
-    if (!res.ok) throw new Error(`Airtable error ${res.status}`);
-    const data = await res.json();
-    const refs = (data.records || []).map(r => r.fields);
+    const res = await fetch(PROXY);
+    if (!res.ok) throw new Error(`Proxy error ${res.status}`);
+    const refs = await res.json();
     renderRefs(refs);
   } catch (err) {
-    console.warn('Airtable fetch failed:', err);
+    console.warn('Could not load references:', err);
     grid.innerHTML = `<div style="color:var(--muted);font-size:13px;letter-spacing:2px;grid-column:1/-1;padding:20px 0;">
       Could not load references right now. Please check back soon.
     </div>`;
@@ -1136,8 +1124,8 @@ async function loadReferences() {
 loadReferences();
 
 // ─────────────────────────────────────────────────────────
-// SUBMIT — new record goes in as Approved: false
-// Andrea reviews and approves from Airtable dashboard
+// SUBMIT — sends to proxy, which saves as Approved: false
+// Andrea approves from Airtable dashboard
 // ─────────────────────────────────────────────────────────
 async function addReference() {
   const name     = document.getElementById('refName').value.trim();
@@ -1157,26 +1145,15 @@ async function addReference() {
   btn.disabled = true;
 
   try {
-    const res = await fetch(AT_URL, {
+    const res = await fetch(PROXY, {
       method: 'POST',
-      headers: AT_HEADERS,
-      body: JSON.stringify({
-        fields: {
-          Name:     name,
-          Location: location,
-          Text:     text,
-          Source:   source,
-          Rating:   rating,
-          Approved: false   // ← waits for your approval in Airtable
-        }
-      })
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ Name: name, Location: location, Text: text, Source: source, Rating: rating })
     });
 
-    if (!res.ok) throw new Error(`Airtable error ${res.status}`);
+    if (!res.ok) throw new Error(`Proxy error ${res.status}`);
 
-    // Clear the form
     ['refName','refLocation','refText'].forEach(id => document.getElementById(id).value = '');
-
     document.getElementById('refSuccess').style.display = 'block';
     setTimeout(() => document.getElementById('refSuccess').style.display = 'none', 5000);
 
