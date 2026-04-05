@@ -4,10 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ars Tantra · The Wild Nest · Ferrara</title>
-<meta name="description" content="Ars Tantra Society — art, tantra, naturism, and radical hospitality in Ferrara, Italy. Founded by Andrea & Beatrice.">
-<meta property="og:title" content="Ars Tantra · The Wild Nest · Ferrara">
-<meta property="og:description" content="A sanctuary for seekers. Art, tantra, naturism and genuine connection in a UNESCO World Heritage city.">
-<meta property="og:type" content="website">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -38,7 +34,6 @@ body {
   line-height: 1.8;
   cursor: none;
   overflow-x: hidden;
-  padding-bottom: 36px;
 }
 
 /* CUSTOM CURSOR */
@@ -97,18 +92,7 @@ nav.scrolled {
   letter-spacing: 4px;
   color: var(--gold-light);
   text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
-.nav-logo img {
-  width: 28px;
-  height: 28px;
-  filter: invert(1);
-  opacity: 0.88;
-  transition: opacity 0.3s;
-}
-.nav-logo:hover img { opacity: 1; }
 .nav-links {
   display: flex;
   gap: 36px;
@@ -659,16 +643,6 @@ footer {
   letter-spacing: 6px;
   color: var(--gold-light);
   margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-}
-.footer-logo img {
-  width: 44px;
-  height: 44px;
-  filter: invert(1);
-  opacity: 0.55;
 }
 .footer-tagline {
   font-size: 10px;
@@ -698,55 +672,6 @@ footer {
   font-size: 10px;
   color: var(--faint);
   letter-spacing: 1px;
-}
-
-/* HOSPITALITY LINKS */
-.hospitality-link {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  text-decoration: none;
-  padding: 12px;
-  border: 1px solid transparent;
-  transition: border-color 0.3s, background 0.3s;
-}
-.hospitality-link:hover {
-  border-color: var(--border);
-  background: var(--surface);
-}
-
-/* BARRA FISSA FONDO */
-.bottom-bar {
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: 36px;
-  background: rgba(8,7,6,0.92);
-  border-top: 1px solid rgba(184,134,11,0.12);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  z-index: 800;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  transition: opacity 0.4s, transform 0.4s;
-  cursor: pointer;
-}
-.bottom-bar.hidden {
-  opacity: 0;
-  transform: translateY(36px);
-  pointer-events: none;
-}
-.bottom-bar img {
-  width: 18px; height: 18px;
-  filter: invert(1);
-  opacity: 0.45;
-}
-.bottom-bar span {
-  font-family: 'Cinzel', serif;
-  font-size: 9px;
-  letter-spacing: 4px;
-  color: rgba(250,246,239,0.35);
 }
 
 /* MOBILE */
@@ -781,18 +706,9 @@ footer {
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- BARRA FISSA FONDO -->
-<div class="bottom-bar" id="bottomBar" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-  <img src="images/ArsTantra_Logo.png" alt="">
-  <span>ARS TANTRA</span>
-</div>
-
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#home" class="nav-logo">
-    <img src="images/ArsTantra_Logo.png" alt="Ars Tantra">
-    ARS TANTRA
-  </a>
+  <a href="#home" class="nav-logo">ARS TANTRA</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#nest">The Wild Nest</a></li>
@@ -800,7 +716,6 @@ footer {
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#studio">Archive</a></li>
   </ul>
   <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
     <span></span><span></span><span></span>
@@ -833,7 +748,7 @@ footer {
     </div>
     <div class="about-visual">
       <div class="about-frame">
-        <img src="images/art-colour-body.webp" alt="The body as art — Ars Tantra Society">
+        <div class="gallery-placeholder">Your photo here</div>
       </div>
       <div class="about-frame-accent"></div>
       <div class="about-frame-accent2"></div>
@@ -841,57 +756,9 @@ footer {
   </div>
 </section>
 
-<!-- THE WILD NEST STUDIO / ARCHIVE -->
-<div id="studio" style="background:var(--surface);padding:0;">
-  <div style="max-width:1100px;margin:0 auto;padding:60px 40px;">
-    <div class="eyebrow">Art · Body · Archive</div>
-    <h2 class="display">The Wild Nest <em>Studio</em></h2>
-    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:center;">
-      <div>
-        <p class="body-text">Every session at The Wild Nest leaves a trace — a body painting completed, a photograph taken, a ritual documented. Our creative archive collects these moments: evidence that art and human vulnerability, when they meet in a safe space, become something neither could be alone.</p>
-        <p class="body-text">The archive is an ongoing record of collaborations, body paintings, and the evolving visual language of Ars Tantra Society. If you are an artist, a model, a photographer, or simply someone who believes the body is the most eloquent canvas — there is something here for you.</p>
-        <a href="https://apartstudioreference.blogspot.com/" target="_blank" rel="noopener" class="hero-cta" style="margin-top:24px;display:inline-block;opacity:1;animation:none;">Visit the Archive →</a>
-      </div>
-      <div style="border:1px solid var(--border);padding:32px;background:var(--card);">
-        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;">Find us also at</div>
-        <div style="display:flex;flex-direction:column;gap:16px;">
-          <a href="https://www.couchsurfing.com/people/arstantra" target="_blank" rel="noopener" class="hospitality-link">
-            <span style="color:var(--gold);font-size:13px;">◆</span>
-            <div>
-              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Couchsurfing</div>
-              <div style="font-size:14px;color:var(--cream);">ArsTantra · Ferrara</div>
-            </div>
-          </a>
-          <a href="https://www.bewelcome.org/members/ArsTantra" target="_blank" rel="noopener" class="hospitality-link">
-            <span style="color:var(--gold);font-size:13px;">◆</span>
-            <div>
-              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">BeWelcome</div>
-              <div style="font-size:14px;color:var(--cream);">ArsTantra · Profile</div>
-            </div>
-          </a>
-          <a href="https://www.warmshowers.org" target="_blank" rel="noopener" class="hospitality-link" id="warmshowersLink">
-            <span style="color:var(--gold);font-size:13px;">◆</span>
-            <div>
-              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Warm Showers</div>
-              <div style="font-size:14px;color:var(--cream);">Cyclists welcome</div>
-            </div>
-          </a>
-          <a href="https://www.trustroots.org" target="_blank" rel="noopener" class="hospitality-link" id="trustrootsLink">
-            <span style="color:var(--gold);font-size:13px;">◆</span>
-            <div>
-              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Trustroots</div>
-              <div style="font-size:14px;color:var(--cream);">ArsTantra</div>
-            </div>
-          </a>
-        </div>
-        <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--faint);letter-spacing:1px;line-height:1.7;">Update links via the <code style="color:var(--gold);font-size:10px;">#hospitality-links</code> section in the source.</div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div class="hr"></div>
 
+<!-- WILD NEST -->
 <div id="nest" class="nest-section">
   <div class="nest-inner">
     <div class="eyebrow">Hospitality</div>
@@ -941,12 +808,6 @@ footer {
         <div class="offer-number">02</div>
         <h3>What we ask of you</h3>
         <p style="font-size:15px;color:#b0a090;line-height:1.9;">Your kindness. Your honesty. Your creative energy. A genuine willingness to be present, to contribute, and to respect the boundaries of every person in the space. This is not a place for passive consumption — it is a place for co-creation.</p>
-      </div>
-      <div class="offer-block" style="grid-column:1/-1;border-color:rgba(184,134,11,0.35);">
-        <div class="offer-number" style="font-size:36px;">✦</div>
-        <h3>The spirit of the nest</h3>
-        <p style="font-size:15px;color:#b0a090;line-height:1.9;">Nudity is welcomed and encouraged — as a natural expression of freedom, not performance. Respect is non-negotiable: this is an inclusive space for people of all backgrounds, genders, and orientations. Honest communication is the air we breathe. If something doesn't feel right, say so. If you have a need, voice it.<br><br>
-        <span style="color:var(--muted);font-style:italic;">If you are looking for a standard place to sleep, The Wild Nest is probably not your answer — and that is perfectly fine. We are here for the seekers.</span></p>
       </div>
     </div>
   </div>
@@ -1008,32 +869,16 @@ footer {
   <div class="gallery-inner">
     <div class="eyebrow">Gallery</div>
     <h2 class="display">Life inside <em>the nest</em></h2>
-    <p class="body-text">Moments of art, connection, and presence.</p>
-
-    <!-- Admin panel: hidden by default, unlock with secret click on logo -->
-    <div id="galleryAdminPanel" style="display:none;margin-top:28px;padding:24px 28px;border:1px solid var(--border);background:var(--card);">
-      <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">✦ &nbsp; Gestione galleria</div>
-      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-        <label for="galleryUploadInput" style="display:inline-block;border:1px solid var(--gold);color:var(--gold-light);font-size:9px;letter-spacing:4px;text-transform:uppercase;padding:12px 28px;cursor:pointer;transition:all 0.3s;">
-          ✦ &nbsp; Aggiungi foto
-        </label>
-        <input type="file" id="galleryUploadInput" accept="image/*" multiple style="display:none;" onchange="galleryHandleUpload(event)">
-        <button onclick="galleryClearAll()" style="background:none;border:1px solid rgba(139,58,42,0.4);color:rgba(139,58,42,0.8);font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;padding:12px 24px;cursor:pointer;transition:all 0.3s;">
-          Svuota galleria
-        </button>
-        <button onclick="galleryCloseAdmin()" style="background:none;border:none;color:var(--faint);font-family:'Raleway',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;margin-left:auto;transition:color 0.3s;" onmouseover="this.style.color='var(--muted)'" onmouseout="this.style.color='var(--faint)'">✕ chiudi</button>
-      </div>
-      <p style="font-size:12px;color:var(--faint);margin-top:14px;line-height:1.7;">Le foto vengono salvate in questo browser. Per renderle visibili a tutti in modo permanente, aggiungile nella cartella <code style="color:var(--gold-light)">images/</code> del sito.</p>
-    </div>
+    <p class="body-text">Moments of art, connection, and presence. Upload your own photos to bring this gallery alive.</p>
   </div>
-
   <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
     <div class="gallery-grid" id="galleryGrid">
-      <!-- Slots rendered by JS -->
-    </div>
-    <!-- Admin trigger: piccolo simbolo discreto in basso a destra -->
-    <div style="text-align:right;margin-top:12px;">
-      <button id="galleryAdminTrigger" onclick="galleryOpenAdmin()" title="Gestisci galleria" style="background:none;border:none;color:var(--faint);font-size:10px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;padding:4px 0;transition:color 0.3s;font-family:'Raleway',sans-serif;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--faint)'">⊕ gestisci</button>
+      <div class="gallery-item"><div class="gallery-placeholder">Photo 1</div></div>
+      <div class="gallery-item"><div class="gallery-placeholder">Photo 2</div></div>
+      <div class="gallery-item"><div class="gallery-placeholder">Photo 3</div></div>
+      <div class="gallery-item"><div class="gallery-placeholder">Photo 4</div></div>
+      <div class="gallery-item"><div class="gallery-placeholder">Photo 5</div></div>
+      <div class="gallery-item"><div class="gallery-placeholder">Photo 6</div></div>
     </div>
   </div>
 </div>
@@ -1042,13 +887,27 @@ footer {
 
 <!-- REFERENCES -->
 <section id="references" class="ref-section">
-  <div class="eyebrow">Voices from the nest</div>
-  <h2 class="display">What guests <em>carry away</em></h2>
-  <p class="body-text">More than 20 real encounters — guests from Brazil, Germany, Poland, Turkey, France, Argentina, the USA, Belgium, Lithuania, Spain, Mexico, and beyond. These are not reviews. They are echoes: what people found here, in their own words, long after they left.</p>
-  <p class="body-text" style="font-style:italic;color:var(--muted);">"The most valuable things can't be put on a booking platform."</p>
+  <div class="eyebrow">Voices</div>
+  <h2 class="display">What guests <em>say</em></h2>
+  <p class="body-text">Over 20 real encounters from guests across 4 continents — Brazil, Germany, Poland, Turkey, France, Argentina, USA, Belgium, Lithuania, Spain, Mexico, and more. Every word is authentic. This guestbook grows with every soul that passes through the nest.</p>
 
   <div class="ref-grid" id="refGrid">
-    <!-- References rendered by JavaScript below -->
+    <!-- Seed reference 1 -->
+    <div class="ref-card">
+      <div class="ref-type">BeWelcome</div>
+      <div class="ref-stars">★ ★ ★ ★ ★</div>
+      <div class="ref-text">"Andrea has a remarkable ability to make people feel at ease — his openness, his culture, and his gift for storytelling make every conversation an experience in itself."</div>
+      <div class="ref-author">Asril24</div>
+      <div class="ref-source">BeWelcome · Positive Reference</div>
+    </div>
+    <!-- Seed reference 2 -->
+    <div class="ref-card">
+      <div class="ref-type">BeWelcome</div>
+      <div class="ref-stars">★ ★ ★ ★ ★</div>
+      <div class="ref-text">"A really good guy. Open mind, genuinely interesting to talk with — curious and engaged in a way you don't often encounter."</div>
+      <div class="ref-author">Matteo</div>
+      <div class="ref-source">BeWelcome · Positive Reference</div>
+    </div>
   </div>
 
   <!-- Add Reference -->
@@ -1132,21 +991,13 @@ footer {
       <div class="contact-detail">
         <div class="contact-detail-icon">◆</div>
         <div class="contact-detail-text">
-          <strong>Email</strong>
-          <span><a href="/cdn-cgi/l/email-protection#335a5d555c7352414047525d4741521d5c4154" style="color:var(--gold-light);text-decoration:none;"><span class="__cf_email__" data-cfemail="4e272028210e2f3c3d3a2f203a3c2f60213c29">[email&#160;protected]</span></a></span>
-        </div>
-      </div>
-      <div class="contact-detail">
-        <div class="contact-detail-icon">◆</div>
-        <div class="contact-detail-text">
           <strong>Find us also on</strong>
           <span><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank" style="color:var(--gold-light);text-decoration:none;">BeWelcome · ArsTantra</a></span>
         </div>
       </div>
     </div>
 
-      <div>
-      <div id="contactFormInner">
+    <div>
       <div class="form-field" style="margin-bottom:16px;">
         <label>Your name</label>
         <input type="text" id="ctName" placeholder="Who are you?">
@@ -1170,70 +1021,51 @@ footer {
         <label>Your message</label>
         <textarea id="ctMessage" rows="5" placeholder="Tell us about yourself, your journey, what you're seeking…"></textarea>
       </div>
-      <button type="button" class="btn-gold" id="ctSubmitBtn" onclick="submitContact()">Send message</button>
+      <button class="btn-gold" onclick="submitContact()">Send message</button>
       <div id="ctSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Message received. We will write back soon.</div>
-      <div id="ctError" style="display:none;margin-top:16px;font-size:13px;color:#c0392b;letter-spacing:1px;">Something went wrong — please write to us at <a href="/cdn-cgi/l/email-protection#650c0b030a2504171611040b1117044b0a1702" style="color:var(--gold-light);"><span class="__cf_email__" data-cfemail="660f0800092607141512070812140748091401">[email&#160;protected]</span></a></div>
-      </div>
+      <p style="font-size:12px;color:var(--faint);margin-top:20px;line-height:1.7;">Note: This form is a front-end demo. Connect it to your email service (Formspree, Netlify Forms, or similar) when you deploy.</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">
-    <img src="images/ArsTantra_Logo.png" alt="Ars Tantra">
-    ARS TANTRA
-  </div>
+  <div class="footer-logo">ARS TANTRA</div>
   <div class="footer-tagline">The Wild Nest · Ferrara, Italy</div>
   <ul class="footer-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#studio">Archive</a></li>
     <li><a href="#nest">The Wild Nest</a></li>
     <li><a href="#tantra">Tantra</a></li>
     <li><a href="#gallery">Gallery</a></li>
     <li><a href="#references">References</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="https://apartstudioreference.blogspot.com/" target="_blank">Art Archive</a></li>
     <li><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank">BeWelcome</a></li>
   </ul>
   <div class="footer-copy">© 2025 Ars Tantra Society · Andrea &amp; Beatrice · All rights reserved</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // Custom cursor
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
-if (cursor && ring) {
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    cursor.style.left = mx - 4 + 'px';
-    cursor.style.top = my - 4 + 'px';
-  });
-  function animRing() {
-    rx += (mx - rx) * 0.12;
-    ry += (my - ry) * 0.12;
-    ring.style.left = rx - 16 + 'px';
-    ring.style.top = ry - 16 + 'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 4 + 'px';
+  cursor.style.top = my - 4 + 'px';
+});
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx - 16 + 'px';
+  ring.style.top = ry - 16 + 'px';
+  requestAnimationFrame(animRing);
 }
+animRing();
 
 // Nav scroll
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
-  // Barra fissa: si nasconde quando il footer è visibile
-  const footer = document.querySelector('footer');
-  if (footer) {
-    const footerTop = footer.getBoundingClientRect().top;
-    const bar = document.getElementById('bottomBar');
-    if (footerTop < window.innerHeight) {
-      bar.classList.add('hidden');
-    } else {
-      bar.classList.remove('hidden');
-    }
-  }
 });
 
 // Mobile nav
@@ -1244,199 +1076,126 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
-// References
-const seedRefs = [
-  { name: "Alicja Luberda", location: "Kraków, Poland", text: "Staying at Andrea's home was an unforgettable experience. He can make you feel like home instantly. His knowledge of history and architecture makes a regular walk around the city center a journey in time. I'd recommend this host to everyone who is open to new experiences and expects from hospitality something more than just a place to sleep.", source: "Couchsurfing", rating: 5 },
-  { name: "Francine Ballin da Silva", location: "Paraná, Brazil", text: "Andrea was such a great host — he picked me up at the train station, showed me around the city and explained the architecture. He is a really wise man! He taught me how to make a great pasta with pancetta and zucca. A great person, very friendly, kind, full of good energy. If you are in doubt about requesting to stay with him, don't be.", source: "Couchsurfing", rating: 5 },
-  { name: "Jess Drayson Ferrer", location: "Valencia, Spain", text: "I stayed with Andrea for two nights and it was a great experience. He's lovely, thoughtful, has a very kind heart and always puts your comfort first. I even became an artist for a night, which was a new and wonderful experience. He genuinely cares about you — and he cooks great pasta.", source: "Couchsurfing", rating: 5 },
-  { name: "Jessica Démoclès", location: "Paris, France", text: "Andrea is very friendly, thoughtful and generous. I came to Ferrara on my way to Verona but I found an even better friend in Andrea. We talked a lot about everything — from politics to social commitment and relationships — and it felt like talking to an old friend.", source: "Couchsurfing", rating: 5 },
-  { name: "Marilia Minatel", location: "Curitiba, Brazil", text: "If I had to describe in a sentence: it's a great experience. I spent 2 nights at his house and Andrea is more than polite, friendly, artistic, intelligent. A great guy indeed. You'll feel like home being hosted by him.", source: "Couchsurfing", rating: 5 },
-  { name: "Barbara Lucin", location: "Pelotas, Brazil", text: "He went to pick me at the station and cooked a great vegetarian dinner. A very polite, nice, intelligent, friendly and open-minded person. I totally recommend the experience — very human, colourful and alive. He is now my friend forever.", source: "Couchsurfing", rating: 5 },
-  { name: "Cristina Marey Castro", location: "Buenos Aires, Argentina", text: "My friend and I had a lot of fun with Andrea! He picked us from the station, took us for the best gelato, drove us around. He cooked for us and we had a lot of good wine conversations. He is very transparent and humble.", source: "Couchsurfing", rating: 5 },
-  { name: "Nele Müller", location: "Münster, Germany", text: "We stayed one night with Andrea and it was very cool! He picked us up from the airport and even cooked for us! We will never forget that night.", source: "Couchsurfing", rating: 5 },
-  { name: "Yujie Li", location: "Dresden, Germany", text: "He cooked delicious pasta and shared his homemade cakes with me. He is such a gentle and talented person — I really admire his gift for art. His small but lovely apartment left a deep impression, especially his own drawings on the wall. They are amazing.", source: "Couchsurfing", rating: 5 },
-  { name: "Paulius Tručinskas", location: "Kaunas, Lithuania", text: "We quickly discovered that Andrea is a very colourful and interesting person. We had fabulous talks on various matters, he cooked us dinner and told lots of wonderful stories of his travels. It was a pleasure to be hosted by him.", source: "Couchsurfing", rating: 5 },
-  { name: "Telma Terra", location: "Belo Horizonte, Brazil", text: "Andrea has a small house but a big heart. He picked me up at the train station and cooked a delicious pasta. It made me feel at home and he became my friend. Your city is beautiful and I enjoyed myself so much.", source: "Couchsurfing", rating: 5 },
-  { name: "Diana Carmona", location: "Mexico City, Mexico", text: "Andrea is a really kind man, full of knowledge to share. Being with him is an exceptional experience if you are the kind of person who likes to truly discover others and open yourself to reinventing your ideas alongside new friends.", source: "Couchsurfing", rating: 5 },
-  { name: "Emily Miller", location: "San Luis Obispo, USA", text: "Andrea is very friendly and interesting to talk to. He shared with us some of the best food we tasted in all of Italy and made us completely comfortable in his home.", source: "Couchsurfing", rating: 5 },
-  { name: "Lutfia Aisya", location: "Antwerp, Belgium", text: "He was a very kind, sweet host. He picked me up at Bologna bus station and drove me to the airport. During the time we had together he even cooked for me. If you stay with him, rest assured it's going to be a very good stay with a friend.", source: "Couchsurfing", rating: 5 },
-  { name: "idil Boyacıoğlu", location: "Izmir, Turkey", text: "Andrea, what can I say about my dear friend. Thanks to you I learned so much about Italy and architecture. I am very happy to have such a wonderful friend. You know you are always welcome in Turkey.", source: "Couchsurfing", rating: 5 },
-  { name: "Ceylan Fatma Ceylan", location: "Istanbul, Turkey", text: "He was like a reference and a guide while we were trying to apply for a visa. He answered every question with eternal patience. Andrea is easygoing, open-minded — a good friend you can tell your life story to sincerely. He will listen, even to the sad things.", source: "Couchsurfing", rating: 5 },
-  { name: "Narmin Alieva", location: "Kaunas, Lithuania", text: "Andrea hosted me for 2 days. He is really kind, hospitable and takes care of his guests. Also the best cook! Thanks for your hospitality — see you soon!", source: "Couchsurfing", rating: 5 },
-  { name: "Marie Barron", location: "Kaiserslautern, Germany", text: "Andrea and I shared a drink in Ferrara where I stayed a few days. We talked about many things — he advised me on the best restaurants and the most beautiful places in the region. A generous and cultured companion.", source: "Couchsurfing", rating: 5 },
-  { name: "Liz Oguste", location: "Rennes, France", text: "Cool and funny moments! A really really good host — you will definitely spend a great time with Andrea.", source: "Couchsurfing", rating: 5 },
-  { name: "Asril24", location: "BeWelcome", text: "Andrea has a remarkable ability to put people at ease — his openness, his culture, and his fascinating gift for storytelling make every conversation an experience in itself.", source: "BeWelcome", rating: 5 },
-  { name: "Matteo", location: "BeWelcome", text: "A really good guy. Open mind, genuinely interesting to talk with — curious and engaged in a way you don't often encounter.", source: "BeWelcome", rating: 5 }
-];
+// ─────────────────────────────────────────────────────────
+// AIRTABLE CONFIGURATION
+// Replace the two values below with your own credentials.
+// ─────────────────────────────────────────────────────────
+const AT_TOKEN   = 'patG1WbmAeOcy45md.2a97cee021a220456bb2b1b6ee62d2854e26f04274bab13369d6824b31384213';   // ← crea su airtable.com/create/tokens e incolla qui
+const AT_BASE_ID = 'appHyYd3O72ecuPwK';            // ✓ già configurato
+const AT_TABLE   = 'References';
+const AT_URL     = `https://api.airtable.com/v0/${AT_BASE_ID}/${encodeURIComponent(AT_TABLE)}`;
+const AT_HEADERS = { Authorization: `Bearer ${AT_TOKEN}`, 'Content-Type': 'application/json' };
 
-let references = (() => {
-  try { return JSON.parse(sessionStorage.getItem('arstantra_refs') || 'null') || seedRefs; }
-  catch(e) { return seedRefs; }
-})();
-
-function renderRefs() {
+// ─────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────
+function renderRefs(refs) {
   const grid = document.getElementById('refGrid');
-  grid.innerHTML = references.map(r => `
+  if (!refs || refs.length === 0) {
+    grid.innerHTML = `<div style="color:var(--muted);font-size:14px;grid-column:1/-1;padding:20px 0;">No references yet — be the first to leave your words.</div>`;
+    return;
+  }
+  grid.innerHTML = refs.map(r => `
     <div class="ref-card">
-      <div class="ref-type">${r.source}</div>
-      <div class="ref-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
-      <div class="ref-text">"${r.text}"</div>
-      <div class="ref-author">${r.name}</div>
-      ${r.location ? `<div class="ref-source">${r.location}</div>` : ''}
+      <div class="ref-type">${r.Source || ''}</div>
+      <div class="ref-stars">${'★'.repeat(Number(r.Rating) || 5)}${'☆'.repeat(5 - (Number(r.Rating) || 5))}</div>
+      <div class="ref-text">"${r.Text}"</div>
+      <div class="ref-author">${r.Name}</div>
+      ${r.Location ? `<div class="ref-source">${r.Location}</div>` : ''}
     </div>
   `).join('');
 }
-renderRefs();
 
-function addReference() {
-  const name = document.getElementById('refName').value.trim();
+// ─────────────────────────────────────────────────────────
+// FETCH — only Approved records, newest first
+// ─────────────────────────────────────────────────────────
+async function loadReferences() {
+  const grid = document.getElementById('refGrid');
+  grid.innerHTML = `<div style="color:var(--muted);font-size:13px;letter-spacing:2px;grid-column:1/-1;padding:20px 0;">✦ &nbsp; Loading voices…</div>`;
+
+  try {
+    const params = new URLSearchParams({
+      filterByFormula: '{Approved}=1',
+      'sort[0][field]': 'Name',
+      'sort[0][direction]': 'asc',
+      pageSize: '100'
+    });
+    const res = await fetch(`${AT_URL}?${params}`, { headers: AT_HEADERS });
+    if (!res.ok) throw new Error(`Airtable error ${res.status}`);
+    const data = await res.json();
+    const refs = (data.records || []).map(r => r.fields);
+    renderRefs(refs);
+  } catch (err) {
+    console.warn('Airtable fetch failed:', err);
+    grid.innerHTML = `<div style="color:var(--muted);font-size:13px;letter-spacing:2px;grid-column:1/-1;padding:20px 0;">
+      Could not load references right now. Please check back soon.
+    </div>`;
+  }
+}
+
+loadReferences();
+
+// ─────────────────────────────────────────────────────────
+// SUBMIT — new record goes in as Approved: false
+// Andrea reviews and approves from Airtable dashboard
+// ─────────────────────────────────────────────────────────
+async function addReference() {
+  const name     = document.getElementById('refName').value.trim();
   const location = document.getElementById('refLocation').value.trim();
-  const text = document.getElementById('refText').value.trim();
-  const source = document.getElementById('refSource').value;
-  const rating = parseInt(document.getElementById('refRating').value);
-  if (!name || !text) { alert('Please fill in your name and your experience.'); return; }
-  references.unshift({ name, location, text, source, rating });
-  try { sessionStorage.setItem('arstantra_refs', JSON.stringify(references)); } catch(e) {}
-  renderRefs();
-  document.getElementById('refName').value = '';
-  document.getElementById('refLocation').value = '';
-  document.getElementById('refText').value = '';
-  document.getElementById('refSuccess').style.display = 'block';
-  setTimeout(() => document.getElementById('refSuccess').style.display = 'none', 4000);
+  const text     = document.getElementById('refText').value.trim();
+  const source   = document.getElementById('refSource').value;
+  const rating   = parseInt(document.getElementById('refRating').value);
+
+  if (!name || !text) {
+    alert('Please fill in your name and your experience.');
+    return;
+  }
+
+  const btn = document.querySelector('.ref-add .btn-gold');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(AT_URL, {
+      method: 'POST',
+      headers: AT_HEADERS,
+      body: JSON.stringify({
+        fields: {
+          Name:     name,
+          Location: location,
+          Text:     text,
+          Source:   source,
+          Rating:   rating,
+          Approved: false   // ← waits for your approval in Airtable
+        }
+      })
+    });
+
+    if (!res.ok) throw new Error(`Airtable error ${res.status}`);
+
+    // Clear the form
+    ['refName','refLocation','refText'].forEach(id => document.getElementById(id).value = '');
+
+    document.getElementById('refSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('refSuccess').style.display = 'none', 5000);
+
+  } catch (err) {
+    console.error('Submit failed:', err);
+    alert('Something went wrong — please try again or write us directly.');
+  } finally {
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }
 }
 
 function submitContact() {
   const name = document.getElementById('ctName').value.trim();
-  const email = document.getElementById('ctEmail').value.trim();
-  const reason = document.getElementById('ctReason').value;
-  const message = document.getElementById('ctMessage').value.trim();
-
-  document.getElementById('ctSuccess').style.display = 'none';
-  document.getElementById('ctError').style.display = 'none';
-
-  if (!name || !email || !message) {
-    alert('Please fill in your name, email and message.');
-    return;
-  }
-
-  const btn = document.getElementById('ctSubmitBtn');
-  btn.textContent = 'Sending…';
-  btn.style.opacity = '0.6';
-  btn.disabled = true;
-
-  emailjs.send('service_539wnmr', 'template_8k4231i', {
-    name: name,
-    email: email,
-    reason: reason || 'Not specified',
-    message: message
-  })
-  .then(() => {
-    document.getElementById('ctSuccess').style.display = 'block';
-    document.getElementById('ctName').value = '';
-    document.getElementById('ctEmail').value = '';
-    document.getElementById('ctReason').value = '';
-    document.getElementById('ctMessage').value = '';
-    btn.textContent = 'Send message';
-    btn.style.opacity = '1';
-    btn.disabled = false;
-    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 8000);
-  })
-  .catch((err) => {
-    console.error('EmailJS error:', err);
-    document.getElementById('ctError').style.display = 'block';
-    btn.textContent = 'Send message';
-    btn.style.opacity = '1';
-    btn.disabled = false;
-  });
+  const msg = document.getElementById('ctMessage').value.trim();
+  if (!name || !msg) { alert('Please fill in your name and message.'); return; }
+  document.getElementById('ctSuccess').style.display = 'block';
+  setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
 }
-
-function handleContactSubmit(e) { e.preventDefault(); submitContact(); }
-
-// ── GALLERY (localStorage, max 12 slot) ──────────────────────────────────
-const GALLERY_KEY = 'arstantra_gallery_v2';
-const GALLERY_SLOTS = 6;
-
-const STATIC_IMAGES = [
-  { src: 'images/ferrara-diamond-palace.webp',  alt: 'Palazzo dei Diamanti, Ferrara by night' },
-  { src: 'images/ritual-room-view.webp',         alt: 'The ritual room at The Wild Nest' },
-  { src: 'images/ritual-lighting.webp',          alt: 'Candles and ritual objects' },
-  { src: 'images/ritual-oil-scent.webp',         alt: 'Oils and sacred scents' },
-  { src: 'images/veggy-taste-pesto.webp',        alt: 'Vegan pasta, pesto tortellini' },
-  { src: 'images/veggy-taste-tofu.webp',         alt: 'Vegan curry with tofu' },
-];
-
-function galleryLoad() {
-  try { return JSON.parse(localStorage.getItem(GALLERY_KEY)) || []; }
-  catch(e) { return []; }
-}
-function gallerySave(slots) {
-  try { localStorage.setItem(GALLERY_KEY, JSON.stringify(slots)); } catch(e) {}
-}
-
-function galleryRender() {
-  const saved = galleryLoad();
-  // Merge: static images first (always show), then saved uploads fill remaining slots
-  const merged = [];
-  STATIC_IMAGES.forEach(img => merged.push({ src: img.src, type: 'static' }));
-  saved.forEach(img => { if (merged.length < GALLERY_SLOTS) merged.push(img); });
-  while (merged.length < GALLERY_SLOTS) merged.push(null);
-
-  const grid = document.getElementById('galleryGrid');
-  grid.innerHTML = merged.map((item, i) => {
-    if (item) {
-      return `<div class="gallery-item" data-slot="${i}">
-        <img src="${item.src}" alt="${item.alt || ''}" style="width:100%;height:100%;object-fit:cover;min-height:220px;opacity:0.8;filter:sepia(20%) contrast(1.1);transition:transform 0.6s ease,opacity 0.4s;" 
-          onmouseover="this.style.opacity='0.95';this.style.transform='scale(1.04)'"
-          onmouseout="this.style.opacity='0.8';this.style.transform='scale(1)'">
-        <div class="gallery-overlay"></div>
-      </div>`;
-    } else {
-      return `<div class="gallery-item gallery-empty" data-slot="${i}" style="cursor:default;">
-        <div class="gallery-placeholder"><span style="opacity:0.2">◈</span></div>
-      </div>`;
-    }
-  }).join('');
-}
-
-function galleryHandleUpload(event) {
-  const files = Array.from(event.target.files);
-  const saved = galleryLoad();
-  let processed = 0;
-  files.forEach(file => {
-    const reader = new FileReader();
-    reader.onload = (ev) => {
-      saved.push({ src: ev.target.result, type: 'uploaded' });
-      processed++;
-      if (processed === files.length) {
-        gallerySave(saved);
-        galleryRender();
-      }
-    };
-    reader.readAsDataURL(file);
-  });
-  event.target.value = '';
-}
-
-function galleryClearAll() {
-  if (!confirm('Vuoi rimuovere tutte le foto caricate? Le immagini statiche rimarranno.')) return;
-  const onlyStatic = galleryLoad().filter(i => i.type === 'static');
-  gallerySave(onlyStatic);
-  galleryRender();
-}
-
-function galleryOpenAdmin() {
-  document.getElementById('galleryAdminPanel').style.display = 'block';
-  document.getElementById('galleryAdminTrigger').style.display = 'none';
-  document.getElementById('galleryAdminPanel').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-function galleryCloseAdmin() {
-  document.getElementById('galleryAdminPanel').style.display = 'none';
-  document.getElementById('galleryAdminTrigger').style.display = 'block';
-}
-
-// ── INIT ──────────────────────────────────────────────────────────────────
-galleryRender();
 </script>
 </body>
 </html>
-  document.getElementById('galleryAdminTrigger').style
