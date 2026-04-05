@@ -700,6 +700,7 @@ footer {
   .cursor, .cursor-ring { display: none; }
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -891,24 +892,7 @@ footer {
   <h2 class="display">What guests <em>say</em></h2>
   <p class="body-text">Over 20 real encounters from guests across 4 continents — Brazil, Germany, Poland, Turkey, France, Argentina, USA, Belgium, Lithuania, Spain, Mexico, and more. Every word is authentic. This guestbook grows with every soul that passes through the nest.</p>
 
-  <div class="ref-grid" id="refGrid">
-    <!-- Seed reference 1 -->
-    <div class="ref-card">
-      <div class="ref-type">BeWelcome</div>
-      <div class="ref-stars">★ ★ ★ ★ ★</div>
-      <div class="ref-text">"Andrea has a remarkable ability to make people feel at ease — his openness, his culture, and his gift for storytelling make every conversation an experience in itself."</div>
-      <div class="ref-author">Asril24</div>
-      <div class="ref-source">BeWelcome · Positive Reference</div>
-    </div>
-    <!-- Seed reference 2 -->
-    <div class="ref-card">
-      <div class="ref-type">BeWelcome</div>
-      <div class="ref-stars">★ ★ ★ ★ ★</div>
-      <div class="ref-text">"A really good guy. Open mind, genuinely interesting to talk with — curious and engaged in a way you don't often encounter."</div>
-      <div class="ref-author">Matteo</div>
-      <div class="ref-source">BeWelcome · Positive Reference</div>
-    </div>
-  </div>
+  <div class="ref-grid" id="refGrid"></div>
 
   <!-- Add Reference -->
   <div class="ref-add">
@@ -1023,7 +1007,7 @@ footer {
       </div>
       <button class="btn-gold" onclick="submitContact()">Send message</button>
       <div id="ctSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Message received. We will write back soon.</div>
-      <p style="font-size:12px;color:var(--faint);margin-top:20px;line-height:1.7;">Note: This form is a front-end demo. Connect it to your email service (Formspree, Netlify Forms, or similar) when you deploy.</p>
+
     </div>
   </div>
 </section>
@@ -1166,12 +1150,45 @@ async function addReference() {
   }
 }
 
-function submitContact() {
-  const name = document.getElementById('ctName').value.trim();
-  const msg = document.getElementById('ctMessage').value.trim();
-  if (!name || !msg) { alert('Please fill in your name and message.'); return; }
-  document.getElementById('ctSuccess').style.display = 'block';
-  setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
+// EmailJS
+emailjs.init('RjHhnyUTmy-xG8WoQ');
+
+async function submitContact() {
+  const name    = document.getElementById('ctName').value.trim();
+  const email   = document.getElementById('ctEmail').value.trim();
+  const reason  = document.getElementById('ctReason').value;
+  const message = document.getElementById('ctMessage').value.trim();
+
+  if (!name || !message) {
+    alert('Please fill in your name and message.');
+    return;
+  }
+
+  const btn = document.querySelector('#contact .btn-gold');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    await emailjs.send('service_539wnmr', 'template_8k4231i', {
+      name:    name,
+      email:   email,
+      reason:  reason,
+      message: message,
+    });
+
+    ['ctName','ctEmail','ctMessage'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('ctReason').selectedIndex = 0;
+    document.getElementById('ctSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
+
+  } catch (err) {
+    console.error('EmailJS error:', err);
+    alert('Something went wrong — please try again or write us directly at info@arstantra.org');
+  } finally {
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }
 }
 </script>
 </body>
