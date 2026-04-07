@@ -699,6 +699,104 @@ footer {
   body { cursor: auto; }
   .cursor, .cursor-ring { display: none; }
 }
+
+/* LIGHTBOX */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(8,7,6,0.96);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: none;
+  animation: lbFadeIn 0.3s ease;
+}
+.lightbox-overlay.active { display: flex; }
+@keyframes lbFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.lightbox-img-wrap {
+  position: relative;
+  max-width: 88vw;
+  max-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-img-wrap img {
+  max-width: 88vw;
+  max-height: 78vh;
+  object-fit: contain;
+  filter: sepia(10%) contrast(1.08);
+  animation: lbRise 0.35s ease;
+}
+@keyframes lbRise {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.lightbox-caption {
+  margin-top: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 24px;
+  min-height: 24px;
+}
+.lightbox-close {
+  position: fixed;
+  top: 28px; right: 36px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: none;
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.3s;
+  z-index: 9001;
+}
+.lightbox-close:hover { color: var(--gold-light); border-color: var(--gold); }
+.lightbox-nav {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: none;
+  background: none;
+  border: 1px solid var(--border);
+  padding: 16px 14px;
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.3s;
+  z-index: 9001;
+}
+.lightbox-nav:hover { color: var(--gold-light); border-color: var(--gold); }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-counter {
+  position: fixed;
+  bottom: 28px; left: 50%; transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+.gallery-item { cursor: none; }
+@media (max-width: 768px) {
+  .lightbox-nav { display: none; }
+  .lightbox-close { top: 16px; right: 16px; }
+  .lightbox-overlay { cursor: auto; }
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -706,6 +804,18 @@ footer {
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lbClose">✕ &nbsp; close</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev">&#8592;</button>
+  <div class="lightbox-img-wrap">
+    <img id="lbImg" src="" alt="">
+  </div>
+  <div class="lightbox-caption" id="lbCaption"></div>
+  <button class="lightbox-nav lightbox-next" id="lbNext">&#8594;</button>
+  <div class="lightbox-counter" id="lbCounter"></div>
+</div>
 
 <!-- NAV -->
 <nav id="mainNav">
@@ -1076,7 +1186,99 @@ function animRing() {
 }
 animRing();
 
-// Nav scroll
+// ─────────────────────────────────────────────────────────
+// LIGHTBOX
+// ─────────────────────────────────────────────────────────
+(function() {
+  const overlay  = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lbImg');
+  const lbCap    = document.getElementById('lbCaption');
+  const lbCount  = document.getElementById('lbCounter');
+  const lbClose  = document.getElementById('lbClose');
+  const lbPrev   = document.getElementById('lbPrev');
+  const lbNext   = document.getElementById('lbNext');
+
+  let items = [];   // { src, caption }
+  let current = 0;
+
+  // Collect all gallery images on the page (works for both grids)
+  function collectItems() {
+    items = [];
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      items.push({
+        src:     img.src,
+        caption: img.dataset.caption || img.alt || ''
+      });
+    });
+  }
+
+  function open(index) {
+    collectItems();
+    if (!items.length) return;
+    current = index;
+    show();
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function show() {
+    const item = items[current];
+    // Swap image with a quick fade
+    lbImg.style.opacity = 0;
+    lbImg.src = item.src;
+    lbImg.onload = () => { lbImg.style.transition = 'opacity 0.25s'; lbImg.style.opacity = 1; };
+    lbCap.textContent   = item.caption;
+    lbCount.textContent = (current + 1) + ' / ' + items.length;
+    lbPrev.style.visibility = current === 0              ? 'hidden' : 'visible';
+    lbNext.style.visibility = current === items.length-1 ? 'hidden' : 'visible';
+  }
+
+  function prev() { if (current > 0)              { current--; show(); } }
+  function next() { if (current < items.length-1) { current++; show(); } }
+
+  // Click on any gallery image → open lightbox
+  document.addEventListener('click', e => {
+    const img = e.target.closest('.gallery-item img');
+    if (!img) return;
+    collectItems();
+    const idx = items.findIndex(it => it.src === img.src);
+    open(idx >= 0 ? idx : 0);
+  });
+
+  // Controls
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click',  prev);
+  lbNext.addEventListener('click',  next);
+
+  // Click outside image closes
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) close();
+  });
+
+  // Keyboard
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape')      close();
+    if (e.key === 'ArrowLeft')   prev();
+    if (e.key === 'ArrowRight')  next();
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  overlay.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+})();
+
+
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
 });
