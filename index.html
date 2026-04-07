@@ -674,6 +674,134 @@ footer {
   letter-spacing: 1px;
 }
 
+/* ── SHARED MEALS MOSAIC ── */
+.meals-mosaic {
+  display: grid;
+  grid-template-areas:
+    "main main sm1"
+    "main main sm2"
+    "bot1 bot2 bot2";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.7fr;
+  gap: 3px;
+  min-height: 440px;
+  height: 100%;
+  width: 100%;
+}
+.mosaic-main  { grid-area: main; }
+.mosaic-col   { display: contents; }
+.mosaic-col .mosaic-sm:nth-child(1) { grid-area: sm1; }
+.mosaic-col .mosaic-sm:nth-child(2) { grid-area: sm2; }
+.mosaic-row-bot { display: contents; }
+.mosaic-row-bot .mosaic-wide:nth-child(1) { grid-area: bot1; }
+.mosaic-row-bot .mosaic-wide:nth-child(2) { grid-area: bot2; }
+.mosaic-cell {
+  overflow: hidden;
+  position: relative;
+  background: var(--card);
+}
+.mosaic-cell img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.82;
+  filter: sepia(15%) contrast(1.08);
+  transition: transform 0.5s ease, opacity 0.4s;
+}
+.meals-mosaic-trigger:hover .mosaic-cell img { opacity: 0.95; }
+.mosaic-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.1;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s, transform 0.35s;
+  pointer-events: none;
+}
+.mosaic-label em {
+  font-style: italic;
+  color: var(--gold-light);
+  display: block;
+  font-size: 36px;
+}
+.meals-mosaic-trigger:hover .gallery-overlay { background: rgba(8,7,6,0.45); }
+.meals-mosaic-trigger:hover .mosaic-label { opacity: 1; transform: translateY(0); }
+
+/* ── MOSAIC LIGHTBOX ── */
+#mosaicLightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(8,7,6,0.97);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  padding: 40px 20px;
+}
+#mosaicLightbox.active { opacity: 1; pointer-events: all; }
+.mosaic-lb-header { text-align: center; margin-bottom: 28px; }
+.mosaic-lb-eyebrow {
+  font-size: 9px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.mosaic-lb-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4vw, 46px);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1;
+}
+.mosaic-lb-title em { font-style: italic; color: var(--gold-light); }
+.mosaic-lb-grid {
+  display: grid;
+  grid-template-areas:
+    "main main sm1"
+    "main main sm2"
+    "bot1 bot2 bot2";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0.65fr;
+  gap: 4px;
+  width: min(90vw, 960px);
+  max-height: 65vh;
+}
+.mosaic-lb-grid .mosaic-cell img {
+  opacity: 0.88;
+  transition: opacity 0.3s, transform 0.4s;
+}
+.mosaic-lb-grid .mosaic-cell:hover img { opacity: 1; transform: scale(1.05); }
+#mosaicLbClose {
+  position: absolute;
+  top: 24px; right: 32px;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 18px;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: none;
+  transition: border-color 0.3s, color 0.3s;
+}
+#mosaicLbClose:hover { border-color: var(--gold); color: var(--gold-light); }
+.mosaic-lb-caption {
+  margin-top: 14px;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  min-height: 16px;
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   nav { padding: 20px 24px; }
@@ -986,7 +1114,33 @@ footer {
   </div>
   <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
     <div class="gallery-grid" id="galleryGridInside">
-      <div class="gallery-item"><div class="gallery-placeholder">Inside · 1</div></div>
+      <!-- SLOT 1 — Shared Meals mosaic -->
+      <div class="gallery-item meals-mosaic-trigger" id="mealsMosaicTrigger" title="Shared meals · communal dining at The Wild Nest">
+        <div class="meals-mosaic">
+          <div class="mosaic-cell mosaic-main">
+            <img src="images/20170531_162750.webp" alt="Risotto al vino rosso — shared meal at The Wild Nest Ferrara" data-caption="Risotto al vino rosso · communal dining at The Wild Nest">
+          </div>
+          <div class="mosaic-col">
+            <div class="mosaic-cell mosaic-sm">
+              <img src="images/20170812_154548.webp" alt="Pesto nel mortaio — artigianato culinario al Wild Nest" data-caption="Pesto nel mortaio di marmo · the ritual of food">
+            </div>
+            <div class="mosaic-cell mosaic-sm">
+              <img src="images/2412201619262772_ppi.webp" alt="Mise en place colorata — preparazione pasto condiviso" data-caption="Mise en place · preparing the shared table">
+            </div>
+          </div>
+          <div class="mosaic-row-bot">
+            <div class="mosaic-cell mosaic-wide">
+              <img src="images/20170121_160636.webp" alt="Vini italiani — convivialità al Wild Nest Ferrara" data-caption="Italian wines · convivialità">
+            </div>
+            <div class="mosaic-cell mosaic-wide">
+              <img src="images/2106201614401472_ppi__1_.webp" alt="Tavola apparecchiata — cena condivisa al Wild Nest" data-caption="La tavola apparecchiata · before the meal">
+            </div>
+          </div>
+        </div>
+        <div class="gallery-overlay">
+          <div class="mosaic-label">Shared<br><em>Meals</em></div>
+        </div>
+      </div>
       <div class="gallery-item"><div class="gallery-placeholder">Inside · 2</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Inside · 3</div></div>
       <div class="gallery-item"><div class="gallery-placeholder">Inside · 4</div></div>
@@ -1150,6 +1304,37 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- MOSAIC LIGHTBOX — shared meals -->
+<div id="mosaicLightbox" role="dialog" aria-modal="true" aria-label="Shared Meals gallery">
+  <button id="mosaicLbClose" aria-label="Close">✕</button>
+  <div class="mosaic-lb-header">
+    <div class="mosaic-lb-eyebrow">Gallery · Inside the Nest</div>
+    <div class="mosaic-lb-title">Shared <em>Meals</em></div>
+  </div>
+  <div class="mosaic-lb-grid">
+    <div class="mosaic-cell mosaic-main">
+      <img src="images/20170531_162750.webp" alt="Risotto al vino rosso · shared meal at The Wild Nest Ferrara">
+    </div>
+    <div class="mosaic-col">
+      <div class="mosaic-cell mosaic-sm">
+        <img src="images/20170812_154548.webp" alt="Pesto nel mortaio · the ritual of food">
+      </div>
+      <div class="mosaic-cell mosaic-sm">
+        <img src="images/2412201619262772_ppi.webp" alt="Mise en place · preparing the shared table">
+      </div>
+    </div>
+    <div class="mosaic-row-bot">
+      <div class="mosaic-cell mosaic-wide">
+        <img src="images/20170121_160636.webp" alt="Italian wines · convivialità">
+      </div>
+      <div class="mosaic-cell mosaic-wide">
+        <img src="images/2106201614401472_ppi__1_.webp" alt="La tavola apparecchiata · before the meal">
+      </div>
+    </div>
+  </div>
+  <div class="mosaic-lb-caption" id="mosaicLbCaption">communal dining · intentional living · Ferrara</div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1337,6 +1522,40 @@ async function loadReferences() {
 }
 
 loadReferences();
+
+// ─────────────────────────────────────────────────────────
+// SHARED MEALS MOSAIC LIGHTBOX
+// ─────────────────────────────────────────────────────────
+(function() {
+  const trigger  = document.getElementById('mealsMosaicTrigger');
+  const lb       = document.getElementById('mosaicLightbox');
+  const btnClose = document.getElementById('mosaicLbClose');
+  if (!trigger || !lb) return;
+
+  function openMosaic() {
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMosaic() {
+    lb.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  trigger.addEventListener('click', openMosaic);
+  btnClose.addEventListener('click', closeMosaic);
+  lb.addEventListener('click', e => { if (e.target === lb) closeMosaic(); });
+  document.addEventListener('keydown', e => {
+    if (lb.classList.contains('active') && e.key === 'Escape') closeMosaic();
+  });
+
+  // Hover captions on individual mosaic cells inside lightbox
+  const cap = document.getElementById('mosaicLbCaption');
+  const defaultCaption = 'communal dining · intentional living · Ferrara';
+  lb.querySelectorAll('.mosaic-cell img').forEach(img => {
+    img.addEventListener('mouseenter', () => { cap.textContent = img.alt; });
+    img.addEventListener('mouseleave', () => { cap.textContent = defaultCaption; });
+  });
+})();
 
 // ─────────────────────────────────────────────────────────
 // SUBMIT — sends to proxy, which saves as Approved: false
