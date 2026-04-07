@@ -700,6 +700,80 @@ footer {
   .cursor, .cursor-ring { display: none; }
 }
 
+/* THEME SLIDESHOW GALLERY */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-top: 48px;
+}
+.theme-slot {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  min-height: 300px;
+  cursor: none;
+}
+.theme-slot .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  filter: sepia(15%) contrast(1.08);
+}
+.theme-slot .slide.active { opacity: 0.78; }
+.theme-slot:hover .slide.active { opacity: 1; }
+.theme-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 48px 20px 16px;
+  background: linear-gradient(to top, rgba(8,7,6,0.9) 0%, transparent 100%);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  z-index: 2;
+  pointer-events: none;
+}
+.theme-dot-row {
+  position: absolute;
+  bottom: 38px; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 3;
+  pointer-events: none;
+}
+.theme-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(184,134,11,0.3);
+  transition: background 0.4s;
+}
+.theme-dot.active { background: var(--gold-light); }
+.theme-placeholder-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--card), var(--surface));
+  color: var(--faint);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  gap: 12px;
+}
+.theme-placeholder-inner span { font-size: 20px; color: rgba(184,134,11,0.15); }
+@media (max-width: 768px) {
+  .theme-grid { grid-template-columns: repeat(2, 1fr); }
+  .theme-slot { min-height: 220px; }
+}
+
 /* LIGHTBOX */
 .lightbox-overlay {
   display: none;
@@ -985,21 +1059,88 @@ footer {
     <p class="body-text">Art sessions, body painting, shared meals, tantric rituals, and the quiet intimacy of a space that holds nothing back. These walls have witnessed more authentic human moments than most people encounter in a lifetime.</p>
   </div>
   <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
-    <div class="gallery-grid" id="galleryGridInside">
-      <div class="gallery-item"><img src="20170121_160636.webp" data-caption="Ferrara, novembre 2024 — un momento"></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Inside · 2</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Inside · 3</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Inside · 4</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Inside · 5</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Inside · 6</div></div>
+    <div class="theme-grid">
+
+      <!-- AT TABLE -->
+      <div class="theme-slot" data-theme="at-table">
+        <img class="slide active" src="images/at-table-risotto-borlotti-wild-nest-ferrara.webp"
+             alt="Risotto ai borlotti — At Table, The Wild Nest, Ferrara"
+             data-caption="Risotto ai borlotti with cream — food as meditation, as care.">
+        <img class="slide" src="images/at-table-pesto-mortar-wild-nest-ferrara.webp"
+             alt="Fresh pesto in marble mortar — The Wild Nest kitchen, Ferrara"
+             data-caption="Pesto made by hand, in a marble mortar. Slow is the point.">
+        <img class="slide" src="images/at-table-wine-selection-wild-nest-ferrara.webp"
+             alt="Wine selection — The Wild Nest, Ferrara"
+             data-caption="Five bottles, five stories. Every evening is different.">
+        <img class="slide" src="images/at-table-kitchen-prep-wild-nest-ferrara.webp"
+             alt="Kitchen preparation with colours — The Wild Nest, Ferrara"
+             data-caption="Where cooking and body painting share the same counter. Both are acts of attention.">
+        <img class="slide" src="images/at-table-setting-colorful-wild-nest-ferrara.webp"
+             alt="Colourful table setting — The Wild Nest, Ferrara"
+             data-caption="The table as altar. Colour, texture, intention.">
+        <div class="theme-dot-row" id="dots-at-table">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">At Table</div>
+      </div>
+
+      <!-- BODY PAINTING — placeholder -->
+      <div class="theme-slot" data-theme="body-painting">
+        <div class="theme-placeholder-inner">
+          <span>◈</span>
+          Body Painting
+        </div>
+        <div class="theme-label">Body Painting</div>
+      </div>
+
+      <!-- THE SPACE — placeholder -->
+      <div class="theme-slot" data-theme="the-space">
+        <div class="theme-placeholder-inner">
+          <span>◈</span>
+          The Space
+        </div>
+        <div class="theme-label">The Space</div>
+      </div>
+
+      <!-- PRACTICE — placeholder -->
+      <div class="theme-slot" data-theme="practice">
+        <div class="theme-placeholder-inner">
+          <span>◈</span>
+          Practice
+        </div>
+        <div class="theme-label">Practice</div>
+      </div>
+
+      <!-- CONNECTION — placeholder -->
+      <div class="theme-slot" data-theme="connection">
+        <div class="theme-placeholder-inner">
+          <span>◈</span>
+          Connection
+        </div>
+        <div class="theme-label">Connection</div>
+      </div>
+
+      <!-- DETAILS — placeholder -->
+      <div class="theme-slot" data-theme="details">
+        <div class="theme-placeholder-inner">
+          <span>◈</span>
+          Details
+        </div>
+        <div class="theme-label">Details</div>
+      </div>
+
     </div>
   </div>
 
-  <!-- Thin ornamental divider between the two galleries -->
+  <!-- Ornamental divider -->
   <div style="max-width:1100px;margin:64px auto;padding:0 40px;">
     <div style="display:flex;align-items:center;gap:24px;">
       <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(184,134,11,0.3));"></div>
-      <div style="font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);white-space:nowrap;">✦</div>
+      <div style="font-size:10px;letter-spacing:5px;color:var(--gold);">✦</div>
       <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,rgba(184,134,11,0.3));"></div>
     </div>
   </div>
@@ -1011,13 +1152,26 @@ footer {
     <p class="body-text">Ferrara's Renaissance streets at dusk. The delta of the Po. Bologna's arcades, Ravenna's gold mosaics, Venice on a winter morning. The nest is a home base — but the world beyond its door is part of the experience too. As Rumi put it: <em>"Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there."</em></p>
   </div>
   <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
-    <div class="gallery-grid" id="galleryGridOutside">
-      <div class="gallery-item"><div class="gallery-placeholder">Outside · 1</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Outside · 2</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Outside · 3</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Outside · 4</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Outside · 5</div></div>
-      <div class="gallery-item"><div class="gallery-placeholder">Outside · 6</div></div>
+    <div class="theme-grid">
+
+      <!-- FERRARA — placeholder -->
+      <div class="theme-slot" data-theme="ferrara">
+        <div class="theme-placeholder-inner"><span>◈</span>Ferrara</div>
+        <div class="theme-label">Ferrara</div>
+      </div>
+
+      <!-- THE TERRITORY — placeholder -->
+      <div class="theme-slot" data-theme="territory">
+        <div class="theme-placeholder-inner"><span>◈</span>The Territory</div>
+        <div class="theme-label">The Territory</div>
+      </div>
+
+      <!-- NEAR & FAR — placeholder -->
+      <div class="theme-slot" data-theme="near-far">
+        <div class="theme-placeholder-inner"><span>◈</span>Near &amp; Far</div>
+        <div class="theme-label">Near &amp; Far</div>
+      </div>
+
     </div>
   </div>
 
@@ -1187,6 +1341,23 @@ function animRing() {
 animRing();
 
 // ─────────────────────────────────────────────────────────
+// THEME SLIDESHOW
+// ─────────────────────────────────────────────────────────
+document.querySelectorAll('.theme-slot').forEach(slot => {
+  const slides = slot.querySelectorAll('img.slide');
+  if (slides.length <= 1) return;
+  const dots = slot.querySelectorAll('.theme-dot');
+  let cur = 0;
+  setInterval(() => {
+    slides[cur].classList.remove('active');
+    if (dots[cur]) dots[cur].classList.remove('active');
+    cur = (cur + 1) % slides.length;
+    slides[cur].classList.add('active');
+    if (dots[cur]) dots[cur].classList.add('active');
+  }, 4000);
+});
+
+// ─────────────────────────────────────────────────────────
 // LIGHTBOX
 // ─────────────────────────────────────────────────────────
 (function() {
@@ -1198,22 +1369,10 @@ animRing();
   const lbPrev   = document.getElementById('lbPrev');
   const lbNext   = document.getElementById('lbNext');
 
-  let items = [];   // { src, caption }
+  let items = [];
   let current = 0;
 
-  // Collect all gallery images on the page (works for both grids)
-  function collectItems() {
-    items = [];
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      items.push({
-        src:     img.src,
-        caption: img.dataset.caption || img.alt || ''
-      });
-    });
-  }
-
   function open(index) {
-    collectItems();
     if (!items.length) return;
     current = index;
     show();
@@ -1229,7 +1388,6 @@ animRing();
 
   function show() {
     const item = items[current];
-    // Swap image with a quick fade
     lbImg.style.opacity = 0;
     lbImg.src = item.src;
     lbImg.onload = () => { lbImg.style.transition = 'opacity 0.25s'; lbImg.style.opacity = 1; };
@@ -1242,34 +1400,30 @@ animRing();
   function prev() { if (current > 0)              { current--; show(); } }
   function next() { if (current < items.length-1) { current++; show(); } }
 
-  // Click on any gallery image → open lightbox
+  // Click on a theme-slot → open lightbox for that slot's images
   document.addEventListener('click', e => {
-    const img = e.target.closest('.gallery-item img');
-    if (!img) return;
-    collectItems();
-    const idx = items.findIndex(it => it.src === img.src);
-    open(idx >= 0 ? idx : 0);
+    const slot = e.target.closest('.theme-slot');
+    if (!slot) return;
+    const slides = [...slot.querySelectorAll('img.slide')];
+    if (!slides.length) return;
+    items = slides.map(s => ({ src: s.src, caption: s.dataset.caption || '' }));
+    // Start from whichever slide is currently visible
+    const activeIdx = slides.findIndex(s => s.classList.contains('active'));
+    open(activeIdx >= 0 ? activeIdx : 0);
   });
 
-  // Controls
   lbClose.addEventListener('click', close);
   lbPrev.addEventListener('click',  prev);
   lbNext.addEventListener('click',  next);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
 
-  // Click outside image closes
-  overlay.addEventListener('click', e => {
-    if (e.target === overlay) close();
-  });
-
-  // Keyboard
   document.addEventListener('keydown', e => {
     if (!overlay.classList.contains('active')) return;
-    if (e.key === 'Escape')      close();
-    if (e.key === 'ArrowLeft')   prev();
-    if (e.key === 'ArrowRight')  next();
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  prev();
+    if (e.key === 'ArrowRight') next();
   });
 
-  // Touch swipe support
   let touchStartX = 0;
   overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
   overlay.addEventListener('touchend',   e => {
