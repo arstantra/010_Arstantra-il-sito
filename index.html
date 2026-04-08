@@ -1115,11 +1115,29 @@ footer {
         <div class="theme-label">Practice</div>
       </div>
 
-      <!-- CONNECTION — placeholder -->
+      <!-- CONNECTION -->
       <div class="theme-slot" data-theme="connection">
-        <div class="theme-placeholder-inner">
-          <span>◈</span>
-          Connection
+        <img class="slide active" src="images/connection-body-painting-embrace-wild-nest-ferrara.webp"
+             alt="Body painting embrace — Connection, The Wild Nest, Ferrara"
+             data-caption="Two bodies, one painting. The canvas holds the embrace.">
+        <img class="slide" src="images/connection-body-painting-trio-wild-nest-ferrara.webp"
+             alt="Body painting trio session — Connection, The Wild Nest, Ferrara"
+             data-caption="Three people. One session. The boundary between painting and touching dissolves slowly.">
+        <img class="slide" src="images/connection-body-painting-session-wild-nest-ferrara.webp"
+             alt="Body painting session — Connection, The Wild Nest, Ferrara"
+             data-caption="The palette, the brush, the skin. A meditation with colours.">
+        <img class="slide" src="images/connection-group-body-painting-wild-nest-ferrara.webp"
+             alt="Group body painting session — Connection, The Wild Nest, Ferrara"
+             data-caption="Everyone painted, no one watching. This is the difference.">
+        <img class="slide" src="images/connection-nude-figure-curled-wild-nest-ferrara.webp"
+             alt="Nude figure curled, artistic portrait — The Wild Nest, Ferrara"
+             data-caption="The body folded into itself. Resting, not hiding.">
+        <div class="theme-dot-row" id="dots-connection">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
         </div>
         <div class="theme-label">Connection</div>
       </div>
@@ -1341,20 +1359,23 @@ function animRing() {
 animRing();
 
 // ─────────────────────────────────────────────────────────
-// THEME SLIDESHOW
+// THEME SLIDESHOW — staggered so slots don't pulse in sync
 // ─────────────────────────────────────────────────────────
-document.querySelectorAll('.theme-slot').forEach(slot => {
+document.querySelectorAll('.theme-slot').forEach((slot, slotIndex) => {
   const slides = slot.querySelectorAll('img.slide');
   if (slides.length <= 1) return;
   const dots = slot.querySelectorAll('.theme-dot');
   let cur = 0;
-  setInterval(() => {
-    slides[cur].classList.remove('active');
-    if (dots[cur]) dots[cur].classList.remove('active');
-    cur = (cur + 1) % slides.length;
-    slides[cur].classList.add('active');
-    if (dots[cur]) dots[cur].classList.add('active');
-  }, 4000);
+  // Each slot starts 1.3 s later than the previous one
+  setTimeout(() => {
+    setInterval(() => {
+      slides[cur].classList.remove('active');
+      if (dots[cur]) dots[cur].classList.remove('active');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('active');
+      if (dots[cur]) dots[cur].classList.add('active');
+    }, 4000);
+  }, slotIndex * 1300);
 });
 
 // ─────────────────────────────────────────────────────────
