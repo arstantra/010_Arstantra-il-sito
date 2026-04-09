@@ -135,6 +135,17 @@ nav.scrolled {
     radial-gradient(ellipse 40% 40% at 20% 80%, rgba(139,58,42,0.08) 0%, transparent 60%),
     radial-gradient(ellipse 40% 40% at 80% 20%, rgba(184,134,11,0.04) 0%, transparent 60%);
 }
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
 .hero-ornament {
   font-size: 11px;
   letter-spacing: 8px;
@@ -774,6 +785,25 @@ footer {
   .theme-slot { min-height: 220px; }
 }
 
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.nav-logo:hover .nav-logo-img { opacity: 1; }
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.8);
+  opacity: 0.7;
+  display: block;
+  margin: 0 auto 12px;
+}
+
 /* LIGHTBOX */
 .lightbox-overlay {
   display: none;
@@ -893,7 +923,9 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#home" class="nav-logo">ARS TANTRA</a>
+  <a href="#home" class="nav-logo">
+    <img src="images/arstantra-logo.png" alt="Ars Tantra Society logo" class="nav-logo-img">ARS TANTRA
+  </a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#nest">The Wild Nest</a></li>
@@ -910,6 +942,8 @@ footer {
 <!-- HERO -->
 <div id="home" class="hero">
   <div class="hero-bg"></div>
+  <img src="images/arstantra-about-art-colour-body.webp"
+       alt="" aria-hidden="true" class="hero-bg-img">
   <div class="hero-ornament">✦ &nbsp; Ferrara, Italy &nbsp; ✦</div>
   <h1>Ars<br><em>Tantra</em></h1>
   <div class="hero-divider"></div>
@@ -933,7 +967,9 @@ footer {
     </div>
     <div class="about-visual">
       <div class="about-frame">
-        <div class="gallery-placeholder">Your photo here</div>
+        <img src="images/arstantra-about-art-colour-body.webp"
+             alt="Art colour body — Ars Tantra Society, Ferrara"
+             style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.5s,transform 0.6s;">
       </div>
       <div class="about-frame-accent"></div>
       <div class="about-frame-accent2"></div>
@@ -1243,20 +1279,86 @@ footer {
     <div class="theme-grid">
 
       <!-- FERRARA — placeholder -->
+      <!-- FERRARA -->
       <div class="theme-slot" data-theme="ferrara">
-        <div class="theme-placeholder-inner"><span>◈</span>Ferrara</div>
+        <img class="slide active" src="images/ferrara-castello-estense-renaissance-castle.webp"
+             alt="Castello Estense, Ferrara — Renaissance moated castle"
+             data-caption="The Castello Estense has been at the centre of Ferrara for six centuries. It still runs the city's time.">
+        <img class="slide" src="images/ferrara-liberty-villa-art-nouveau-round-window.webp"
+             alt="Liberty Art Nouveau villa with round window, Ferrara"
+             data-caption="A Liberty villa hiding behind trees. Ferrara keeps its best secrets just off the main road.">
+        <img class="slide" src="images/ferrara-cathedral-baroque-interior-organ.webp"
+             alt="Ferrara cathedral baroque interior with pipe organ"
+             data-caption="Light from the open door, organ pipes above. Sound and silence in the same frame.">
+        <img class="slide" src="images/ferrara-ariosto-monument-piazza-travaglio.webp"
+             alt="Ariosto monument column, Ferrara"
+             data-caption="Ludovico Ariosto, poet of the impossible, looks out over a city that still believes in magic.">
+        <div class="theme-dot-row" id="dots-ferrara">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
         <div class="theme-label">Ferrara</div>
       </div>
 
       <!-- THE TERRITORY — placeholder -->
+      <!-- THE TERRITORY -->
       <div class="theme-slot" data-theme="territory">
-        <div class="theme-placeholder-inner"><span>◈</span>The Territory</div>
+        <img class="slide active" src="images/territory-bondenese-canal-farmhouse-sunset.webp"
+             alt="Bondenese canal with farmhouse at sunset, Po plain, Ferrara"
+             data-caption="The Bondenese at dusk. A canal, a farmhouse, the sky doing all the work.">
+        <img class="slide" src="images/territory-bondenese-canal-village-horizon.webp"
+             alt="Bondenese canal with village on the horizon, Po plain"
+             data-caption="Flat land, long light, a bell tower on the horizon. This is the landscape that shaped everything here.">
+        <img class="slide" src="images/territory-lidi-ferraresi-beach-huts-dawn.webp"
+             alt="Lidi Ferraresi beach huts at dawn — Adriatic coast"
+             data-caption="The Lidi at dawn, before anyone arrives. White doors, pine trees, the Adriatic just out of frame.">
+        <div class="theme-dot-row" id="dots-territory">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
         <div class="theme-label">The Territory</div>
       </div>
 
       <!-- NEAR & FAR — placeholder -->
+      <!-- NEAR & FAR -->
       <div class="theme-slot" data-theme="near-far">
-        <div class="theme-placeholder-inner"><span>◈</span>Near &amp; Far</div>
+        <img class="slide active" src="images/near-far-venice-grand-canal-gondolas.webp"
+             alt="Venice Grand Canal with boats and gondolas"
+             data-caption="Venice. One hour by train. A city that exists to remind you that the impossible is just a matter of will.">
+        <img class="slide" src="images/near-far-ravenna-sant-apollinare-byzantine-mosaics.webp"
+             alt="Ravenna Sant'Apollinare in Classe Byzantine mosaics interior"
+             data-caption="Ravenna's gold mosaics have been staring back at people for 1,500 years. They don't blink.">
+        <img class="slide" src="images/near-far-bologna-neptune-fountain-piazza-maggiore.webp"
+             alt="Bologna Neptune fountain, Piazza Maggiore at sunset"
+             data-caption="Neptune, naked and commanding, in the centre of Bologna. The city approves.">
+        <img class="slide" src="images/near-far-florence-ponte-vecchio-arno.webp"
+             alt="Florence Ponte Vecchio on the Arno river at golden hour"
+             data-caption="Florence in the afternoon light. Two hours south and five centuries back.">
+        <img class="slide" src="images/near-far-venice-aerial-lagoon-view.webp"
+             alt="Venice aerial view over the lagoon from campanile"
+             data-caption="Venice from above: a city floating on water and on stubbornness in equal measure.">
+        <img class="slide" src="images/near-far-bologna-santo-stefano-piazza.webp"
+             alt="Bologna Piazza Santo Stefano with porticos"
+             data-caption="Piazza Santo Stefano, Bologna. Porticos, pigeons, and the best mortadella you will ever eat.">
+        <img class="slide" src="images/near-far-dolomites-alpine-village-church.webp"
+             alt="Dolomites alpine village with church and forest"
+             data-caption="Two hours north and the landscape turns vertical. The Dolomites don't compromise.">
+        <img class="slide" src="images/near-far-urbino-cathedral-piazza-rinascimento.webp"
+             alt="Urbino cathedral and Piazza Rinascimento"
+             data-caption="Urbino — where the Renaissance was born quietly, in a hilltop city most people still haven't found.">
+        <div class="theme-dot-row" id="dots-near-far">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
         <div class="theme-label">Near &amp; Far</div>
       </div>
 
@@ -1395,6 +1497,7 @@ footer {
 
 <!-- FOOTER -->
 <footer>
+  <img src="images/arstantra-logo.png" alt="Ars Tantra Society" class="footer-logo-img">
   <div class="footer-logo">ARS TANTRA</div>
   <div class="footer-tagline">The Wild Nest · Ferrara, Italy</div>
   <ul class="footer-links">
