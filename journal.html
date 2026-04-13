@@ -442,29 +442,40 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
   });
 });
 
-/* ── RSS FEED (live when Substack is active) ── */
+/* ── RSS FEED ── */
 async function loadSubstackFeed() {
+  const grid = document.getElementById('postsGrid');
+
+  // Show loading state
+  grid.innerHTML = `<div class="state-msg"><span class="ornament">✦</span>Loading from Substack…</div>`;
+
   try {
     const RSS_URL = 'https://arstantra.substack.com/feed';
-    const API     = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&api_key=&count=8`;
+    const API     = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&api_key=miuxhvjirbwuabytw9tfblhybeemlpjmdr7b7xsg&count=8`;
     const res  = await fetch(API);
     const data = await res.json();
 
-    if (data.status !== 'ok' || !data.items || data.items.length === 0) return;
+    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+      // Feed empty or error — fall back to placeholder posts
+      renderPosts('all');
+      return;
+    }
 
     const livePosts = data.items.map((item, i) => ({
-      tag: detectTag(item.title, item.categories),
+      tag:      detectTag(item.title, item.categories),
       tagLabel: detectTagLabel(item.title, item.categories),
-      date: new Date(item.pubDate).toLocaleDateString('en-GB', {month:'long', year:'numeric'}),
-      title: item.title,
-      excerpt: stripHtml(item.description).slice(0, 180) + '…',
+      date:     new Date(item.pubDate).toLocaleDateString('en-GB', {month:'long', year:'numeric'}),
+      title:    item.title,
+      excerpt:  stripHtml(item.description).slice(0, 200) + '…',
       featured: i === 0,
-      img: item.thumbnail || item.enclosure?.link || null,
-      link: item.link
+      img:      item.thumbnail || item.enclosure?.link || null,
+      link:     item.link
     }));
 
-    document.getElementById('postsGrid').innerHTML = livePosts.map((p, i) => {
-      const imgHtml = p.img ? `<div class="post-img-wrap"><img class="post-img" src="${p.img}" alt="${p.title}"></div>` : '';
+    grid.innerHTML = livePosts.map((p, i) => {
+      const imgHtml = p.img
+        ? `<div class="post-img-wrap"><img class="post-img" src="${p.img}" alt="${p.title}" loading="lazy"></div>`
+        : '';
       const content = `
         <div>
           <div class="post-meta">
@@ -475,12 +486,18 @@ async function loadSubstackFeed() {
           <div class="post-excerpt">${p.excerpt}</div>
           <div class="post-read">Read full post</div>
         </div>`;
-      if (p.featured) return `<a class="post-card featured" href="${p.link}" target="_blank" rel="noopener">${imgHtml}${content}</a>`;
-      return `<a class="post-card" href="${p.link}" target="_blank" rel="noopener"><div class="post-number">${String(i+1).padStart(2,'0')}</div>${content}</a>`;
+      if (p.featured) {
+        return `<a class="post-card featured" href="${p.link}" target="_blank" rel="noopener">${imgHtml}${content}</a>`;
+      }
+      return `<a class="post-card" href="${p.link}" target="_blank" rel="noopener">
+        <div class="post-number">${String(i+1).padStart(2,'0')}</div>
+        ${content}
+      </a>`;
     }).join('');
 
   } catch(e) {
-    /* Substack not yet active — placeholder posts already shown */
+    console.warn('Substack RSS fetch failed:', e);
+    renderPosts('all'); // fall back to placeholder posts gracefully
   }
 }
 
@@ -508,7 +525,7 @@ function subscribeSubstack() {
 }
 
 /* ── INIT ── */
-renderPosts('all');
+// Try live Substack feed first — placeholders shown only if feed fails
 loadSubstackFeed();
 </script>
 </body>
