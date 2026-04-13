@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ars Tantra · The Wild Nest · Ferrara</title>
+
+<!-- SEO -->
+<meta name="description" content="Ars Tantra Society — a sanctuary in Ferrara, Italy. Art, tantra, naturism and authentic human connection. Hosted by Andrea & Beatrice at The Wild Nest.">
+<meta name="keywords" content="tantra, body painting, naturism, Ferrara, Italy, The Wild Nest, Ars Tantra Society, conscious touch, art, spirituality">
+<meta name="author" content="Ars Tantra Society">
+<link rel="canonical" href="https://arstantra.org/">
+
+<!-- Open Graph — social sharing (Facebook, WhatsApp, LinkedIn) -->
+<meta property="og:type"         content="website">
+<meta property="og:url"          content="https://arstantra.org/">
+<meta property="og:title"        content="Ars Tantra · The Wild Nest · Ferrara">
+<meta property="og:description"  content="A sanctuary in Ferrara, Italy. Art, tantra, naturism and authentic human connection. Hosted by Andrea & Beatrice.">
+<meta property="og:image"        content="https://arstantra.org/images/arstantra-about-art-colour-body.webp">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale"       content="en_GB">
+<meta property="og:site_name"    content="Ars Tantra Society">
+
+<!-- Twitter / X card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Ars Tantra · The Wild Nest · Ferrara">
+<meta name="twitter:description" content="A sanctuary in Ferrara, Italy. Art, tantra, naturism and authentic human connection.">
+<meta name="twitter:image"       content="https://arstantra.org/images/arstantra-about-art-colour-body.webp">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #080706;
+  --deep: #100e0c;
+  --surface: #181410;
+  --card: #1e1a15;
+  --border: rgba(184,134,11,0.2);
+  --gold: #b8860b;
+  --gold-light: #d4a843;
+  --gold-pale: rgba(212,168,67,0.12);
+  --ember: #8b3a2a;
+  --cream: #f0e8d8;
+  --muted: #7a6e62;
+  --faint: #3a3028;
+  --white: #faf6ef;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: screen;
+}
+.cursor-ring {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(184,134,11,0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.08s ease;
+}
+
+/* GRAIN OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.35;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: linear-gradient(to bottom, rgba(8,7,6,0.95) 0%, transparent 100%);
+  transition: background 0.4s;
+}
+nav.scrolled {
+  background: rgba(8,7,6,0.97);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold-light);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-toggle { display: none; background: none; border: none; cursor: none; }
+.nav-toggle span {
+  display: block; width: 24px; height: 1px;
+  background: var(--gold-light); margin: 5px 0;
+  transition: all 0.3s;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 120px 40px 80px;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(184,134,11,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 80%, rgba(139,58,42,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(184,134,11,0.04) 0%, transparent 60%);
+}
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.hero-ornament {
+  font-size: 11px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 40px;
+  opacity: 0;
+  animation: riseIn 1.2s ease 0.3s forwards;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(52px, 9vw, 110px);
+  line-height: 0.95;
+  letter-spacing: -1px;
+  color: var(--white);
+  opacity: 0;
+  animation: riseIn 1.4s ease 0.5s forwards;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  display: block;
+}
+.hero-divider {
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  margin: 40px auto;
+  opacity: 0;
+  animation: riseIn 1s ease 1s forwards;
+}
+.hero-sub {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: riseIn 1s ease 1.2s forwards;
+  margin-bottom: 48px;
+}
+.hero-cta {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  text-decoration: none;
+  transition: all 0.4s;
+  opacity: 0;
+  animation: riseIn 1s ease 1.4s forwards;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+}
+.hero-cta:hover {
+  background: var(--gold);
+  color: var(--void);
+  letter-spacing: 6px;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 8px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--faint);
+  animation: pulse 2.5s ease infinite;
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+/* SECTION BASE */
+section {
+  padding: 100px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-full { max-width: 100%; padding-left: 0; padding-right: 0; }
+
+.eyebrow {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.eyebrow::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+h2.display {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+h2.display em { font-style: italic; color: var(--gold-light); }
+
+.body-text {
+  font-size: 16px;
+  color: #b0a090;
+  max-width: 640px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+/* DIVIDER */
+.hr {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 0;
+}
+
+/* ABOUT */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  height: 520px;
+}
+.about-frame {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--card);
+}
+.about-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  transition: opacity 0.5s, transform 0.6s;
+}
+.about-frame:hover img { opacity: 0.9; transform: scale(1.03); }
+.about-frame-accent {
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 120px; height: 120px;
+  border: 1px solid rgba(184,134,11,0.3);
+}
+.about-frame-accent2 {
+  position: absolute;
+  top: -20px; left: -20px;
+  width: 80px; height: 80px;
+  border: 1px solid rgba(184,134,11,0.2);
+}
+.about-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--gold-light);
+  line-height: 1.5;
+  border-left: 1px solid var(--gold);
+  padding-left: 24px;
+  margin: 32px 0;
+}
+
+/* WILD NEST */
+.nest-section {
+  background: var(--deep);
+  padding: 100px 0;
+}
+.nest-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.nest-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 60px;
+  border: 1px solid var(--border);
+}
+.nest-card {
+  background: var(--deep);
+  padding: 40px 32px;
+  transition: background 0.4s;
+}
+.nest-card:hover { background: var(--card); }
+.nest-card-icon {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: var(--gold);
+}
+.nest-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.nest-card p { font-size: 14px; color: var(--muted); line-height: 1.8; }
+
+.nest-offer {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.offer-block {
+  border: 1px solid var(--border);
+  padding: 36px;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.offer-block:hover { border-color: rgba(184,134,11,0.5); }
+.offer-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--gold-light);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.offer-block p { font-size: 14px; color: var(--muted); }
+.offer-number {
+  position: absolute;
+  top: 16px; right: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  color: rgba(184,134,11,0.08);
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* TANTRA */
+.tantra-section { background: var(--void); }
+.tantra-intro {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-bottom: 80px;
+}
+.tantra-list { list-style: none; margin-top: 40px; }
+.tantra-list li {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  font-size: 15px;
+  color: #b0a090;
+  transition: color 0.3s;
+}
+.tantra-list li:hover { color: var(--cream); }
+.tantra-list .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-top: 4px;
+  flex-shrink: 0;
+  width: 28px;
+}
+.tantra-list li strong { color: var(--white); display: block; font-weight: 500; margin-bottom: 4px; font-size: 15px; }
+.tantra-sidebar {
+  border: 1px solid var(--border);
+  padding: 40px;
+  background: var(--card);
+  position: sticky;
+  top: 100px;
+}
+.tantra-sidebar h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  font-weight: 300;
+  line-height: 1.3;
+}
+.tantra-sidebar p { font-size: 14px; color: var(--muted); margin-bottom: 16px; }
+
+/* GALLERY */
+.gallery-section { background: var(--deep); padding: 100px 0; }
+.gallery-inner { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 4px;
+  margin-top: 48px;
+}
+.gallery-item {
+  overflow: hidden;
+  background: var(--card);
+  position: relative;
+  cursor: none;
+}
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  min-height: 180px;
+  transition: transform 0.6s ease, opacity 0.4s;
+  opacity: 0.75;
+  filter: sepia(20%) contrast(1.1);
+}
+.gallery-item:hover img { transform: scale(1.06); opacity: 0.95; }
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8,7,6,0);
+  transition: background 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gallery-item:hover .gallery-overlay { background: rgba(8,7,6,0.3); }
+.gallery-placeholder {
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--card), var(--surface));
+  color: var(--faint);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+/* REFERENCES */
+.ref-section { background: var(--void); }
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+.ref-card {
+  border: 1px solid var(--border);
+  padding: 32px;
+  background: var(--card);
+  transition: border-color 0.4s, transform 0.3s;
+  position: relative;
+}
+.ref-card:hover {
+  border-color: rgba(184,134,11,0.5);
+  transform: translateY(-2px);
+}
+.ref-stars {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+.ref-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--cream);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.ref-author {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.ref-source {
+  font-size: 9px;
+  color: var(--faint);
+  margin-top: 4px;
+  letter-spacing: 2px;
+}
+.ref-type {
+  position: absolute;
+  top: 16px; right: 20px;
+  font-size: 8px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+}
+
+/* ADD REFERENCE FORM */
+.ref-add {
+  margin-top: 48px;
+  border: 1px solid var(--border);
+  padding: 40px;
+  background: var(--card);
+}
+.ref-add h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 8px; }
+.form-field label {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.form-field input,
+.form-field textarea,
+.form-field select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  padding: 12px 16px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.3s;
+  resize: vertical;
+}
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus { border-color: var(--gold); }
+.form-field select option { background: var(--surface); }
+.btn-gold {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding: 14px 36px;
+  cursor: none;
+  transition: all 0.4s;
+  margin-top: 8px;
+}
+.btn-gold:hover {
+  background: var(--gold);
+  color: var(--void);
+  letter-spacing: 6px;
+}
+
+/* CONTACT */
+.contact-section { background: var(--deep); }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.contact-info p { font-size: 14px; color: var(--muted); margin-bottom: 32px; }
+.contact-detail {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.contact-detail-icon { color: var(--gold); font-size: 14px; margin-top: 3px; }
+.contact-detail-text strong { display: block; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; font-weight: 400; }
+.contact-detail-text span { font-size: 15px; color: var(--cream); }
+
+/* FOOTER */
+footer {
+  background: var(--void);
+  border-top: 1px solid var(--border);
+  padding: 48px 40px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  letter-spacing: 6px;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+.footer-tagline {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 32px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  list-style: none;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-copy {
+  margin-top: 32px;
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 1px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: fixed; inset: 0;
+    background: var(--void);
+    justify-content: center;
+    align-items: center;
+    z-index: 850;
+  }
+  .nav-links.open a { font-size: 13px; padding: 16px; letter-spacing: 4px; }
+  .nav-toggle { display: block; z-index: 860; }
+  .about-grid, .tantra-intro, .contact-grid, .nest-offer { grid-template-columns: 1fr; gap: 40px; }
+  .nest-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); }
+  .gallery-item:nth-child(1) { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+  .ref-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  section { padding: 72px 24px; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+
+/* THEME SLIDESHOW GALLERY */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  margin-top: 48px;
+}
+.theme-slot {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+  min-height: 300px;
+  cursor: none;
+}
+.theme-slot .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  filter: sepia(15%) contrast(1.08);
+}
+.theme-slot .slide.active { opacity: 0.78; }
+.theme-slot:hover .slide.active { opacity: 1; }
+.theme-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 48px 20px 16px;
+  background: linear-gradient(to top, rgba(8,7,6,0.9) 0%, transparent 100%);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  z-index: 2;
+  pointer-events: none;
+}
+.theme-dot-row {
+  position: absolute;
+  bottom: 38px; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 3;
+  pointer-events: none;
+}
+.theme-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(184,134,11,0.3);
+  transition: background 0.4s;
+}
+.theme-dot.active { background: var(--gold-light); }
+.theme-placeholder-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--card), var(--surface));
+  color: var(--faint);
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  gap: 12px;
+}
+.theme-placeholder-inner span { font-size: 20px; color: rgba(184,134,11,0.15); }
+@media (max-width: 768px) {
+  .theme-grid { grid-template-columns: repeat(2, 1fr); }
+  .theme-slot { min-height: 220px; }
+}
+
+.nav-logo-img {
+  height: 32px;
+  width: auto;
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);
+  opacity: 0.9;
+  transition: opacity 0.3s;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+.nav-logo:hover .nav-logo-img { opacity: 1; }
+.footer-logo-img {
+  height: 40px;
+  width: auto;
+  filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.8);
+  opacity: 0.7;
+  display: block;
+  margin: 0 auto 12px;
+}
+
+/* LIGHTBOX */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(8,7,6,0.96);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: none;
+  animation: lbFadeIn 0.3s ease;
+}
+.lightbox-overlay.active { display: flex; }
+@keyframes lbFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.lightbox-img-wrap {
+  position: relative;
+  max-width: 88vw;
+  max-height: 78vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-img-wrap img {
+  max-width: 88vw;
+  max-height: 78vh;
+  object-fit: contain;
+  filter: sepia(10%) contrast(1.08);
+  animation: lbRise 0.35s ease;
+}
+@keyframes lbRise {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.lightbox-caption {
+  margin-top: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--gold-light);
+  letter-spacing: 1px;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 24px;
+  min-height: 24px;
+}
+.lightbox-close {
+  position: fixed;
+  top: 28px; right: 36px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: none;
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  background: none;
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.3s;
+  z-index: 9001;
+}
+.lightbox-close:hover { color: var(--gold-light); border-color: var(--gold); }
+.lightbox-nav {
+  position: fixed;
+  top: 50%; transform: translateY(-50%);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: none;
+  background: none;
+  border: 1px solid var(--border);
+  padding: 16px 14px;
+  font-family: 'Raleway', sans-serif;
+  transition: all 0.3s;
+  z-index: 9001;
+}
+.lightbox-nav:hover { color: var(--gold-light); border-color: var(--gold); }
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-counter {
+  position: fixed;
+  bottom: 28px; left: 50%; transform: translateX(-50%);
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--faint);
+  text-transform: uppercase;
+}
+.gallery-item { cursor: none; }
+@media (max-width: 768px) {
+  .lightbox-nav { display: none; }
+  .lightbox-close { top: 16px; right: 16px; }
+  .lightbox-overlay { cursor: auto; }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<!-- Google Analytics 4 — si attiva solo dopo consenso esplicito -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('consent', 'default', {
+    analytics_storage: 'denied'
+  });
+
+  function loadGA4() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-365H7CD0V0';
+    document.head.appendChild(s);
+    s.onload = function() {
+      gtag('config', 'G-365H7CD0V0');
+    };
+  }
+
+  function grantAnalytics() {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGA4();
+    localStorage.setItem('at_cookie_consent', 'granted');
+  }
+
+  function denyAnalytics() {
+    gtag('consent', 'update', { analytics_storage: 'denied' });
+    localStorage.setItem('at_cookie_consent', 'denied');
+  }
+
+  (function() {
+    var saved = localStorage.getItem('at_cookie_consent');
+    if (saved === 'granted') {
+      grantAnalytics();
+    }
+  })();
+</script>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lbClose">✕ &nbsp; close</button>
+  <button class="lightbox-nav lightbox-prev" id="lbPrev">&#8592;</button>
+  <div class="lightbox-img-wrap">
+    <img id="lbImg" src="" alt="">
+  </div>
+  <div class="lightbox-caption" id="lbCaption"></div>
+  <button class="lightbox-nav lightbox-next" id="lbNext">&#8594;</button>
+  <div class="lightbox-counter" id="lbCounter"></div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">
+    <img src="images/arstantra-logo.png" alt="Ars Tantra Society logo" class="nav-logo-img">ARS TANTRA
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#nest">The Wild Nest</a></li>
+    <li><a href="#tantra">Tantra</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="stay.html">Stay</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div id="home" class="hero">
+  <div class="hero-bg"></div>
+  <img src="images/arstantra-about-art-colour-body.webp"
+       alt="" aria-hidden="true" class="hero-bg-img">
+  <div class="hero-ornament">✦ &nbsp; Ferrara, Italy &nbsp; ✦</div>
+  <h1>Ars<br><em>Tantra</em></h1>
+  <div class="hero-divider"></div>
+  <div class="hero-sub">Art · Tantra · Naturism · Connection</div>
+  <a href="#about" class="hero-cta">Enter</a>
+  <div class="scroll-hint">↓ &nbsp; scroll</div>
+</div>
+
+<div class="hr"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="eyebrow">Who we are</div>
+      <h2 class="display">Andrea &amp; Beatrice<br><em>Two seekers</em></h2>
+      <p class="body-text">We are Andrea and Beatrice — artists, tantra practitioners, photographers, and lifelong explorers of the human experience. What brought us together was a shared conviction: that real connection requires courage, vulnerability, and the willingness to shed the masks we wear every day.</p>
+      <blockquote class="about-quote">"Every day on earth is a new limitless experience — we move through it as travelers on the road of art, body, and soul."</blockquote>
+      <p class="body-text">Between us we carry years of study in tantra (Andrea trained in India, where it all began for him), a deep love of visual art and body painting, and an irresistible desire to welcome strangers who, we suspect, are not strangers at all.</p>
+      <p class="body-text">We founded <strong style="color:var(--gold-light)">Ars Tantra Society</strong> as a community dedicated to building genuine, transformative connections between people from every corner of the world — using art, tantra, and naturism as shared languages.</p>
+    </div>
+    <div class="about-visual">
+      <div class="about-frame">
+        <img src="images/arstantra-about-art-colour-body.webp"
+             alt="Art colour body — Ars Tantra Society, Ferrara"
+             style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.5s,transform 0.6s;">
+      </div>
+      <div class="about-frame-accent"></div>
+      <div class="about-frame-accent2"></div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- WILD NEST -->
+<div id="nest" class="nest-section">
+  <div class="nest-inner">
+    <div class="eyebrow">Hospitality</div>
+    <h2 class="display">The Wild <em>Nest</em></h2>
+    <p class="body-text">A sanctuary in the heart of Ferrara — a UNESCO World Heritage city where Renaissance architecture meets radical openness. Our home is intimate by design: space for up to three guests, no fixed time limit, no conventional rules.</p>
+
+    <div class="nest-grid">
+      <div class="nest-card">
+        <div class="nest-card-icon">◈</div>
+        <h3>Nudity &amp; Freedom</h3>
+        <p>Nudity at The Wild Nest is not a provocation — it is an invitation. A practice of shedding self-consciousness and inhabiting your body fully, without performance or shame.</p>
+      </div>
+      <div class="nest-card">
+        <div class="nest-card-icon">◈</div>
+        <h3>Tantric Practices</h3>
+        <p>Guided tantra sessions, sensual massage, conscious touch workshops, and meditation — shared in a space of complete safety, mutual respect, and explicit consent.</p>
+      </div>
+      <div class="nest-card">
+        <div class="nest-card-icon">◈</div>
+        <h3>Art &amp; Creation</h3>
+        <p>Body painting, collaborative projects, photography, and creative ritual. The body is both canvas and instrument. Every guest brings something the nest has never seen before.</p>
+      </div>
+      <div class="nest-card">
+        <div class="nest-card-icon">◈</div>
+        <h3>Vegan Nourishment</h3>
+        <p>Delicious plant-based meals prepared with intention. Food as care, as community, as pleasure. We cook together whenever possible.</p>
+      </div>
+      <div class="nest-card">
+        <div class="nest-card-icon">◈</div>
+        <h3>Conscious Community</h3>
+        <p>The spirit of The Wild Nest is woven from the energy of every soul who passes through. This is not a hotel — it is a living organism that changes with each encounter.</p>
+      </div>
+      <div class="nest-card">
+        <div class="nest-card-icon">◈</div>
+        <h3>Ferrara &amp; Beyond</h3>
+        <p>A perfect base for Northern Italy. Venice, Ravenna's Byzantine mosaics, Bologna's markets — all within easy reach. The train station is a short walk or taxi ride away.</p>
+      </div>
+    </div>
+
+    <div class="nest-offer">
+      <div class="offer-block">
+        <div class="offer-number">01</div>
+        <h3>What we bring to you</h3>
+        <p style="font-size:15px;color:#b0a090;line-height:1.9;">Full immersion: a room, vegan meals, tantra practices, art sessions, deep conversation, and the kind of human presence that is increasingly rare. We don't put a clock on your stay — if our paths align, stay as long as the journey calls for.</p>
+      </div>
+      <div class="offer-block">
+        <div class="offer-number">02</div>
+        <h3>What we ask of you</h3>
+        <p style="font-size:15px;color:#b0a090;line-height:1.9;">Your kindness. Your honesty. Your creative energy. A genuine willingness to be present, to contribute, and to respect the boundaries of every person in the space. This is not a place for passive consumption — it is a place for co-creation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hr"></div>
+
+<!-- TANTRA -->
+<section id="tantra" class="tantra-section">
+  <div class="eyebrow">Philosophy &amp; Practice</div>
+  <h2 class="display">Tantra as a <em>path</em></h2>
+
+  <div class="tantra-intro">
+    <div>
+      <p class="body-text">Tantra is one of the most misunderstood and misrepresented traditions in the Western world. At Ars Tantra Society, we approach it as it was always intended: as a complete system for expanding awareness, dissolving the ego's armor, and experiencing the full spectrum of what it means to be human.</p>
+      <p class="body-text">This is not about performance. It is not about technique. It is about presence — yours, ours, and the electric field that forms between two people who are truly, completely here.</p>
+
+      <ul class="tantra-list">
+        <li>
+          <span class="num">01</span>
+          <div><strong>Tantric Massage</strong>Andrea is a trained tantra massage practitioner. Sessions are conducted with full transparency, explicit consent, and zero pressure. The body is treated as sacred — a landscape to be explored with reverence, not urgency.</div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div><strong>Meditation &amp; Breathwork</strong>Guided practices drawn from authentic Indian tantra tradition, adapted for modern seekers. Breath as doorway. Silence as teacher.</div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div><strong>Conscious Touch &amp; Sensory Awareness</strong>Exercises and rituals designed to awaken the nervous system, dissolve body armoring, and return you to the immediacy of physical sensation — without agenda.</div>
+        </li>
+        <li>
+          <span class="num">04</span>
+          <div><strong>Art as Spiritual Practice</strong>Body painting, photography, and creative ritual as forms of tantric expression. The act of being seen — truly seen — as a transformative practice in itself.</div>
+        </li>
+        <li>
+          <span class="num">05</span>
+          <div><strong>Naturism &amp; Embodiment</strong>Nudity as a practice of returning home to the body. Not exhibitionism — presence. The difference matters enormously.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tantra-sidebar">
+      <h3>"Stepping outside your comfort zone is often the most direct route to self-discovery."</h3>
+      <p>We do not teach tantra as a fixed curriculum. We meet each person where they are and offer what feels alive in that encounter.</p>
+      <p>All practices are offered freely, with full respect for personal boundaries. Nothing is ever assumed. Everything is discussed openly before, during, and after.</p>
+      <p>Whether you come with years of spiritual practice or raw, curious uncertainty — you are welcome here.</p>
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);">
+        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;">Andrea's journey</div>
+        <p>First contact with tantra tradition in India. Years of study and practice. Teacher, guide, and still — always — student.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- GALLERY -->
+<div id="gallery" class="gallery-section">
+
+  <!-- Inside the nest -->
+  <div class="gallery-inner">
+    <div class="eyebrow">Gallery · I</div>
+    <h2 class="display">Life inside <em>the nest</em></h2>
+    <p class="body-text">Art sessions, body painting, shared meals, tantric rituals, and the quiet intimacy of a space that holds nothing back. These walls have witnessed more authentic human moments than most people encounter in a lifetime.</p>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+    <div class="theme-grid">
+
+      <!-- AT TABLE -->
+      <div class="theme-slot" data-theme="at-table">
+        <img class="slide active" src="images/at-table-risotto-borlotti-wild-nest-ferrara.webp"
+             alt="Risotto ai borlotti — At Table, The Wild Nest, Ferrara"
+             data-caption="Risotto ai borlotti with cream — food as meditation, as care.">
+        <img class="slide" src="images/at-table-pesto-mortar-wild-nest-ferrara.webp"
+             alt="Fresh pesto in marble mortar — The Wild Nest kitchen, Ferrara"
+             data-caption="Pesto made by hand, in a marble mortar. Slow is the point.">
+        <img class="slide" src="images/at-table-wine-selection-wild-nest-ferrara.webp"
+             alt="Wine selection — The Wild Nest, Ferrara"
+             data-caption="Five bottles, five stories. Every evening is different.">
+        <img class="slide" src="images/at-table-kitchen-prep-wild-nest-ferrara.webp"
+             alt="Kitchen preparation with colours — The Wild Nest, Ferrara"
+             data-caption="Where cooking and body painting share the same counter. Both are acts of attention.">
+        <img class="slide" src="images/at-table-setting-colorful-wild-nest-ferrara.webp"
+             alt="Colourful table setting — The Wild Nest, Ferrara"
+             data-caption="The table as altar. Colour, texture, intention.">
+        <div class="theme-dot-row" id="dots-at-table">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">At Table</div>
+      </div>
+
+      <!-- BODY PAINTING -->
+      <div class="theme-slot" data-theme="body-painting">
+        <img class="slide active" src="images/body-painting-starry-night-vangogh-wild-nest-ferrara.webp"
+             alt="Body painting Van Gogh Starry Night — The Wild Nest, Ferrara"
+             data-caption="Van Gogh's Starry Night, repainted on skin. The swirls move differently when they breathe.">
+        <img class="slide" src="images/body-painting-uv-blacklight-neon-wild-nest-ferrara.webp"
+             alt="UV blacklight neon body painting — The Wild Nest, Ferrara"
+             data-caption="Under UV light, the body becomes a galaxy. Paint that only reveals itself in the dark.">
+        <img class="slide" src="images/body-painting-botanical-flowers-wild-nest-ferrara.webp"
+             alt="Botanical flowers body painting — The Wild Nest, Ferrara"
+             data-caption="The body as garden. Blue lotus on the left, pink peony on the right — the belly a bud not yet open.">
+        <img class="slide" src="images/body-painting-mondrian-geometric-wild-nest-ferrara.webp"
+             alt="Mondrian geometric body painting — The Wild Nest, Ferrara"
+             data-caption="Mondrian never had a canvas this alive. The body refuses to stay inside the lines.">
+        <img class="slide" src="images/body-painting-artichoke-leaves-wild-nest-ferrara.webp"
+             alt="Artichoke leaves body painting — The Wild Nest, Ferrara"
+             data-caption="Leaves growing from the navel outward. The body as root, as soil, as plant.">
+        <img class="slide" src="images/body-painting-still-life-morandi-wild-nest-ferrara.webp"
+             alt="Still life Morandi style body painting — The Wild Nest, Ferrara"
+             data-caption="A still life painted on a body that breathes. Morandi would have approved.">
+        <img class="slide" src="images/body-painting-hands-figure-wall-wild-nest-ferrara.webp"
+             alt="Body painting hands and figures against painted wall — The Wild Nest, Ferrara"
+             data-caption="Canvas and wall become one. The nest is the studio.">
+        <div class="theme-dot-row" id="dots-body-painting">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">Body Painting</div>
+      </div>
+
+      <!-- THE SPACE — placeholder -->
+      <!-- THE SPACE -->
+      <div class="theme-slot" data-theme="the-space">
+        <img class="slide active" src="images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp"
+             alt="Bedroom with mandala bedspread and candles — The Wild Nest, Ferrara"
+             data-caption="The mandala opens at the centre of the bed. Everything in this room is intentional.">
+        <img class="slide" src="images/the-space-living-room-altar-candles-wild-nest-ferrara.webp"
+             alt="Living room with candles altar and artwork — The Wild Nest, Ferrara"
+             data-caption="A katana, a painting, a row of candles. The space tells you who lives here before they say a word.">
+        <img class="slide" src="images/the-space-mandala-bedspread-oils-tray-wild-nest-ferrara.webp"
+             alt="Mandala bedspread with massage oils tray — The Wild Nest, Ferrara"
+             data-caption="Massage oils on a tray, at the centre of the pattern. Ready. Unhurried.">
+        <img class="slide" src="images/the-space-candles-singing-bowl-detail-wild-nest-ferrara.webp"
+             alt="Coloured candles and Tibetan singing bowl — The Wild Nest, Ferrara"
+             data-caption="Seven candles, one bowl. Sound and light — the simplest altar there is.">
+        <img class="slide" src="images/the-space-kitchen-mural-painted-wall-wild-nest-ferrara.webp"
+             alt="Kitchen with painted wall mural — The Wild Nest, Ferrara"
+             data-caption="The kitchen wall is a canvas. In this house, no surface is left untouched.">
+        <div class="theme-dot-row" id="dots-the-space">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">The Space</div>
+      </div>
+
+      <!-- PRACTICE -->
+      <div class="theme-slot" data-theme="practice">
+        <img class="slide active" src="images/practice-tantric-massage-touch-wild-nest-ferrara.webp"
+             alt="Tantric massage conscious touch — Practice, The Wild Nest, Ferrara"
+             data-caption="Hands that listen before they move. This is the first principle of tantric touch.">
+        <img class="slide" src="images/practice-body-painting-floor-session-wild-nest-ferrara.webp"
+             alt="Body painting floor session with paint palette — Practice, The Wild Nest, Ferrara"
+             data-caption="On the floor, at table level, mixing colours. No hierarchy here — just attention.">
+        <div class="theme-dot-row" id="dots-practice">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">Practice</div>
+      </div>
+
+      <!-- CONNECTION -->
+      <div class="theme-slot" data-theme="connection">
+        <img class="slide active" src="images/connection-body-painting-embrace-wild-nest-ferrara.webp"
+             alt="Body painting embrace — Connection, The Wild Nest, Ferrara"
+             data-caption="Two bodies, one painting. The canvas holds the embrace.">
+        <img class="slide" src="images/connection-body-painting-trio-wild-nest-ferrara.webp"
+             alt="Body painting trio session — Connection, The Wild Nest, Ferrara"
+             data-caption="Three people. One session. The boundary between painting and touching dissolves slowly.">
+        <img class="slide" src="images/connection-body-painting-session-wild-nest-ferrara.webp"
+             alt="Body painting session — Connection, The Wild Nest, Ferrara"
+             data-caption="The palette, the brush, the skin. A meditation with colours.">
+        <img class="slide" src="images/connection-group-body-painting-wild-nest-ferrara.webp"
+             alt="Group body painting session — Connection, The Wild Nest, Ferrara"
+             data-caption="Everyone painted, no one watching. This is the difference.">
+        <img class="slide" src="images/connection-nude-figure-curled-wild-nest-ferrara.webp"
+             alt="Nude figure curled, artistic portrait — The Wild Nest, Ferrara"
+             data-caption="The body folded into itself. Resting, not hiding.">
+        <div class="theme-dot-row" id="dots-connection">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">Connection</div>
+      </div>
+
+      <!-- DETAILS — placeholder -->
+      <!-- DETAILS -->
+      <div class="theme-slot" data-theme="details">
+        <img class="slide active" src="images/details-tibetan-singing-bowl-candles-wild-nest-ferrara.webp"
+             alt="Tibetan singing bowl with coloured candles — The Wild Nest, Ferrara"
+             data-caption="One strike of the bowl and the room changes. Sound is the fastest way in.">
+        <img class="slide" src="images/details-massage-oils-tray-mandala-wild-nest-ferrara.webp"
+             alt="Massage oils on tray against mandala bedspread — The Wild Nest, Ferrara"
+             data-caption="Everything on this tray has a purpose. Nothing is decorative.">
+        <img class="slide" src="images/details-ceramic-cloud-birds-sculpture-wild-nest-ferrara.webp"
+             alt="Ceramic cloud and birds sculpture above village rooftops — The Wild Nest, Ferrara"
+             data-caption="Two birds on a cloud above the rooftops. Someone here has a sense of humour about the infinite.">
+        <img class="slide" src="images/details-abstract-triptych-painting-wild-nest-ferrara.webp"
+             alt="Abstract triptych painting blue red white — The Wild Nest, Ferrara"
+             data-caption="Three panels, one breath. Andrea painted this. It hangs where you can see it from the bed.">
+        <img class="slide" src="images/details-artist-oil-paint-box-wild-nest-ferrara.webp"
+             alt="Artist oil paint box with Maimeri tubes — The Wild Nest, Ferrara"
+             data-caption="Ivory Black, Burnt Sienna, Cadmium Red. The box has been open a long time.">
+        <div class="theme-dot-row" id="dots-details">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">Details</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ornamental divider -->
+  <div style="max-width:1100px;margin:64px auto;padding:0 40px;">
+    <div style="display:flex;align-items:center;gap:24px;">
+      <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(184,134,11,0.3));"></div>
+      <div style="font-size:10px;letter-spacing:5px;color:var(--gold);">✦</div>
+      <div style="flex:1;height:1px;background:linear-gradient(to left,transparent,rgba(184,134,11,0.3));"></div>
+    </div>
+  </div>
+
+  <!-- Outside the nest -->
+  <div class="gallery-inner">
+    <div class="eyebrow">Gallery · II</div>
+    <h2 class="display">Life outside <em>the nest</em></h2>
+    <p class="body-text">Ferrara's Renaissance streets at dusk. The delta of the Po. Bologna's arcades, Ravenna's gold mosaics, Venice on a winter morning. The nest is a home base — but the world beyond its door is part of the experience too. As Rumi put it: <em>"Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there."</em></p>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+    <div class="theme-grid">
+
+      <!-- FERRARA — placeholder -->
+      <!-- FERRARA -->
+      <div class="theme-slot" data-theme="ferrara">
+        <img class="slide active" src="images/ferrara-castello-estense-renaissance-castle.webp"
+             alt="Castello Estense, Ferrara — Renaissance moated castle"
+             data-caption="The Castello Estense has been at the centre of Ferrara for six centuries. It still runs the city's time.">
+        <img class="slide" src="images/ferrara-liberty-villa-art-nouveau-round-window.webp"
+             alt="Liberty Art Nouveau villa with round window, Ferrara"
+             data-caption="A Liberty villa hiding behind trees. Ferrara keeps its best secrets just off the main road.">
+        <img class="slide" src="images/ferrara-cathedral-baroque-interior-organ.webp"
+             alt="Ferrara cathedral baroque interior with pipe organ"
+             data-caption="Light from the open door, organ pipes above. Sound and silence in the same frame.">
+        <img class="slide" src="images/ferrara-ariosto-monument-piazza-travaglio.webp"
+             alt="Ariosto monument column, Ferrara"
+             data-caption="Ludovico Ariosto, poet of the impossible, looks out over a city that still believes in magic.">
+        <div class="theme-dot-row" id="dots-ferrara">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">Ferrara</div>
+      </div>
+
+      <!-- THE TERRITORY — placeholder -->
+      <!-- THE TERRITORY -->
+      <div class="theme-slot" data-theme="territory">
+        <img class="slide active" src="images/territory-bondenese-canal-farmhouse-sunset.webp"
+             alt="Bondenese canal with farmhouse at sunset, Po plain, Ferrara"
+             data-caption="The Bondenese at dusk. A canal, a farmhouse, the sky doing all the work.">
+        <img class="slide" src="images/territory-bondenese-canal-village-horizon.webp"
+             alt="Bondenese canal with village on the horizon, Po plain"
+             data-caption="Flat land, long light, a bell tower on the horizon. This is the landscape that shaped everything here.">
+        <img class="slide" src="images/territory-lidi-ferraresi-beach-huts-dawn.webp"
+             alt="Lidi Ferraresi beach huts at dawn — Adriatic coast"
+             data-caption="The Lidi at dawn, before anyone arrives. White doors, pine trees, the Adriatic just out of frame.">
+        <div class="theme-dot-row" id="dots-territory">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">The Territory</div>
+      </div>
+
+      <!-- NEAR & FAR — placeholder -->
+      <!-- NEAR & FAR -->
+      <div class="theme-slot" data-theme="near-far">
+        <img class="slide active" src="images/near-far-venice-grand-canal-gondolas.webp"
+             alt="Venice Grand Canal with boats and gondolas"
+             data-caption="Venice. One hour by train. A city that exists to remind you that the impossible is just a matter of will.">
+        <img class="slide" src="images/near-far-ravenna-sant-apollinare-byzantine-mosaics.webp"
+             alt="Ravenna Sant'Apollinare in Classe Byzantine mosaics interior"
+             data-caption="Ravenna's gold mosaics have been staring back at people for 1,500 years. They don't blink.">
+        <img class="slide" src="images/near-far-bologna-neptune-fountain-piazza-maggiore.webp"
+             alt="Bologna Neptune fountain, Piazza Maggiore at sunset"
+             data-caption="Neptune, naked and commanding, in the centre of Bologna. The city approves.">
+        <img class="slide" src="images/near-far-florence-ponte-vecchio-arno.webp"
+             alt="Florence Ponte Vecchio on the Arno river at golden hour"
+             data-caption="Florence in the afternoon light. Two hours south and five centuries back.">
+        <img class="slide" src="images/near-far-venice-aerial-lagoon-view.webp"
+             alt="Venice aerial view over the lagoon from campanile"
+             data-caption="Venice from above: a city floating on water and on stubbornness in equal measure.">
+        <img class="slide" src="images/near-far-bologna-santo-stefano-piazza.webp"
+             alt="Bologna Piazza Santo Stefano with porticos"
+             data-caption="Piazza Santo Stefano, Bologna. Porticos, pigeons, and the best mortadella you will ever eat.">
+        <img class="slide" src="images/near-far-dolomites-alpine-village-church.webp"
+             alt="Dolomites alpine village with church and forest"
+             data-caption="Two hours north and the landscape turns vertical. The Dolomites don't compromise.">
+        <img class="slide" src="images/near-far-urbino-cathedral-piazza-rinascimento.webp"
+             alt="Urbino cathedral and Piazza Rinascimento"
+             data-caption="Urbino — where the Renaissance was born quietly, in a hilltop city most people still haven't found.">
+        <div class="theme-dot-row" id="dots-near-far">
+          <div class="theme-dot active"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+          <div class="theme-dot"></div>
+        </div>
+        <div class="theme-label">Near &amp; Far</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="hr"></div>
+
+<!-- REFERENCES -->
+<section id="references" class="ref-section">
+  <div class="eyebrow">Voices</div>
+  <h2 class="display">What guests <em>say</em></h2>
+  <p class="body-text">Over 20 real encounters from guests across 4 continents — Brazil, Germany, Poland, Turkey, France, Argentina, USA, Belgium, Lithuania, Spain, Mexico, and more. Every word is authentic. This guestbook grows with every soul that passes through the nest.</p>
+
+  <div class="ref-grid" id="refGrid"></div>
+
+  <!-- Add Reference -->
+  <div class="ref-add">
+    <h3>Leave your words</h3>
+    <div class="form-row">
+      <div class="form-field">
+        <label>Your name</label>
+        <input type="text" id="refName" placeholder="How you wish to be known">
+      </div>
+      <div class="form-field">
+        <label>Where you're from</label>
+        <input type="text" id="refLocation" placeholder="City, Country">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>Source</label>
+        <select id="refSource">
+          <option value="Guest">Guest at The Wild Nest</option>
+          <option value="BeWelcome">BeWelcome</option>
+          <option value="Couchsurfing">Couchsurfing</option>
+          <option value="Workshop">Workshop / Event</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-field" style="margin-bottom:16px;">
+      <label>Your experience</label>
+      <textarea id="refText" rows="4" placeholder="Tell others what you found here…"></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>Rating</label>
+        <select id="refRating">
+          <option value="5">★★★★★ — Transformative</option>
+          <option value="4">★★★★☆ — Deeply meaningful</option>
+          <option value="3">★★★☆☆ — Good</option>
+        </select>
+      </div>
+      <div></div>
+    </div>
+    <button class="btn-gold" onclick="addReference()">Submit reference</button>
+    <div id="refSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Thank you. Your words are now part of the nest.</div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="eyebrow">Reach us</div>
+  <h2 class="display">Begin the <em>conversation</em></h2>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Andrea &amp; Beatrice</h3>
+      <p>Ars Tantra Society · The Wild Nest<br>Ferrara, Emilia-Romagna, Italy</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">◆</div>
+        <div class="contact-detail-text">
+          <strong>Location</strong>
+          <span>Ferrara, Italy<br><span style="font-size:12px;color:var(--muted)">UNESCO World Heritage City</span></span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">◆</div>
+        <div class="contact-detail-text">
+          <strong>Hosting</strong>
+          <span>Up to 3 guests · No fixed time limit</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">◆</div>
+        <div class="contact-detail-text">
+          <strong>Languages</strong>
+          <span>Italian (native) · English (advanced) · Spanish (intermediate)</span>
+        </div>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">◆</div>
+        <div class="contact-detail-text">
+          <strong>Find us also on</strong>
+          <span><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank" style="color:var(--gold-light);text-decoration:none;">BeWelcome · ArsTantra</a></span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label>Your name</label>
+        <input type="text" id="ctName" placeholder="Who are you?">
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label>Email</label>
+        <input type="email" id="ctEmail" placeholder="your@email.com">
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label>What draws you here</label>
+        <select id="ctReason">
+          <option value="">Choose one…</option>
+          <option>Hospitality at The Wild Nest</option>
+          <option>Tantra session or workshop</option>
+          <option>Art collaboration</option>
+          <option>Ars Tantra Society community</option>
+          <option>Something else entirely</option>
+        </select>
+      </div>
+      <div class="form-field" style="margin-bottom:16px;">
+        <label>Your message</label>
+        <textarea id="ctMessage" rows="5" placeholder="Tell us about yourself, your journey, what you're seeking…"></textarea>
+      </div>
+      <button class="btn-gold" onclick="submitContact()">Send message</button>
+      <div id="ctSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Message received. We will write back soon.</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="images/arstantra-logo.png" alt="Ars Tantra Society" class="footer-logo-img">
+  <div class="footer-logo">ARS TANTRA</div>
+  <div class="footer-tagline">The Wild Nest · Ferrara, Italy</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#nest">The Wild Nest</a></li>
+    <li><a href="#tantra">Tantra</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="stay.html">Stay</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank">BeWelcome</a></li>
+    <li><a href="privacy.html">Privacy Policy</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ars Tantra Society · Andrea &amp; Beatrice · All rights reserved</div>
+</footer>
+
+<script>
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 4 + 'px';
+  cursor.style.top = my - 4 + 'px';
+});
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx - 16 + 'px';
+  ring.style.top = ry - 16 + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+
+// ─────────────────────────────────────────────────────────
+// THEME SLIDESHOW — staggered so slots don't pulse in sync
+// ─────────────────────────────────────────────────────────
+document.querySelectorAll('.theme-slot').forEach((slot, slotIndex) => {
+  const slides = slot.querySelectorAll('img.slide');
+  if (slides.length <= 1) return;
+  const dots = slot.querySelectorAll('.theme-dot');
+  let cur = 0;
+  // Each slot starts 1.3 s later than the previous one
+  setTimeout(() => {
+    setInterval(() => {
+      slides[cur].classList.remove('active');
+      if (dots[cur]) dots[cur].classList.remove('active');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('active');
+      if (dots[cur]) dots[cur].classList.add('active');
+    }, 4000);
+  }, slotIndex * 1300);
+});
+
+// ─────────────────────────────────────────────────────────
+// LIGHTBOX
+// ─────────────────────────────────────────────────────────
+(function() {
+  const overlay  = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lbImg');
+  const lbCap    = document.getElementById('lbCaption');
+  const lbCount  = document.getElementById('lbCounter');
+  const lbClose  = document.getElementById('lbClose');
+  const lbPrev   = document.getElementById('lbPrev');
+  const lbNext   = document.getElementById('lbNext');
+
+  let items = [];
+  let current = 0;
+
+  function open(index) {
+    if (!items.length) return;
+    current = index;
+    show();
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function show() {
+    const item = items[current];
+    lbImg.style.opacity = 0;
+    lbImg.src = item.src;
+    lbImg.onload = () => { lbImg.style.transition = 'opacity 0.25s'; lbImg.style.opacity = 1; };
+    lbCap.textContent   = item.caption;
+    lbCount.textContent = (current + 1) + ' / ' + items.length;
+    lbPrev.style.visibility = current === 0              ? 'hidden' : 'visible';
+    lbNext.style.visibility = current === items.length-1 ? 'hidden' : 'visible';
+  }
+
+  function prev() { if (current > 0)              { current--; show(); } }
+  function next() { if (current < items.length-1) { current++; show(); } }
+
+  // Click on a theme-slot → open lightbox for that slot's images
+  document.addEventListener('click', e => {
+    const slot = e.target.closest('.theme-slot');
+    if (!slot) return;
+    const slides = [...slot.querySelectorAll('img.slide')];
+    if (!slides.length) return;
+    items = slides.map(s => ({ src: s.src, caption: s.dataset.caption || '' }));
+    // Start from whichever slide is currently visible
+    const activeIdx = slides.findIndex(s => s.classList.contains('active'));
+    open(activeIdx >= 0 ? activeIdx : 0);
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click',  prev);
+  lbNext.addEventListener('click',  next);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  let touchStartX = 0;
+  overlay.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  overlay.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
+})();
+
+
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile nav
+function toggleNav() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// ─────────────────────────────────────────────────────────
+// All Airtable calls go through the Netlify Function proxy.
+// No token here — it lives safely in Netlify env variables.
+// ─────────────────────────────────────────────────────────
+const PROXY = '/.netlify/functions/references';
+
+// ─────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────
+function renderRefs(refs) {
+  const grid = document.getElementById('refGrid');
+  if (!refs || refs.length === 0) {
+    grid.innerHTML = `<div style="color:var(--muted);font-size:14px;grid-column:1/-1;padding:20px 0;">No references yet — be the first to leave your words.</div>`;
+    return;
+  }
+  grid.innerHTML = refs.map(r => `
+    <div class="ref-card">
+      <div class="ref-type">${r.Source || ''}</div>
+      <div class="ref-stars">${'★'.repeat(Number(r.Rating) || 5)}${'☆'.repeat(5 - (Number(r.Rating) || 5))}</div>
+      <div class="ref-text">"${r.Text}"</div>
+      <div class="ref-author">${r.Name}</div>
+      ${r.Location ? `<div class="ref-source">${r.Location}</div>` : ''}
+    </div>
+  `).join('');
+}
+
+// ─────────────────────────────────────────────────────────
+// FETCH — calls the proxy, which returns only Approved refs
+// ─────────────────────────────────────────────────────────
+async function loadReferences() {
+  const grid = document.getElementById('refGrid');
+  grid.innerHTML = `<div style="color:var(--muted);font-size:13px;letter-spacing:2px;grid-column:1/-1;padding:20px 0;">✦ &nbsp; Loading voices…</div>`;
+  try {
+    const res = await fetch(PROXY);
+    if (!res.ok) throw new Error(`Proxy error ${res.status}`);
+    const refs = await res.json();
+    renderRefs(refs);
+  } catch (err) {
+    console.warn('Could not load references:', err);
+    grid.innerHTML = `<div style="color:var(--muted);font-size:13px;letter-spacing:2px;grid-column:1/-1;padding:20px 0;">
+      Could not load references right now. Please check back soon.
+    </div>`;
+  }
+}
+
+loadReferences();
+
+// ─────────────────────────────────────────────────────────
+// SUBMIT — sends to proxy, which saves as Approved: false
+// Andrea approves from Airtable dashboard
+// ─────────────────────────────────────────────────────────
+async function addReference() {
+  const name     = document.getElementById('refName').value.trim();
+  const location = document.getElementById('refLocation').value.trim();
+  const text     = document.getElementById('refText').value.trim();
+  const source   = document.getElementById('refSource').value;
+  const rating   = parseInt(document.getElementById('refRating').value);
+
+  if (!name || !text) {
+    alert('Please fill in your name and your experience.');
+    return;
+  }
+
+  const btn = document.querySelector('.ref-add .btn-gold');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(PROXY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ Name: name, Location: location, Text: text, Source: source, Rating: rating })
+    });
+
+    if (!res.ok) throw new Error(`Proxy error ${res.status}`);
+
+    ['refName','refLocation','refText'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('refSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('refSuccess').style.display = 'none', 5000);
+
+  } catch (err) {
+    console.error('Submit failed:', err);
+    alert('Something went wrong — please try again or write us directly.');
+  } finally {
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }
+}
+
+// EmailJS
+emailjs.init('RjHhnyUTmy-xG8WoQ');
+
+async function submitContact() {
+  const name    = document.getElementById('ctName').value.trim();
+  const email   = document.getElementById('ctEmail').value.trim();
+  const reason  = document.getElementById('ctReason').value;
+  const message = document.getElementById('ctMessage').value.trim();
+
+  if (!name || !message) {
+    alert('Please fill in your name and message.');
+    return;
+  }
+
+  const btn = document.querySelector('#contact .btn-gold');
+  const originalLabel = btn.textContent;
+  btn.textContent = 'Sending…';
+  btn.disabled = true;
+
+  try {
+    await emailjs.send('service_539wnmr', 'template_8k4231i', {
+      name:    name,
+      email:   email,
+      reason:  reason,
+      message: message,
+    });
+
+    ['ctName','ctEmail','ctMessage'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('ctReason').selectedIndex = 0;
+    document.getElementById('ctSuccess').style.display = 'block';
+    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
+
+  } catch (err) {
+    console.error('EmailJS error:', err);
+    alert('Something went wrong — please try again or write us directly at info@arstantra.org');
+  } finally {
+    btn.textContent = originalLabel;
+    btn.disabled = false;
+  }
+}
+</script>
+
+<!-- COOKIE BANNER -->
+<style>
+#cookie-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 9500;
+  background: rgba(12, 9, 7, 0.97);
+  border-top: 1px solid rgba(184,134,11,0.22);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+  transform: translateY(100%);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#cookie-bar.visible { transform: translateY(0); }
+#cookie-bar.hidden  { display: none; }
+#cookie-bar p {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #7a6e62;
+  line-height: 1.7;
+  margin: 0;
+  flex: 1;
+  min-width: 200px;
+}
+#cookie-bar p a {
+  color: #b8860b;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184,134,11,0.3);
+  transition: border-color 0.3s;
+}
+#cookie-bar p a:hover { border-color: #b8860b; }
+.cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.cb-decline {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #3a3028;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 0;
+  transition: color 0.3s;
+}
+.cb-decline:hover { color: #7a6e62; }
+.cb-accept {
+  font-family: 'Raleway', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d4a843;
+  background: transparent;
+  border: 1px solid rgba(184,134,11,0.4);
+  cursor: pointer;
+  padding: 10px 24px;
+  transition: all 0.35s;
+}
+.cb-accept:hover {
+  background: rgba(184,134,11,0.08);
+  border-color: rgba(184,134,11,0.7);
+  letter-spacing: 4px;
+}
+@media (max-width: 768px) {
+  #cookie-bar { padding: 14px 20px; }
+  #cookie-bar p { font-size: 11px; }
+}
+</style>
+
+<div id="cookie-bar">
+  <p>
+    <span style="color:#b8860b;margin-right:6px;font-size:10px;">✦</span>
+    Questo sito usa cookie analitici (Google Analytics) · This site uses analytics cookies — nessun dato personale è condiviso / no personal data is shared.
+    <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a>
+  </p>
+  <div class="cookie-actions">
+    <button class="cb-decline" onclick="cookieDecline()">Rifiuta</button>
+    <button class="cb-accept"  onclick="cookieAccept()">Accetta</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var saved = localStorage.getItem('at_cookie_consent');
+  if (!saved) {
+    setTimeout(function() {
+      var bar = document.getElementById('cookie-bar');
+      if (bar) bar.classList.add('visible');
+    }, 1200);
+  }
+})();
+
+function closeCookieBar() {
+  var bar = document.getElementById('cookie-bar');
+  bar.classList.remove('visible');
+  setTimeout(function(){ bar.classList.add('hidden'); }, 500);
+}
+
+function cookieAccept() {
+  grantAnalytics();
+  closeCookieBar();
+}
+
+function cookieDecline() {
+  denyAnalytics();
+  closeCookieBar();
+}
+</script>
+</body>
+</html>
