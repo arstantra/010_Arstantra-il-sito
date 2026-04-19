@@ -494,9 +494,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 async function loadSubstackFeed() {
   const grid = document.getElementById('postsGrid');
 
-  // Show loading state
-  grid.innerHTML = `<div class="state-msg"><span class="ornament">✦</span>Loading from Substack…</div>`;
-
   try {
     const RSS_URL = 'https://arstantra.substack.com/feed';
     const API     = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&api_key=miuxhvjirbwuabytw9tfblhybeemlpjmdr7b7xsg&count=8`;
@@ -573,7 +570,8 @@ function subscribeSubstack() {
 }
 
 /* ── INIT ── */
-// Try live Substack feed first — placeholders shown only if feed fails
+// Show placeholders immediately, then try to replace with live Substack feed
+renderPosts('all');
 loadSubstackFeed();
 </script>
 </body>

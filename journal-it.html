@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Journal & Events · Ars Tantra Society</title>
+<title>Journal & Eventi · Ars Tantra Society</title>
 <meta name="description" content="Scritti, riflessioni ed eventi da Ars Tantra Society — The Wild Nest, Ferrara. Ritiri, sessioni di body painting e notizie dal nest.">
 <link rel="canonical" href="https://arstantra.org/journal">
 <meta property="og:type"        content="website">
@@ -313,14 +313,14 @@ footer { background:var(--void); border-top:1px solid var(--border); padding:48p
     <li><a href="index-it.html#references">Referenze</a></li>
     <li><a href="index-it.html#contact">Contatti</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" onclick="toggleNav()"> id="navToggle" onclick="toggleNav()">
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- HERO -->
 <div class="page-hero">
-  <div class="hero-ornament">✦ &nbsp; Writings & Gatherings &nbsp; ✦</div>
+  <div class="hero-ornament">✦ &nbsp; Scritti & Incontri &nbsp; ✦</div>
   <h1>Journal<br><em>& Events</em></h1>
   <div class="hero-divider"></div>
   <div class="hero-sub">Dal nest · Ritiri · Riflessioni</div>
@@ -494,9 +494,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 async function loadSubstackFeed() {
   const grid = document.getElementById('postsGrid');
 
-  // Show loading state
-  grid.innerHTML = `<div class="state-msg"><span class="ornament">✦</span>Loading from Substack…</div>`;
-
   try {
     const RSS_URL = 'https://arstantra.substack.com/feed';
     const API     = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&api_key=miuxhvjirbwuabytw9tfblhybeemlpjmdr7b7xsg&count=8`;
@@ -574,7 +571,8 @@ function subscribeSubstack() {
 }
 
 /* ── INIT ── */
-// Try live Substack feed first — placeholders shown only if feed fails
+// Show placeholders immediately, then try to replace with live Substack feed
+renderPosts('all');
 loadSubstackFeed();
 </script>
 </body>
