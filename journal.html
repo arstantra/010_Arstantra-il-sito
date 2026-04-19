@@ -517,7 +517,7 @@ async function loadSubstackFeed() {
       link:     item.link
     }));
 
-    grid.innerHTML = livePosts.map((p, i) => {
+    const cards = livePosts.map((p, i) => {
       const imgHtml = p.img
         ? `<div class="post-img-wrap"><img class="post-img" src="${p.img}" alt="${p.title}" loading="lazy"></div>`
         : '';
@@ -539,6 +539,17 @@ async function loadSubstackFeed() {
         ${content}
       </a>`;
     }).join('');
+
+    // If only one post, add an elegant "more coming" message
+    const comingSoon = livePosts.length === 1
+      ? `<div class="post-card" style="grid-column:1/-1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 32px;background:var(--void);">
+          <div style="font-size:18px;color:var(--gold);margin-bottom:16px;">✦</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--cream);margin-bottom:12px;line-height:1.4;">More writings on their way.</div>
+          <div style="font-size:13px;color:var(--muted);max-width:360px;line-height:1.8;">Subscribe below to receive the next one directly in your inbox — no noise, only words worth reading.</div>
+        </div>`
+      : '';
+
+    grid.innerHTML = cards + comingSoon;
 
   } catch(e) {
     console.warn('Substack RSS fetch failed:', e);
