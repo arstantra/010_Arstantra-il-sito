@@ -84,6 +84,8 @@ nav {
 .nav-links a:hover, .nav-links a.active { color:var(--gold-light); }
 .nav-toggle { display:none; background:none; border:none; cursor:none; }
 .nav-toggle span { display:block; width:24px; height:1px; background:var(--gold-light); margin:5px 0; transition:all 0.3s; }
+.nav-home { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#c2b299; text-decoration:none; font-weight:500; transition:color 0.3s; }
+.nav-home:hover { color:var(--gold-light); }
 
 /* PAGE HERO */
 .page-hero {
@@ -311,19 +313,7 @@ footer { background:var(--void); border-top:1px solid var(--border); padding:48p
       <a href="#" class="active">IT</a>
     </div>
   </div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index-it.html#about">Chi siamo</a></li>
-    <li><a href="index-it.html#nest">The Wild Nest</a></li>
-    <li><a href="index-it.html#tantra">Tantra</a></li>
-    <li><a href="index-it.html#gallery">Galleria</a></li>
-    <li><a href="journal-it.html" class="active">Journal</a></li>
-    <li><a href="stay-it.html">Soggiornare</a></li>
-    <li><a href="index-it.html#references">Referenze</a></li>
-    <li><a href="index-it.html#contact">Contatti</a></li>
-  </ul>
-  <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="index-it.html" class="nav-home">← Home</a>
 </nav>
 
 <!-- HERO -->
