@@ -130,15 +130,38 @@ nav.scrolled {
   list-style: none;
 }
 .nav-links a {
-  font-size: 9px;
+  font-size: 10px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #c2b299;
   text-decoration: none;
   transition: color 0.3s;
-  font-weight: 400;
+  font-weight: 500;
 }
 .nav-links a:hover { color: var(--gold-light); }
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  transition: border-color 0.3s;
+}
+.lang-toggle:hover { border-color: rgba(184,134,11,0.5); }
+.lang-toggle a {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 9px !important;
+  font-weight: 400 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: var(--muted) !important;
+  text-decoration: none !important;
+  transition: color 0.3s;
+}
+.lang-toggle a.active { color: var(--gold-light) !important; }
+.lang-toggle a:hover { color: var(--gold-light) !important; }
+.lang-sep { color: rgba(184,134,11,0.3); font-size: 9px; }
 .nav-toggle { display: none; background: none; border: none; cursor: none; }
 .nav-toggle span {
   display: block; width: 24px; height: 1px;
@@ -932,6 +955,41 @@ footer {
   .lightbox-close { top: 16px; right: 16px; }
   .lightbox-overlay { cursor: auto; }
 }
+/* TEASERS — Journal & Stay */
+.teaser {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 48px;
+}
+.teaser.reversed .teaser-media { order: 2; }
+.teaser-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+}
+.teaser-media img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: brightness(0.82) saturate(0.95);
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+.teaser:hover .teaser-media img { transform: scale(1.04); filter: brightness(0.92) saturate(1); }
+.teaser-body .eyebrow { margin-bottom: 18px; }
+.teaser-body h2 { margin-bottom: 20px; }
+.teaser-body .body-text { margin-bottom: 28px; }
+@media (max-width: 768px) {
+  .teaser {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 64px 24px;
+  }
+  .teaser.reversed .teaser-media { order: 0; }
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
@@ -1470,6 +1528,38 @@ footer {
   </div>
 
 </div>
+
+<div class="hr"></div>
+
+<!-- JOURNAL TEASER -->
+<section id="journal" class="teaser">
+  <div class="teaser-media">
+    <img src="images/connection-body-painting-session-wild-nest-ferrara.webp"
+         alt="Writings and gatherings from the Wild Nest" loading="lazy">
+  </div>
+  <div class="teaser-body">
+    <div class="eyebrow">Writings &amp; Gatherings</div>
+    <h2 class="display">Journal <em>&amp; Events</em></h2>
+    <p class="body-text">Dispatches from the nest — reflections on tantra and art, upcoming retreats, and open invitations to gather. New writings appear only when something is truly worth saying.</p>
+    <a href="journal.html" class="hero-cta">Read the journal →</a>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- STAY TEASER -->
+<section id="stay" class="teaser reversed">
+  <div class="teaser-media">
+    <img src="images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp"
+         alt="A room at the Wild Nest in Ferrara" loading="lazy">
+  </div>
+  <div class="teaser-body">
+    <div class="eyebrow">A different kind of welcome</div>
+    <h2 class="display">Come <em>&amp; Stay</em></h2>
+    <p class="body-text">Not a hotel — a living space. No rates, no booking engine, no star ratings. The Wild Nest opens its home in the spirit of the gift, asking only for your genuine presence and honest intention.</p>
+    <a href="stay.html" class="hero-cta">Book your stay →</a>
+  </div>
+</section>
 
 <div class="hr"></div>
 
