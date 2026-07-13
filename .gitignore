@@ -1,0 +1,24 @@
+# ─────────────────────────────────────────────
+# Cartella materiali di lavoro — MAI committare/pushare
+# ─────────────────────────────────────────────
+_archivio/
+
+# Dipendenze
+node_modules/
+
+# Netlify
+.netlify/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+
+# Log / temporanei
+*.log
+*.tmp
+.fuse_hidden*

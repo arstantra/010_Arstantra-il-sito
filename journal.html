@@ -6,11 +6,19 @@
 <title>Journal & Events · Ars Tantra Society</title>
 <meta name="description" content="Writings, reflections and events from Ars Tantra Society — The Wild Nest, Ferrara. Retreats, body painting sessions, and dispatches from the nest.">
 <link rel="canonical" href="https://arstantra.org/journal">
+
+<!-- hreflang — versioni linguistiche -->
+<link rel="alternate" hreflang="en" href="https://arstantra.org/journal">
+<link rel="alternate" hreflang="it" href="https://arstantra.org/journal-it">
+<link rel="alternate" hreflang="x-default" href="https://arstantra.org/journal">
+
 <meta property="og:type"        content="website">
 <meta property="og:url"         content="https://arstantra.org/journal">
 <meta property="og:title"       content="Journal & Events · Ars Tantra Society">
 <meta property="og:description" content="Writings, reflections and events from The Wild Nest, Ferrara.">
 <meta property="og:image"       content="https://arstantra.org/images/arstantra-about-art-colour-body.webp">
+<meta property="og:locale"      content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
 <meta property="og:site_name"   content="Ars Tantra Society">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -495,8 +503,8 @@ async function loadSubstackFeed() {
   const grid = document.getElementById('postsGrid');
 
   try {
-    const RSS_URL = 'https://arstantra.substack.com/feed';
-    const API     = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(RSS_URL)}&api_key=miuxhvjirbwuabytw9tfblhybeemlpjmdr7b7xsg&count=8`;
+    // Feed servito dal proxy Netlify — nessuna chiave nel codice pubblico
+    const API  = '/.netlify/functions/feed';
     const res  = await fetch(API);
     const data = await res.json();
 

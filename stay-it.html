@@ -4,13 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vieni &amp; Soggiorna · Ars Tantra Society · Ferrara</title>
-<meta name="description" content="Stay at The Wild Nest in Ferrara — a sanctuary of art, tantra and naturism. Free hospitality rooted in the culture of the gift. Check availability and apply.">
-<link rel="canonical" href="https://arstantra.org/stay">
+<meta name="description" content="Soggiorna a The Wild Nest a Ferrara — un rifugio di arte, tantra e naturismo. Ospitalità gratuita fondata sulla cultura del dono. Verifica la disponibilità e candidati.">
+<link rel="canonical" href="https://arstantra.org/stay-it">
+
+<!-- hreflang — versioni linguistiche -->
+<link rel="alternate" hreflang="en" href="https://arstantra.org/stay">
+<link rel="alternate" hreflang="it" href="https://arstantra.org/stay-it">
+<link rel="alternate" hreflang="x-default" href="https://arstantra.org/stay">
+
 <meta property="og:type"        content="website">
-<meta property="og:url"         content="https://arstantra.org/stay">
-<meta property="og:title"       content="Stay at The Wild Nest · Ars Tantra Society">
-<meta property="og:description" content="Free hospitality in Ferrara rooted in the culture of the gift. Check availability and begin the conversation.">
+<meta property="og:url"         content="https://arstantra.org/stay-it">
+<meta property="og:title"       content="Vieni &amp; Soggiorna · Ars Tantra Society">
+<meta property="og:description" content="Ospitalità gratuita a Ferrara fondata sulla cultura del dono. Verifica la disponibilità e inizia la conversazione.">
 <meta property="og:image"       content="https://arstantra.org/images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp">
+<meta property="og:locale"      content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:site_name"   content="Ars Tantra Society">
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -297,10 +305,10 @@ footer { background:var(--void); border-top:1px solid var(--border); padding:48p
       <p class="body-text">In cambio non chiediamo nulla di materiale. Quello che chiediamo è più difficile e più prezioso: la tua presenza autentica, la tua intenzione onesta e la disponibilità a contribuire allo spazio — in qualsiasi forma venga naturale.</p>
     </div>
     <div>
-      <img src="images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp"
+      <img loading="lazy" decoding="async" src="images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp"
            alt="Bedroom at The Wild Nest, Ferrara — mandala bedspread and candles"
            style="width:100%;opacity:0.8;filter:sepia(10%) contrast(1.05);border:1px solid var(--border);">
-      <img src="images/the-space-living-room-altar-candles-wild-nest-ferrara.webp"
+      <img loading="lazy" decoding="async" src="images/the-space-living-room-altar-candles-wild-nest-ferrara.webp"
            alt="Living room at The Wild Nest — candles and altar"
            style="width:100%;opacity:0.75;filter:sepia(10%) contrast(1.05);border:1px solid var(--border);border-top:none;margin-top:0;">
     </div>
@@ -453,15 +461,4 @@ document.addEventListener('mousemove', e => {
 })();
 
 function toggleNav(){ document.getElementById('navLinks').classList.toggle('open'); }
-document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', e => {
-  document.getElementById('navLinks').classList.remove('open');
-  const href = a.getAttribute('href');
-  if (href && href.startsWith('#')) {
-    e.preventDefault();
-    const target = document.querySelector(href);
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
-  }
-}));
-</script>
-</body>
-</html>
+docu

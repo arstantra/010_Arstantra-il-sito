@@ -11,6 +11,11 @@
 <meta name="author" content="Ars Tantra Society">
 <link rel="canonical" href="https://arstantra.org/">
 
+<!-- hreflang — versioni linguistiche -->
+<link rel="alternate" hreflang="en" href="https://arstantra.org/">
+<link rel="alternate" hreflang="it" href="https://arstantra.org/index-it">
+<link rel="alternate" hreflang="x-default" href="https://arstantra.org/">
+
 <!-- Open Graph — social sharing (Facebook, WhatsApp, LinkedIn) -->
 <meta property="og:type"         content="website">
 <meta property="og:url"          content="https://arstantra.org/">
@@ -20,6 +25,7 @@
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale"       content="en_GB">
+<meta property="og:locale:alternate" content="it_IT">
 <meta property="og:site_name"    content="Ars Tantra Society">
 
 <!-- Twitter / X card -->
@@ -966,6 +972,32 @@ footer {
     }
   })();
 </script>
+<!-- Structured data (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Ars Tantra Society",
+  "alternateName": "The Wild Nest",
+  "url": "https://arstantra.org/",
+  "logo": "https://arstantra.org/images/arstantra-logo.png",
+  "image": "https://arstantra.org/images/arstantra-about-art-colour-body.webp",
+  "description": "A sanctuary in Ferrara, Italy. Art, tantra, naturism and authentic human connection, hosted by Andrea & Beatrice at The Wild Nest.",
+  "location": {
+    "@type": "Place",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ferrara",
+      "addressRegion": "Emilia-Romagna",
+      "addressCountry": "IT"
+    }
+  },
+  "sameAs": [
+    "https://www.bewelcome.org/members/ArsTantra",
+    "https://arstantra.substack.com"
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -1039,7 +1071,7 @@ footer {
     </div>
     <div class="about-visual">
       <div class="about-frame">
-        <img src="images/arstantra-about-art-colour-body.webp"
+        <img loading="lazy" decoding="async" src="images/arstantra-about-art-colour-body.webp"
              alt="Art colour body — Ars Tantra Society, Ferrara"
              style="width:100%;height:100%;object-fit:cover;opacity:0.85;transition:opacity 0.5s,transform 0.6s;">
       </div>
@@ -1171,19 +1203,19 @@ footer {
 
       <!-- AT TABLE -->
       <div class="theme-slot" data-theme="at-table">
-        <img class="slide active" src="images/at-table-risotto-borlotti-wild-nest-ferrara.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/at-table-risotto-borlotti-wild-nest-ferrara.webp"
              alt="Risotto ai borlotti — At Table, The Wild Nest, Ferrara"
              data-caption="Risotto ai borlotti with cream — food as meditation, as care.">
-        <img class="slide" src="images/at-table-pesto-mortar-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/at-table-pesto-mortar-wild-nest-ferrara.webp"
              alt="Fresh pesto in marble mortar — The Wild Nest kitchen, Ferrara"
              data-caption="Pesto made by hand, in a marble mortar. Slow is the point.">
-        <img class="slide" src="images/at-table-wine-selection-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/at-table-wine-selection-wild-nest-ferrara.webp"
              alt="Wine selection — The Wild Nest, Ferrara"
              data-caption="Five bottles, five stories. Every evening is different.">
-        <img class="slide" src="images/at-table-kitchen-prep-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/at-table-kitchen-prep-wild-nest-ferrara.webp"
              alt="Kitchen preparation with colours — The Wild Nest, Ferrara"
              data-caption="Where cooking and body painting share the same counter. Both are acts of attention.">
-        <img class="slide" src="images/at-table-setting-colorful-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/at-table-setting-colorful-wild-nest-ferrara.webp"
              alt="Colourful table setting — The Wild Nest, Ferrara"
              data-caption="The table as altar. Colour, texture, intention.">
         <div class="theme-dot-row" id="dots-at-table">
@@ -1198,25 +1230,25 @@ footer {
 
       <!-- BODY PAINTING -->
       <div class="theme-slot" data-theme="body-painting">
-        <img class="slide active" src="images/body-painting-starry-night-vangogh-wild-nest-ferrara.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/body-painting-starry-night-vangogh-wild-nest-ferrara.webp"
              alt="Body painting Van Gogh Starry Night — The Wild Nest, Ferrara"
              data-caption="Van Gogh's Starry Night, repainted on skin. The swirls move differently when they breathe.">
-        <img class="slide" src="images/body-painting-uv-blacklight-neon-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/body-painting-uv-blacklight-neon-wild-nest-ferrara.webp"
              alt="UV blacklight neon body painting — The Wild Nest, Ferrara"
              data-caption="Under UV light, the body becomes a galaxy. Paint that only reveals itself in the dark.">
-        <img class="slide" src="images/body-painting-botanical-flowers-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/body-painting-botanical-flowers-wild-nest-ferrara.webp"
              alt="Botanical flowers body painting — The Wild Nest, Ferrara"
              data-caption="The body as garden. Blue lotus on the left, pink peony on the right — the belly a bud not yet open.">
-        <img class="slide" src="images/body-painting-mondrian-geometric-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/body-painting-mondrian-geometric-wild-nest-ferrara.webp"
              alt="Mondrian geometric body painting — The Wild Nest, Ferrara"
              data-caption="Mondrian never had a canvas this alive. The body refuses to stay inside the lines.">
-        <img class="slide" src="images/body-painting-artichoke-leaves-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/body-painting-artichoke-leaves-wild-nest-ferrara.webp"
              alt="Artichoke leaves body painting — The Wild Nest, Ferrara"
              data-caption="Leaves growing from the navel outward. The body as root, as soil, as plant.">
-        <img class="slide" src="images/body-painting-still-life-morandi-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/body-painting-still-life-morandi-wild-nest-ferrara.webp"
              alt="Still life Morandi style body painting — The Wild Nest, Ferrara"
              data-caption="A still life painted on a body that breathes. Morandi would have approved.">
-        <img class="slide" src="images/body-painting-hands-figure-wall-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/body-painting-hands-figure-wall-wild-nest-ferrara.webp"
              alt="Body painting hands and figures against painted wall — The Wild Nest, Ferrara"
              data-caption="Canvas and wall become one. The nest is the studio.">
         <div class="theme-dot-row" id="dots-body-painting">
@@ -1234,19 +1266,19 @@ footer {
       <!-- THE SPACE — placeholder -->
       <!-- THE SPACE -->
       <div class="theme-slot" data-theme="the-space">
-        <img class="slide active" src="images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/the-space-bedroom-mandala-candles-wild-nest-ferrara.webp"
              alt="Bedroom with mandala bedspread and candles — The Wild Nest, Ferrara"
              data-caption="The mandala opens at the centre of the bed. Everything in this room is intentional.">
-        <img class="slide" src="images/the-space-living-room-altar-candles-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/the-space-living-room-altar-candles-wild-nest-ferrara.webp"
              alt="Living room with candles altar and artwork — The Wild Nest, Ferrara"
              data-caption="A katana, a painting, a row of candles. The space tells you who lives here before they say a word.">
-        <img class="slide" src="images/the-space-mandala-bedspread-oils-tray-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/the-space-mandala-bedspread-oils-tray-wild-nest-ferrara.webp"
              alt="Mandala bedspread with massage oils tray — The Wild Nest, Ferrara"
              data-caption="Massage oils on a tray, at the centre of the pattern. Ready. Unhurried.">
-        <img class="slide" src="images/the-space-candles-singing-bowl-detail-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/the-space-candles-singing-bowl-detail-wild-nest-ferrara.webp"
              alt="Coloured candles and Tibetan singing bowl — The Wild Nest, Ferrara"
              data-caption="Seven candles, one bowl. Sound and light — the simplest altar there is.">
-        <img class="slide" src="images/the-space-kitchen-mural-painted-wall-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/the-space-kitchen-mural-painted-wall-wild-nest-ferrara.webp"
              alt="Kitchen with painted wall mural — The Wild Nest, Ferrara"
              data-caption="The kitchen wall is a canvas. In this house, no surface is left untouched.">
         <div class="theme-dot-row" id="dots-the-space">
@@ -1261,10 +1293,10 @@ footer {
 
       <!-- PRACTICE -->
       <div class="theme-slot" data-theme="practice">
-        <img class="slide active" src="images/practice-tantric-massage-touch-wild-nest-ferrara.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/practice-tantric-massage-touch-wild-nest-ferrara.webp"
              alt="Tantric massage conscious touch — Practice, The Wild Nest, Ferrara"
              data-caption="Hands that listen before they move. This is the first principle of tantric touch.">
-        <img class="slide" src="images/practice-body-painting-floor-session-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/practice-body-painting-floor-session-wild-nest-ferrara.webp"
              alt="Body painting floor session with paint palette — Practice, The Wild Nest, Ferrara"
              data-caption="On the floor, at table level, mixing colours. No hierarchy here — just attention.">
         <div class="theme-dot-row" id="dots-practice">
@@ -1276,19 +1308,19 @@ footer {
 
       <!-- CONNECTION -->
       <div class="theme-slot" data-theme="connection">
-        <img class="slide active" src="images/connection-body-painting-embrace-wild-nest-ferrara.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/connection-body-painting-embrace-wild-nest-ferrara.webp"
              alt="Body painting embrace — Connection, The Wild Nest, Ferrara"
              data-caption="Two bodies, one painting. The canvas holds the embrace.">
-        <img class="slide" src="images/connection-body-painting-trio-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/connection-body-painting-trio-wild-nest-ferrara.webp"
              alt="Body painting trio session — Connection, The Wild Nest, Ferrara"
              data-caption="Three people. One session. The boundary between painting and touching dissolves slowly.">
-        <img class="slide" src="images/connection-body-painting-session-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/connection-body-painting-session-wild-nest-ferrara.webp"
              alt="Body painting session — Connection, The Wild Nest, Ferrara"
              data-caption="The palette, the brush, the skin. A meditation with colours.">
-        <img class="slide" src="images/connection-group-body-painting-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/connection-group-body-painting-wild-nest-ferrara.webp"
              alt="Group body painting session — Connection, The Wild Nest, Ferrara"
              data-caption="Everyone painted, no one watching. This is the difference.">
-        <img class="slide" src="images/connection-nude-figure-curled-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/connection-nude-figure-curled-wild-nest-ferrara.webp"
              alt="Nude figure curled, artistic portrait — The Wild Nest, Ferrara"
              data-caption="The body folded into itself. Resting, not hiding.">
         <div class="theme-dot-row" id="dots-connection">
@@ -1304,19 +1336,19 @@ footer {
       <!-- DETAILS — placeholder -->
       <!-- DETAILS -->
       <div class="theme-slot" data-theme="details">
-        <img class="slide active" src="images/details-tibetan-singing-bowl-candles-wild-nest-ferrara.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/details-tibetan-singing-bowl-candles-wild-nest-ferrara.webp"
              alt="Tibetan singing bowl with coloured candles — The Wild Nest, Ferrara"
              data-caption="One strike of the bowl and the room changes. Sound is the fastest way in.">
-        <img class="slide" src="images/details-massage-oils-tray-mandala-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/details-massage-oils-tray-mandala-wild-nest-ferrara.webp"
              alt="Massage oils on tray against mandala bedspread — The Wild Nest, Ferrara"
              data-caption="Everything on this tray has a purpose. Nothing is decorative.">
-        <img class="slide" src="images/details-ceramic-cloud-birds-sculpture-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/details-ceramic-cloud-birds-sculpture-wild-nest-ferrara.webp"
              alt="Ceramic cloud and birds sculpture above village rooftops — The Wild Nest, Ferrara"
              data-caption="Two birds on a cloud above the rooftops. Someone here has a sense of humour about the infinite.">
-        <img class="slide" src="images/details-abstract-triptych-painting-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/details-abstract-triptych-painting-wild-nest-ferrara.webp"
              alt="Abstract triptych painting blue red white — The Wild Nest, Ferrara"
              data-caption="Three panels, one breath. Andrea painted this. It hangs where you can see it from the bed.">
-        <img class="slide" src="images/details-artist-oil-paint-box-wild-nest-ferrara.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/details-artist-oil-paint-box-wild-nest-ferrara.webp"
              alt="Artist oil paint box with Maimeri tubes — The Wild Nest, Ferrara"
              data-caption="Ivory Black, Burnt Sienna, Cadmium Red. The box has been open a long time.">
         <div class="theme-dot-row" id="dots-details">
@@ -1353,16 +1385,16 @@ footer {
       <!-- FERRARA — placeholder -->
       <!-- FERRARA -->
       <div class="theme-slot" data-theme="ferrara">
-        <img class="slide active" src="images/ferrara-castello-estense-renaissance-castle.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/ferrara-castello-estense-renaissance-castle.webp"
              alt="Castello Estense, Ferrara — Renaissance moated castle"
              data-caption="The Castello Estense has been at the centre of Ferrara for six centuries. It still runs the city's time.">
-        <img class="slide" src="images/ferrara-liberty-villa-art-nouveau-round-window.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/ferrara-liberty-villa-art-nouveau-round-window.webp"
              alt="Liberty Art Nouveau villa with round window, Ferrara"
              data-caption="A Liberty villa hiding behind trees. Ferrara keeps its best secrets just off the main road.">
-        <img class="slide" src="images/ferrara-cathedral-baroque-interior-organ.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/ferrara-cathedral-baroque-interior-organ.webp"
              alt="Ferrara cathedral baroque interior with pipe organ"
              data-caption="Light from the open door, organ pipes above. Sound and silence in the same frame.">
-        <img class="slide" src="images/ferrara-ariosto-monument-piazza-travaglio.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/ferrara-ariosto-monument-piazza-travaglio.webp"
              alt="Ariosto monument column, Ferrara"
              data-caption="Ludovico Ariosto, poet of the impossible, looks out over a city that still believes in magic.">
         <div class="theme-dot-row" id="dots-ferrara">
@@ -1377,13 +1409,13 @@ footer {
       <!-- THE TERRITORY — placeholder -->
       <!-- THE TERRITORY -->
       <div class="theme-slot" data-theme="territory">
-        <img class="slide active" src="images/territory-bondenese-canal-farmhouse-sunset.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/territory-bondenese-canal-farmhouse-sunset.webp"
              alt="Bondenese canal with farmhouse at sunset, Po plain, Ferrara"
              data-caption="The Bondenese at dusk. A canal, a farmhouse, the sky doing all the work.">
-        <img class="slide" src="images/territory-bondenese-canal-village-horizon.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/territory-bondenese-canal-village-horizon.webp"
              alt="Bondenese canal with village on the horizon, Po plain"
              data-caption="Flat land, long light, a bell tower on the horizon. This is the landscape that shaped everything here.">
-        <img class="slide" src="images/territory-lidi-ferraresi-beach-huts-dawn.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/territory-lidi-ferraresi-beach-huts-dawn.webp"
              alt="Lidi Ferraresi beach huts at dawn — Adriatic coast"
              data-caption="The Lidi at dawn, before anyone arrives. White doors, pine trees, the Adriatic just out of frame.">
         <div class="theme-dot-row" id="dots-territory">
@@ -1397,28 +1429,28 @@ footer {
       <!-- NEAR & FAR — placeholder -->
       <!-- NEAR & FAR -->
       <div class="theme-slot" data-theme="near-far">
-        <img class="slide active" src="images/near-far-venice-grand-canal-gondolas.webp"
+        <img class="slide active" loading="lazy" decoding="async" src="images/near-far-venice-grand-canal-gondolas.webp"
              alt="Venice Grand Canal with boats and gondolas"
              data-caption="Venice. One hour by train. A city that exists to remind you that the impossible is just a matter of will.">
-        <img class="slide" src="images/near-far-ravenna-sant-apollinare-byzantine-mosaics.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-ravenna-sant-apollinare-byzantine-mosaics.webp"
              alt="Ravenna Sant'Apollinare in Classe Byzantine mosaics interior"
              data-caption="Ravenna's gold mosaics have been staring back at people for 1,500 years. They don't blink.">
-        <img class="slide" src="images/near-far-bologna-neptune-fountain-piazza-maggiore.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-bologna-neptune-fountain-piazza-maggiore.webp"
              alt="Bologna Neptune fountain, Piazza Maggiore at sunset"
              data-caption="Neptune, naked and commanding, in the centre of Bologna. The city approves.">
-        <img class="slide" src="images/near-far-florence-ponte-vecchio-arno.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-florence-ponte-vecchio-arno.webp"
              alt="Florence Ponte Vecchio on the Arno river at golden hour"
              data-caption="Florence in the afternoon light. Two hours south and five centuries back.">
-        <img class="slide" src="images/near-far-venice-aerial-lagoon-view.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-venice-aerial-lagoon-view.webp"
              alt="Venice aerial view over the lagoon from campanile"
              data-caption="Venice from above: a city floating on water and on stubbornness in equal measure.">
-        <img class="slide" src="images/near-far-bologna-santo-stefano-piazza.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-bologna-santo-stefano-piazza.webp"
              alt="Bologna Piazza Santo Stefano with porticos"
              data-caption="Piazza Santo Stefano, Bologna. Porticos, pigeons, and the best mortadella you will ever eat.">
-        <img class="slide" src="images/near-far-dolomites-alpine-village-church.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-dolomites-alpine-village-church.webp"
              alt="Dolomites alpine village with church and forest"
              data-caption="Two hours north and the landscape turns vertical. The Dolomites don't compromise.">
-        <img class="slide" src="images/near-far-urbino-cathedral-piazza-rinascimento.webp"
+        <img class="slide" loading="lazy" decoding="async" src="images/near-far-urbino-cathedral-piazza-rinascimento.webp"
              alt="Urbino cathedral and Piazza Rinascimento"
              data-caption="Urbino — where the Renaissance was born quietly, in a hilltop city most people still haven't found.">
         <div class="theme-dot-row" id="dots-near-far">
@@ -1454,17 +1486,17 @@ footer {
     <h3>Leave your words</h3>
     <div class="form-row">
       <div class="form-field">
-        <label>Your name</label>
+        <label for="refName">Your name</label>
         <input type="text" id="refName" placeholder="How you wish to be known">
       </div>
       <div class="form-field">
-        <label>Where you're from</label>
+        <label for="refLocation">Where you're from</label>
         <input type="text" id="refLocation" placeholder="City, Country">
       </div>
     </div>
     <div class="form-row">
       <div class="form-field">
-        <label>Source</label>
+        <label for="refSource">Source</label>
         <select id="refSource">
           <option value="Guest">Guest at The Wild Nest</option>
           <option value="BeWelcome">BeWelcome</option>
@@ -1475,12 +1507,12 @@ footer {
       </div>
     </div>
     <div class="form-field" style="margin-bottom:16px;">
-      <label>Your experience</label>
+      <label for="refText">Your experience</label>
       <textarea id="refText" rows="4" placeholder="Tell others what you found here…"></textarea>
     </div>
     <div class="form-row">
       <div class="form-field">
-        <label>Rating</label>
+        <label for="refRating">Rating</label>
         <select id="refRating">
           <option value="5">★★★★★ — Transformative</option>
           <option value="4">★★★★☆ — Deeply meaningful</option>
@@ -1538,15 +1570,15 @@ footer {
 
     <div>
       <div class="form-field" style="margin-bottom:16px;">
-        <label>Your name</label>
+        <label for="ctName">Your name</label>
         <input type="text" id="ctName" placeholder="Who are you?">
       </div>
       <div class="form-field" style="margin-bottom:16px;">
-        <label>Email</label>
+        <label for="ctEmail">Email</label>
         <input type="email" id="ctEmail" placeholder="your@email.com">
       </div>
       <div class="form-field" style="margin-bottom:16px;">
-        <label>What draws you here</label>
+        <label for="ctReason">What draws you here</label>
         <select id="ctReason">
           <option value="">Choose one…</option>
           <option>Hospitality at The Wild Nest</option>
@@ -1557,7 +1589,7 @@ footer {
         </select>
       </div>
       <div class="form-field" style="margin-bottom:16px;">
-        <label>Your message</label>
+        <label for="ctMessage">Your message</label>
         <textarea id="ctMessage" rows="5" placeholder="Tell us about yourself, your journey, what you're seeking…"></textarea>
       </div>
       <button class="btn-gold" onclick="submitContact()">Send message</button>
@@ -1961,20 +1993,3 @@ async function submitContact() {
 })();
 
 function closeCookieBar() {
-  var bar = document.getElementById('cookie-bar');
-  bar.classList.remove('visible');
-  setTimeout(function(){ bar.classList.add('hidden'); }, 500);
-}
-
-function cookieAccept() {
-  grantAnalytics();
-  closeCookieBar();
-}
-
-function cookieDecline() {
-  denyAnalytics();
-  closeCookieBar();
-}
-</script>
-</body>
-</html>
