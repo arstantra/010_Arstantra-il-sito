@@ -65,7 +65,19 @@
   <!-- Privacy -->
   <url>
     <loc>https://arstantra.org/privacy</loc>
-    <lastmod>2026-07-13</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arstantra.org/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://arstantra.org/privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arstantra.org/privacy"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://arstantra.org/privacy-it</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://arstantra.org/privacy"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://arstantra.org/privacy-it"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://arstantra.org/privacy"/>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

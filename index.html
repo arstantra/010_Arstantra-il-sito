@@ -649,6 +649,23 @@ h2.display em { font-style: italic; color: var(--gold-light); }
 .form-field textarea:focus,
 .form-field select:focus { border-color: var(--gold); }
 .form-field select option { background: var(--surface); }
+/* Privacy consent + field hints */
+.field-hint { font-size: 11px; line-height: 1.6; color: var(--muted); margin-top: -2px; }
+.consent-row { display: flex; align-items: flex-start; gap: 10px; margin: 2px 0 18px; }
+.consent-row input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  flex: 0 0 auto; width: 15px; height: 15px; margin-top: 3px;
+  border: 1px solid var(--gold); background: transparent;
+  cursor: pointer; transition: background 0.25s;
+}
+.consent-row input[type="checkbox"]:checked { background: var(--gold); box-shadow: inset 0 0 0 2px var(--surface); }
+.consent-row input[type="checkbox"]:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+.consent-row label {
+  font-size: 11.5px; line-height: 1.65; color: var(--muted);
+  cursor: pointer; letter-spacing: 0; text-transform: none;
+}
+.consent-row a { color: var(--gold-light); text-decoration: none; border-bottom: 1px solid var(--border); }
+.consent-row a:hover { border-bottom-color: var(--gold-light); }
 .btn-gold {
   display: inline-block;
   background: transparent;
@@ -1595,6 +1612,11 @@ footer {
           <option value="Other">Other</option>
         </select>
       </div>
+      <div class="form-field">
+        <label for="refEmail">Email (private)</label>
+        <input type="email" id="refEmail" placeholder="your@email.com">
+        <div class="field-hint">Never published. Only so we can write back to you.</div>
+      </div>
     </div>
     <div class="form-field" style="margin-bottom:16px;">
       <label for="refText">Your experience</label>
@@ -1610,6 +1632,10 @@ footer {
         </select>
       </div>
       <div></div>
+    </div>
+    <div class="consent-row">
+      <input type="checkbox" id="refConsent">
+      <label for="refConsent">I agree that my name, where I’m from and the words I have written will be shown publicly on this page. My email, if I leave one, stays private. See the <a href="privacy.html">privacy policy</a>.</label>
     </div>
     <button class="btn-gold" onclick="addReference()">Submit reference</button>
     <div id="refSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Thank you. Your words are now part of the nest.</div>
@@ -1681,6 +1707,10 @@ footer {
       <div class="form-field" style="margin-bottom:16px;">
         <label for="ctMessage">Your message</label>
         <textarea id="ctMessage" rows="5" placeholder="Tell us about yourself, your journey, what you're seeking…"></textarea>
+      </div>
+      <div class="consent-row">
+        <input type="checkbox" id="ctConsent">
+        <label for="ctConsent">I agree that Ars Tantra Society may use what I have written to reply to me. See the <a href="privacy.html">privacy policy</a>.</label>
       </div>
       <button class="btn-gold" onclick="submitContact()">Send message</button>
       <div id="ctSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Message received. We will write back soon.</div>
@@ -1903,9 +1933,15 @@ async function addReference() {
   const text     = document.getElementById('refText').value.trim();
   const source   = document.getElementById('refSource').value;
   const rating   = parseInt(document.getElementById('refRating').value);
+  const email    = document.getElementById('refEmail').value.trim();
+  const consent  = document.getElementById('refConsent').checked;
 
   if (!name || !text) {
     alert('Please fill in your name and your experience.');
+    return;
+  }
+  if (!consent) {
+    alert('Please agree to the publication of your words before sending.');
     return;
   }
 
@@ -1918,12 +1954,13 @@ async function addReference() {
     const res = await fetch(PROXY, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ Name: name, Location: location, Text: text, Source: source, Rating: rating })
+      body: JSON.stringify({ Name: name, Location: location, Text: text, Source: source, Rating: rating, Email: email })
     });
 
     if (!res.ok) throw new Error(`Proxy error ${res.status}`);
 
-    ['refName','refLocation','refText'].forEach(id => document.getElementById(id).value = '');
+    ['refName','refLocation','refText','refEmail'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('refConsent').checked = false;
     document.getElementById('refSuccess').style.display = 'block';
     setTimeout(() => document.getElementById('refSuccess').style.display = 'none', 5000);
 
@@ -1944,9 +1981,14 @@ async function submitContact() {
   const email   = document.getElementById('ctEmail').value.trim();
   const reason  = document.getElementById('ctReason').value;
   const message = document.getElementById('ctMessage').value.trim();
+  const consent = document.getElementById('ctConsent').checked;
 
   if (!name || !message) {
     alert('Please fill in your name and message.');
+    return;
+  }
+  if (!consent) {
+    alert('Please agree to the privacy policy before sending.');
     return;
   }
 
@@ -1965,6 +2007,7 @@ async function submitContact() {
 
     ['ctName','ctEmail','ctMessage'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('ctReason').selectedIndex = 0;
+    document.getElementById('ctConsent').checked = false;
     document.getElementById('ctSuccess').style.display = 'block';
     setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
 

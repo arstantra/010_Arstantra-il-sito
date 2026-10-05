@@ -350,7 +350,7 @@ footer { background:var(--void); border-top:1px solid var(--border); padding:48p
       <button onclick="subscribeSubstack()">Subscribe</button>
     </div>
     <div id="subMsg" style="display:none;" class="substack-note">✦ &nbsp; Redirecting to Substack…</div>
-    <p class="substack-note">Via Substack · Unsubscribe anytime · No spam, ever</p>
+    <p class="substack-note">Via Substack · One last step on their page · Unsubscribe anytime · No spam, ever</p>
   </div>
 </div>
 
@@ -571,10 +571,24 @@ function stripHtml(html) {
 
 /* ── SUBSCRIBE ── */
 function subscribeSubstack() {
-  const email = document.getElementById('subEmail').value.trim();
-  document.getElementById('subMsg').style.display = 'block';
+  const input = document.getElementById('subEmail');
+  const email = input.value.trim();
+  const msg   = document.getElementById('subMsg');
+
+  // Substack cannot pre-fill an address we never received.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = '✦   Please enter a valid email address.';
+    msg.style.display = 'block';
+    input.focus();
+    return;
+  }
+
+  msg.textContent = '✦   Taking you to Substack to finish signing up…';
+  msg.style.display = 'block';
   setTimeout(() => {
-    window.open(`https://arstantra.substack.com?email=${encodeURIComponent(email)}`, '_blank');
+    // /subscribe is the actual sign-up flow. The bare domain is only the
+    // publication home page — it silently subscribed no one.
+    window.open(`https://arstantra.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank', 'noopener');
   }, 600);
 }
 

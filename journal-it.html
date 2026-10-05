@@ -350,7 +350,7 @@ footer { background:var(--void); border-top:1px solid var(--border); padding:48p
       <button onclick="subscribeSubstack()">Iscriviti</button>
     </div>
     <div id="subMsg" style="display:none;" class="substack-note">✦ &nbsp; Reindirizzamento a Substack…</div>
-    <p class="substack-note">Via Substack · Disiscrizione in qualsiasi momento · Zero spam</p>
+    <p class="substack-note">Via Substack · Un ultimo passaggio sulla loro pagina · Disiscrizione in qualsiasi momento · Zero spam</p>
   </div>
 </div>
 
@@ -371,7 +371,7 @@ footer { background:var(--void); border-top:1px solid var(--border); padding:48p
     <li><a href="index-it.html#contact">Contatti</a></li>
     <li><a href="https://arstantra.substack.com" target="_blank" rel="noopener">Substack</a></li>
     <li><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank" rel="noopener">BeWelcome</a></li>
-    <li><a href="privacy.html">Privacy</a></li>
+    <li><a href="privacy-it.html">Privacy</a></li>
   </ul>
   <div class="footer-copy">© 2025 Ars Tantra Society · Andrea &amp; Beatrice · Tutti i diritti riservati</div>
 </footer>
@@ -572,10 +572,24 @@ function stripHtml(html) {
 
 /* ── SUBSCRIBE ── */
 function subscribeSubstack() {
-  const email = document.getElementById('subEmail').value.trim();
-  document.getElementById('subMsg').style.display = 'block';
+  const input = document.getElementById('subEmail');
+  const email = input.value.trim();
+  const msg   = document.getElementById('subMsg');
+
+  // Substack cannot pre-fill an address we never received.
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = '✦   Inserisci un indirizzo email valido.';
+    msg.style.display = 'block';
+    input.focus();
+    return;
+  }
+
+  msg.textContent = '✦   Ti portiamo su Substack per completare l’iscrizione…';
+  msg.style.display = 'block';
   setTimeout(() => {
-    window.open(`https://arstantra.substack.com?email=${encodeURIComponent(email)}`, '_blank');
+    // /subscribe is the actual sign-up flow. The bare domain is only the
+    // publication home page — it silently subscribed no one.
+    window.open(`https://arstantra.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank', 'noopener');
   }, 600);
 }
 

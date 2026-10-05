@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informativa sulla privacy · Ars Tantra Society</title>
+
+<!-- SEO -->
+<meta name="description" content="Informativa sulla privacy di Ars Tantra Society — arstantra.org. Come trattiamo cookie, form contatti, referenze degli ospiti, richieste di soggiorno e newsletter.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://arstantra.org/privacy-it">
+<link rel="alternate" hreflang="en" href="https://arstantra.org/privacy">
+<link rel="alternate" hreflang="it" href="https://arstantra.org/privacy-it">
+<link rel="alternate" hreflang="x-default" href="https://arstantra.org/privacy">
+
+<!-- Open Graph -->
+<meta property="og:type"        content="website">
+<meta property="og:url"         content="https://arstantra.org/privacy-it">
+<meta property="og:title"       content="Informativa sulla privacy · Ars Tantra Society">
+<meta property="og:description" content="Come arstantra.org tratta i tuoi dati — cookie, statistiche e i tuoi diritti.">
+<meta property="og:site_name"   content="Ars Tantra Society">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500&family=Raleway:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --void: #080706;
+  --deep: #100e0c;
+  --surface: #181410;
+  --card: #1e1a15;
+  --border: rgba(184,134,11,0.2);
+  --gold: #b8860b;
+  --gold-light: #d4a843;
+  --cream: #f0e8d8;
+  --muted: #7a6e62;
+  --faint: #3a3028;
+  --white: #faf6ef;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--void);
+  color: var(--cream);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  line-height: 1.8;
+  cursor: none;
+  overflow-x: hidden;
+}
+
+/* CURSOR */
+.cursor {
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease;
+  mix-blend-mode: screen;
+}
+.cursor-ring {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(184,134,11,0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0; left: 0;
+  pointer-events: none;
+  z-index: 9998;
+  transition: all 0.08s ease;
+}
+
+/* GRAIN */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.35;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+  background: rgba(8,7,6,0.97);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold-light);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo-img {
+  height: 28px;
+  width: auto;
+  filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(0.85);
+  opacity: 0.9;
+  vertical-align: middle;
+}
+.nav-back {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+}
+.nav-back:hover { color: var(--gold-light); }
+
+/* HERO — minimal */
+.page-hero {
+  padding: 160px 40px 80px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-ornament {
+  font-size: 11px;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+.page-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(38px, 6vw, 68px);
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.page-hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+  display: block;
+}
+.hero-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  margin: 32px auto 0;
+}
+
+/* CONTENT */
+.privacy-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 60px 40px 100px;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--border), transparent);
+  margin: 48px 0;
+}
+
+.section-label {
+  font-size: 9px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+  opacity: 0.5;
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 28px;
+  color: var(--white);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+h2 em { font-style: italic; color: var(--gold-light); }
+
+p {
+  font-size: 15px;
+  color: #b0a090;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+
+p strong { color: var(--cream); font-weight: 500; }
+
+ul {
+  list-style: none;
+  margin: 8px 0 20px;
+}
+ul li {
+  font-size: 15px;
+  color: #b0a090;
+  line-height: 1.9;
+  padding: 6px 0 6px 20px;
+  position: relative;
+}
+ul li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 8px;
+  top: 11px;
+  opacity: 0.6;
+}
+
+a { color: var(--gold-light); text-decoration: none; border-bottom: 1px solid rgba(184,134,11,0.3); transition: border-color 0.3s; }
+a:hover { border-color: var(--gold-light); }
+
+.info-block {
+  border: 1px solid var(--border);
+  padding: 28px 32px;
+  background: var(--card);
+  margin: 32px 0;
+}
+.info-block p { margin-bottom: 8px; }
+.info-block p:last-child { margin-bottom: 0; }
+
+.update-note {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--faint);
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+/* FOOTER */
+footer {
+  background: var(--void);
+  border-top: 1px solid var(--border);
+  padding: 48px 40px;
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  letter-spacing: 6px;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+.footer-tagline {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 28px;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.footer-links a {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--faint);
+  text-decoration: none;
+  border: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-copy {
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 1px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav { padding: 20px 24px; }
+  .page-hero { padding: 120px 24px 60px; }
+  .privacy-wrap { padding: 40px 24px 80px; }
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="images/arstantra-logo.png" alt="Ars Tantra Society" class="nav-logo-img">ARS TANTRA
+  </a>
+  <a href="privacy.html" class="nav-back">English</a>
+  <a href="index-it.html" class="nav-back">← Torna al sito</a>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-ornament">✦ &nbsp; Ars Tantra Society &nbsp; ✦</div>
+  <h1>Informativa<br><em>privacy</em></h1>
+  <div class="hero-divider"></div>
+</div>
+
+<!-- CONTENT -->
+<div class="privacy-wrap">
+
+  <div class="info-block">
+    <p><strong>Titolare del trattamento:</strong> Ars Tantra Society — Andrea e Beatrice, Ferrara, Italia</p>
+    <p><strong>Contatto:</strong> <a href="mailto:info@arstantra.org">info@arstantra.org</a></p>
+    <p><strong>Sito:</strong> <a href="https://arstantra.org">arstantra.org</a></p>
+  </div>
+
+  <div class="hr"></div>
+
+  <div class="section-label">01</div>
+  <h2>Cosa fa e cosa <em>non fa</em> questo sito</h2>
+  <p>Ars Tantra Society è un progetto culturale non commerciale. Questo sito non vende prodotti, non gestisce pagamenti e non costruisce profili degli utenti per finalità pubblicitarie o commerciali.</p>
+  <p>Qualche dato personale lo raccogliamo, ma solo dove sei tu a darcelo: il form contatti, il form delle referenze, la richiesta di soggiorno e l'iscrizione alla newsletter. Ognuno di questi ha la sua sezione qui sotto — cosa raccoglie, dove finisce, quanto resta. Tutto il resto è statistica anonima e aggregata, e solo se accetti il banner dei cookie.</p>
+  <p>Non vendiamo i tuoi dati, non li cediamo a inserzionisti o data broker e non li usiamo per profilarti.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">02</div>
+  <h2>Cookie e <em>statistiche</em></h2>
+  <p>Il sito usa <strong>Google Analytics 4</strong> (GA4), servizio di Google Ireland Limited, Gordon House, Barrow Street, Dublino 4, Irlanda.</p>
+  <p>GA4 usa cookie — piccoli file di testo salvati nel browser — per raccogliere informazioni aggregate e anonimizzate su come i visitatori navigano il sito. <strong>Nessun cookie viene installato e nessun tracciamento avviene se non lo accetti esplicitamente</strong> tramite il banner mostrato alla prima visita.</p>
+  <p>I dati raccolti comprendono:</p>
+  <ul>
+    <li>Pagine visitate e tempo trascorso su ciascuna</li>
+    <li>Provenienza geografica approssimativa (paese o regione — mai la posizione precisa)</li>
+    <li>Tipo di dispositivo e browser utilizzati</li>
+    <li>Come sei arrivato al sito (link diretto, motore di ricerca, social)</li>
+  </ul>
+  <p>Questi dati sono trattati e conservati da Google su server che possono trovarsi fuori dallo Spazio Economico Europeo, Stati Uniti compresi. Il trattamento da parte di Google è regolato dalla sua <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">informativa privacy</a>.</p>
+  <p>La conservazione è di massimo <strong>26 mesi</strong>, dopodiché i dati vengono eliminati automaticamente.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">03</div>
+  <h2>I tuoi <em>diritti</em></h2>
+  <p>Il controllo è tuo. Puoi:</p>
+  <ul>
+    <li><strong>Rifiutare tutti i cookie statistici</strong> cliccando "Rifiuta / Decline" sul banner — nessun tracciamento avverrà in alcun momento della tua visita</li>
+    <li><strong>Cambiare idea quando vuoi</strong> svuotando i cookie e il local storage del browser: la preferenza si azzera e il banner ricompare alla visita successiva</li>
+    <li><strong>Disattivare Google Analytics</strong> ovunque installando il <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">componente aggiuntivo per la disattivazione</a></li>
+    <li><strong>Scriverci direttamente</strong> a <a href="mailto:info@arstantra.org">info@arstantra.org</a> per qualsiasi richiesta sulla privacy</li>
+  </ul>
+  <p>In quanto residente nell'Unione Europea hai inoltre diritto di accedere, correggere o chiedere la cancellazione dei dati personali che ti riguardano, e di proporre reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la Protezione dei Dati Personali</a>.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">04</div>
+  <h2>Form <em>contatti</em></h2>
+  <p>Quando usi il form contatti della home, quello che scrivi — nome, indirizzo email, motivo scelto e messaggio — viene trasmesso tramite <strong>EmailJS</strong> (EmailJS Ltd.) direttamente alla nostra casella di posta. Non finisce in nessun database oltre alla normale infrastruttura di posta elettronica.</p>
+  <p><strong>Base giuridica:</strong> il tuo consenso, dato spuntando la casella prima dell'invio.<br>
+  <strong>Conservazione:</strong> finché la conversazione è viva, poi nel nostro archivio di posta. Scrivici e cancelliamo tutto.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">05</div>
+  <h2>Referenze degli <em>ospiti</em></h2>
+  <p>Se lasci una referenza, <strong>il nome, il luogo e le parole che scrivi vengono pubblicati</strong> nella sezione Referenze della home — è esattamente il loro scopo. Nulla compare finché non l'abbiamo letta e approvata.</p>
+  <p>Le referenze sono conservate su <strong>Airtable</strong> (Formagrid Inc., Stati Uniti), raggiunto attraverso una funzione lato server del nostro stesso sito, così che nessuna chiave di accesso sia mai esposta nel tuo browser.</p>
+  <p>Il campo email è <strong>facoltativo e privato</strong>. Non viene mai mostrato sul sito, mai ceduto a nessuno, ed esiste solo perché possiamo risponderti. Lascialo vuoto se preferisci che non possiamo.</p>
+  <p><strong>Base giuridica:</strong> il tuo consenso, dato spuntando la casella prima dell'invio.<br>
+  <strong>Conservazione:</strong> finché la referenza resta pubblicata. Chiedicelo e la rimuoviamo.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">06</div>
+  <h2>Richieste di <em>soggiorno</em></h2>
+  <p>Il questionario collegato alla pagina <a href="stay-it.html">Soggiornare</a> è un <strong>Modulo Google</strong> e le risposte arrivano in un Foglio Google nel nostro account. Entrambi sono servizi di Google Ireland Limited. Ti chiediamo il nome, da dove vieni, l'indirizzo email, quando e per quanto vorresti venire, la conferma di avere almeno diciotto anni e alcune domande aperte su chi sei e cosa ti ha portato qui.</p>
+  <p>Quelle domande sono aperte per davvero. <strong>Condividi solo quello con cui ti senti a tuo agio.</strong> Non chiediamo, e non desideriamo, informazioni sulla tua salute, sul tuo orientamento sessuale, sulla tua religione o sulle tue idee politiche. Se dovessi scriverne comunque, le trattiamo come confidenze date liberamente: non le indicizziamo, non le analizziamo, e puoi chiederne la cancellazione in qualsiasi momento.</p>
+  <p>Le candidature sono lette soltanto da Andrea e Beatrice. Non vengono mai pubblicate, mai inoltrate, e mai usate per altro che decidere insieme se una visita abbia senso.</p>
+  <p><strong>Base giuridica:</strong> il tuo consenso, dato inviando il modulo.<br>
+  <strong>Conservazione:</strong> fino a 24 mesi dalla candidatura, così da ricordare una conversazione se tornerai a scriverci. Prima, se lo chiedi.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">07</div>
+  <h2><em>Newsletter</em></h2>
+  <p>La pagina Journal propone l'iscrizione alla nostra newsletter. Scrivere lì il tuo indirizzo non ti iscrive: ti porta su <strong>Substack</strong> (Substack Inc., Stati Uniti), dove completi tu l'iscrizione e dove il tuo indirizzo viene poi conservato. Il loro trattamento è regolato dall'<a href="https://substack.com/privacy" target="_blank" rel="noopener">informativa privacy di Substack</a>. Puoi disiscriverti dal fondo di ogni email che ti inviamo.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">08</div>
+  <h2>Hosting e <em>contenuti incorporati</em></h2>
+  <p>Il sito è ospitato da <strong>Netlify</strong> (Netlify Inc.). Come ogni server web, registra log tecnici di accesso che includono gli indirizzi IP, per sicurezza e per far funzionare il sito. Questi log non vengono usati per identificare i visitatori.</p>
+  <p>La pagina <a href="stay-it.html">Soggiornare</a> incorpora un <strong>Calendario Google</strong> che mostra soltanto se il nest è libero od occupato — nessun nome, nessun dettaglio. Poiché il calendario viene caricato dai server di Google, aprire quella pagina contatta direttamente Google, che può installare cookie propri. Se preferisci evitarlo, la maggior parte dei browser permette di bloccare i contenuti di terze parti.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">09</div>
+  <h2>Nessuna <em>pubblicità</em></h2>
+  <p>Questo sito non contiene pubblicità, link di affiliazione né pixel di tracciamento a fini commerciali. Non condividiamo i tuoi dati con inserzionisti o data broker. Mai.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">10</div>
+  <h2>Dati che escono dall'<em>Europa</em></h2>
+  <p>Alcuni dei servizi qui sopra — Airtable, Substack, EmailJS, Google — trattano dati su server che possono trovarsi fuori dallo Spazio Economico Europeo, Stati Uniti compresi. Questi trasferimenti si appoggiano alle garanzie predisposte da ciascun fornitore, in primo luogo le Clausole Contrattuali Standard della Commissione Europea. Se la cosa ti pesa, il form contatti e una normale email a noi mantengono i tuoi dati dentro una comune casella di posta.</p>
+
+  <div class="hr"></div>
+
+  <div class="section-label">11</div>
+  <h2>Modifiche a questa <em>informativa</em></h2>
+  <p>Se cambieremo in modo sostanziale il modo in cui trattiamo i dati, aggiorneremo questa pagina e la data qui sotto. Ti invitiamo a rileggerla di tanto in tanto.</p>
+
+  <p class="update-note">Ultimo aggiornamento: agosto 2026 &nbsp;·&nbsp; Ars Tantra Society &nbsp;·&nbsp; Ferrara, Italia</p>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ARS TANTRA</div>
+  <div class="footer-tagline">The Wild Nest · Ferrara, Italia</div>
+  <ul class="footer-links">
+    <li><a href="index-it.html#about">Chi siamo</a></li>
+    <li><a href="index-it.html#nest">The Wild Nest</a></li>
+    <li><a href="index-it.html#tantra">Tantra</a></li>
+    <li><a href="index-it.html#gallery">Galleria</a></li>
+    <li><a href="journal-it.html">Journal</a></li>
+    <li><a href="stay-it.html">Soggiornare</a></li>
+    <li><a href="index-it.html#references">Referenze</a></li>
+    <li><a href="index-it.html#contact">Contatti</a></li>
+    <li><a href="https://www.bewelcome.org/members/ArsTantra" target="_blank">BeWelcome</a></li>
+    <li><a href="privacy.html">Privacy (English)</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Ars Tantra Society · Andrea &amp; Beatrice · Tutti i diritti riservati</div>
+</footer>
+
+<script>
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx - 4 + 'px';
+  cursor.style.top  = my - 4 + 'px';
+});
+function animRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx - 16 + 'px';
+  ring.style.top  = ry - 16 + 'px';
+  requestAnimationFrame(animRing);
+}
+animRing();
+</script>
+</body>
+</html>
