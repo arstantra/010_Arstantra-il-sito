@@ -686,6 +686,27 @@ h2.display em { font-style: italic; color: var(--gold-light); }
   letter-spacing: 6px;
 }
 
+/* REACH US — one application, one newsletter */
+.reach-block { border: 1px solid var(--border); background: var(--card); padding: 32px 36px; margin-bottom: 24px; }
+.reach-block h3 { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; font-style: italic; color: var(--gold-light); margin-bottom: 12px; }
+.reach-block p { font-size: 14px; line-height: 1.8; color: var(--muted); margin-bottom: 18px; }
+.reach-block a.btn-gold { text-decoration: none; }
+.reach-sub { display: flex; gap: 12px; flex-wrap: wrap; align-items: stretch; }
+.reach-sub input { flex: 1 1 220px; min-width: 0; background: var(--surface); border: 1px solid var(--border); color: var(--cream); padding: 12px 16px; font-family: 'Raleway', sans-serif; font-size: 14px; font-weight: 300; outline: none; transition: border-color 0.3s; }
+.reach-sub input:focus { border-color: var(--gold); }
+.reach-sub .btn-gold { margin-top: 0; }
+.reach-block .field-hint { margin-top: 12px; }
+.reach-other { font-size: 13px; line-height: 1.8; color: var(--muted); }
+.reach-other a { color: var(--gold-light); text-decoration: none; border-bottom: 1px solid var(--border); }
+.reach-other a:hover { border-bottom-color: var(--gold-light); }
+@media (max-width: 600px) { .reach-block { padding: 24px 20px; } }
+/* Leave a reference — folded away so newcomers don't mistake it for a form to fill */
+.ref-toggle { margin-top: 48px; text-align: center; }
+.ref-toggle summary { list-style: none; display: inline-block; border: 1px solid var(--gold); color: var(--gold-light); font-family: 'Raleway', sans-serif; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; padding: 14px 36px; cursor: none; transition: all 0.4s; }
+.ref-toggle summary::-webkit-details-marker { display: none; }
+.ref-toggle summary:hover { background: var(--gold); color: var(--void); }
+.ref-toggle .ref-add { margin-top: 24px; text-align: left; }
+
 /* CONTACT */
 .contact-section { background: var(--deep); }
 .contact-grid {
@@ -1008,7 +1029,6 @@ footer {
   .teaser.reversed .teaser-media { order: 0; }
 }
 </style>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <!-- Google Analytics 4 — si attiva solo dopo consenso esplicito -->
 <script>
@@ -1574,7 +1594,7 @@ footer {
     <div class="eyebrow">Un'accoglienza diversa</div>
     <h2 class="display">Come <em>&amp; Stay</em></h2>
     <p class="body-text">Non un hotel — uno spazio vivo. Nessuna tariffa, nessun motore di prenotazione, nessuna stella. Il Wild Nest apre la sua casa nella cultura del dono, chiedendo solo la tua presenza autentica e la tua intenzione onesta.</p>
-    <a href="stay-it.html" class="hero-cta">Prenota il tuo soggiorno →</a>
+    <a href="stay-it.html" class="hero-cta">Chiedi ospitalità →</a>
   </div>
 </section>
 
@@ -1589,6 +1609,8 @@ footer {
   <div class="ref-grid" id="refGrid"></div>
 
   <!-- Add Reference -->
+  <details class="ref-toggle">
+  <summary>Sei stato nostro ospite? Lascia le tue parole</summary>
   <div class="ref-add">
     <h3>Lascia le tue parole</h3>
     <div class="form-row">
@@ -1640,6 +1662,7 @@ footer {
     <button class="btn-gold" onclick="addReference()">Invia la tua referenza</button>
     <div id="refSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Grazie. Le tue parole sono ora parte del nest.</div>
   </div>
+  </details>
 </section>
 
 <div class="hr"></div>
@@ -1685,35 +1708,22 @@ footer {
     </div>
 
     <div>
-      <div class="form-field" style="margin-bottom:16px;">
-        <label for="ctName">Il tuo nome</label>
-        <input type="text" id="ctName" placeholder="Chi sei?">
+      <div class="reach-block">
+        <h3>Vieni a stare da noi</h3>
+        <p>Un soggiorno al Wild Nest — e l'esperienza tantrica che ne fa parte — comincia da una candidatura. Leggi come funziona, guarda il calendario, poi raccontaci chi sei.</p>
+        <a href="stay-it.html#apply" class="btn-gold">Chiedi ospitalità →</a>
       </div>
-      <div class="form-field" style="margin-bottom:16px;">
-        <label for="ctEmail">Email</label>
-        <input type="email" id="ctEmail" placeholder="tua@email.com">
+      <div class="reach-block">
+        <h3>Restiamo in contatto</h3>
+        <p>Eventi, ritiri e riflessioni dal nest, direttamente nella tua casella.</p>
+        <div class="reach-sub">
+          <input type="email" id="subEmail" placeholder="la-tua@email.com" aria-label="La tua email">
+          <button class="btn-gold" onclick="subscribeSubstack()">Iscriviti</button>
+        </div>
+        <div id="subMsg" class="field-hint" style="display:none;color:var(--gold);"></div>
+        <div class="field-hint">Via Substack · Un ultimo passaggio sulla loro pagina · Disiscrizione in qualsiasi momento · Zero spam</div>
       </div>
-      <div class="form-field" style="margin-bottom:16px;">
-        <label for="ctReason">Cosa ti porta qui</label>
-        <select id="ctReason">
-          <option value="">Scegli…</option>
-          <option>Ospitalità al Wild Nest</option>
-          <option>Sessione o workshop di tantra</option>
-          <option>Collaborazione artistica</option>
-          <option>Comunità Ars Tantra Society</option>
-          <option>Qualcos'altro</option>
-        </select>
-      </div>
-      <div class="form-field" style="margin-bottom:16px;">
-        <label for="ctMessage">Il tuo messaggio</label>
-        <textarea id="ctMessage" rows="5" placeholder="Raccontaci di te, del tuo percorso, di cosa stai cercando…"></textarea>
-      </div>
-      <div class="consent-row">
-        <input type="checkbox" id="ctConsent">
-        <label for="ctConsent">Acconsento all’uso di quanto ho scritto da parte di Ars Tantra Society per rispondermi. Vedi la <a href="privacy-it.html">privacy policy</a>.</label>
-      </div>
-      <button class="btn-gold" onclick="submitContact()">Invia il messaggio</button>
-      <div id="ctSuccess" style="display:none;margin-top:16px;font-size:13px;color:var(--gold);letter-spacing:2px;">✦ &nbsp; Messaggio ricevuto. Ti risponderemo presto.</div>
+      <p class="reach-other">Per tutto il resto — collaborazioni, stampa, domande — scrivi a <a href="mailto:info@arstantra.org">info@arstantra.org</a>.</p>
     </div>
   </div>
 </section>
@@ -1972,51 +1982,22 @@ async function addReference() {
   }
 }
 
-// EmailJS
-emailjs.init('RjHhnyUTmy-xG8WoQ');
-
-async function submitContact() {
-  const name    = document.getElementById('ctName').value.trim();
-  const email   = document.getElementById('ctEmail').value.trim();
-  const reason  = document.getElementById('ctReason').value;
-  const message = document.getElementById('ctMessage').value.trim();
-  const consent = document.getElementById('ctConsent').checked;
-
-  if (!name || !message) {
-    alert('Inserisci il tuo nome e il messaggio.');
+// Newsletter — Substack does the actual sign-up on its own page
+function subscribeSubstack() {
+  const input = document.getElementById('subEmail');
+  const email = input.value.trim();
+  const msg   = document.getElementById('subMsg');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = '✦   Inserisci un indirizzo email valido.';
+    msg.style.display = 'block';
+    input.focus();
     return;
   }
-  if (!consent) {
-    alert('Per inviare, acconsenti al trattamento dei dati.');
-    return;
-  }
-
-  const btn = document.querySelector('#contact .btn-gold');
-  const originalLabel = btn.textContent;
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
-  try {
-    await emailjs.send('service_539wnmr', 'template_8k4231i', {
-      name:    name,
-      email:   email,
-      reason:  reason,
-      message: message,
-    });
-
-    ['ctName','ctEmail','ctMessage'].forEach(id => document.getElementById(id).value = '');
-    document.getElementById('ctReason').selectedIndex = 0;
-    document.getElementById('ctConsent').checked = false;
-    document.getElementById('ctSuccess').style.display = 'block';
-    setTimeout(() => document.getElementById('ctSuccess').style.display = 'none', 5000);
-
-  } catch (err) {
-    console.error('EmailJS error:', err);
-    alert('Something went wrong — please try again or write us directly at info@arstantra.org');
-  } finally {
-    btn.textContent = originalLabel;
-    btn.disabled = false;
-  }
+  msg.textContent = '✦   Ti portiamo su Substack per completare l’iscrizione…';
+  msg.style.display = 'block';
+  setTimeout(() => {
+    window.open(`https://arstantra.substack.com/subscribe?email=${encodeURIComponent(email)}`, '_blank', 'noopener');
+  }, 600);
 }
 </script>
 
