@@ -453,4 +453,35 @@ document.addEventListener('mousemove', e => {
 })();
 
 function toggleNav(){ document.getElementById('navLinks').classList.toggle('open'); }
-docu
+document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', e => {
+  document.getElementById('navLinks').classList.remove('open');
+  const href = a.getAttribute('href');
+  if (href && href.startsWith('#')) {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+}));
+</script>
+<!-- Cursor guard: the custom dot only takes over with a real mouse on a wide
+     screen, and hands the pointer back over iframes and outside the window. -->
+<style>
+html:not(.cc-on) .cursor, html:not(.cc-on) .cursor-ring { display: none !important; }
+html:not(.cc-on) body, html:not(.cc-on) body * { cursor: revert !important; }
+html.cc-out .cursor, html.cc-out .cursor-ring { opacity: 0; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  var mq = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 769px)');
+  function sync() { root.classList.toggle('cc-on', mq.matches); }
+  document.addEventListener('mousemove', function () { sync(); root.classList.remove('cc-out'); }, { passive: true });
+  document.addEventListener('mouseout', function (e) {
+    var to = e.relatedTarget;
+    if (!to || to.tagName === 'IFRAME') root.classList.add('cc-out');
+  });
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+})();
+</script>
+</body>
+</html>

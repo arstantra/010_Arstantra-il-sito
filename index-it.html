@@ -2106,4 +2106,40 @@ function subscribeSubstack() {
 })();
 
 function closeCookieBar() {
-  var bar
+  var bar = document.getElementById('cookie-bar');
+  bar.classList.remove('visible');
+  setTimeout(function(){ bar.classList.add('hidden'); }, 500);
+}
+
+function cookieAccept() {
+  grantAnalytics();
+  closeCookieBar();
+}
+
+function cookieDecline() {
+  denyAnalytics();
+  closeCookieBar();
+}
+</script>
+<!-- Cursor guard: the custom dot only takes over with a real mouse on a wide
+     screen, and hands the pointer back over iframes and outside the window. -->
+<style>
+html:not(.cc-on) .cursor, html:not(.cc-on) .cursor-ring { display: none !important; }
+html:not(.cc-on) body, html:not(.cc-on) body * { cursor: revert !important; }
+html.cc-out .cursor, html.cc-out .cursor-ring { opacity: 0; }
+</style>
+<script>
+(function () {
+  var root = document.documentElement;
+  var mq = window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 769px)');
+  function sync() { root.classList.toggle('cc-on', mq.matches); }
+  document.addEventListener('mousemove', function () { sync(); root.classList.remove('cc-out'); }, { passive: true });
+  document.addEventListener('mouseout', function (e) {
+    var to = e.relatedTarget;
+    if (!to || to.tagName === 'IFRAME') root.classList.add('cc-out');
+  });
+  if (mq.addEventListener) mq.addEventListener('change', sync);
+})();
+</script>
+</body>
+</html>
